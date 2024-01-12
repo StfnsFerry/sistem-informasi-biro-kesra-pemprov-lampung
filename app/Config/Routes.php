@@ -1,6 +1,7 @@
 <?php
 
 use CodeIgniter\Router\RouteCollection;
+use App\Controllers\AdminController;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Config\Auth;
 
@@ -8,7 +9,11 @@ use Config\Auth;
  * @var RouteCollection $routes
  */
 
- $routes->get('/', 'HomeController::index');
+ $routes->get('/', 'Home::index');
+
+ $routes->get('/admin', [AdminController::class, 'index']);
+ $routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah']);
+ 
 
 // Myth:Auth routes file.
 $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {
