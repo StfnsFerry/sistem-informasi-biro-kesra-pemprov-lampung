@@ -16,7 +16,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var string
      */
-    public $defaultUserGroup = 'Kepala Bagian';
+    public $defaultUserGroup;
 
     /**
      * --------------------------------------------------------------------
