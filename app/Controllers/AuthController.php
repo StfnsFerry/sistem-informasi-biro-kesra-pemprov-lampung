@@ -145,6 +145,18 @@ class AuthController extends Controller
 
         $users = model(UserModel::class);
 
+        $program = $this->request->getVar('program');
+
+        if($program == "1"){
+            $users = $users->withGroup('Rumah Ibadah');
+        }else if($program == "2"){
+            $users = $users->withGroup('Tahfidzul Quran');
+        }else if($program == "3"){
+            $users = $users->withGroup('Tokoh Agama');
+        }else{
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
             'username' => 'required|alpha_numeric_space|min_length[3]|max_length[30]|is_unique[users.username]',

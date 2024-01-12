@@ -13,12 +13,14 @@
     <link rel="icon" href="<?=base_url('assets/img/logo_pemprov.png')?>">
 
     <!-- Custom fonts for this template-->
+
     <link href="<?= base_url("vendor/fontawesome-free/css/all.min.css") ?>" rel="stylesheet" type="text/css">
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+    
     <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="<?= base_url("assets/css/sb-admin-2.min.css") ?>" rel="stylesheet">
 
 </head>
@@ -51,6 +53,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" name="email"
                                         placeholder="Email Address" aria-describedby="emailHelp">
@@ -58,6 +61,15 @@
                                             <?= session('errors.email') ?>
                                         </div>
                                     <small id="emailHelp" class="form-text text-muted"><?=lang('Auth.weNeverShare')?></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-select form-control-user" name="program" required>
+                                        <option disabled selected value="">Pilih Program</option>
+                                        <option value="1">Hibah Pondok Pesantren & Rumah Ibadah</option>
+                                        <option value="2">Hibah Tahfidzul Qur'an Hafidz/Hafidzah</option>
+                                        <option value="3">Bantuan Dana Guru Ngaji, Marbot & Imam Masjid</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group row">
