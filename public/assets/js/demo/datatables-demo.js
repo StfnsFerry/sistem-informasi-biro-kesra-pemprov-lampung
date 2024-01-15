@@ -6,3 +6,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   $('#dataRumahIbadah').DataTable();
 });
+
+$(document).ready(function() {
+  $('#dataVerifikasi').DataTable();
+});

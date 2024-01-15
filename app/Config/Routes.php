@@ -2,6 +2,7 @@
 
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
+use App\Controllers\RumahIbadahController;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Config\Auth;
 
@@ -11,8 +12,10 @@ use Config\Auth;
 
  $routes->get('/', 'Home::index');
 
- $routes->get('/admin', [AdminController::class, 'index']);
+ $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Admin']);
  $routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah']);
+ $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid']);
+ $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar']);
  
 
 // Myth:Auth routes file.
