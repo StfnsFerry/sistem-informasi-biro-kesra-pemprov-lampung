@@ -1,6 +1,8 @@
 <?php
 
 use CodeIgniter\Router\RouteCollection;
+use App\Controllers\AdminController;
+use App\Controllers\RumahIbadahController;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Config\Auth;
 
@@ -9,9 +11,16 @@ use Config\Auth;
  */
 
 $routes->get('/', 'Home::index');
+
 $routes->get('/program1', 'Home::prog1');
 $routes->get('/program2', 'Home::prog2');
 $routes->get('/program3', 'Home::prog3');
+
+ $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Admin']);
+ $routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah']);
+ $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid']);
+ $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar']);
+ 
 
 // Myth:Auth routes file.
 $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {

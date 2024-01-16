@@ -5,8 +5,16 @@ namespace App\Controllers;
 class Home extends BaseController
 {
    public function index()
-   {
-      return view('Landing-Page/landing-page');
+   { 
+     if (logged_in()) {
+        if (in_groups('Admin')) {
+            return redirect()->to(base_url('/admin'));
+        }else{
+            return view('Landing-Page/landing-page');
+        }
+      }else{
+          return view('Landing-Page/landing-page');
+      }  
    }
 
    public function prog1()
