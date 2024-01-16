@@ -9,7 +9,8 @@ class Home extends BaseController
      if (logged_in()) {
         if (in_groups('Admin')) {
             return redirect()->to(base_url('/admin'));
-        }else{
+        }
+        else{
             return view('Landing-Page/landing-page');
         }
       }else{
@@ -31,4 +32,21 @@ class Home extends BaseController
    {
       return view('Landing-Page/program3');
    }
+
+   public function viewProfil()
+   {
+    if(in_groups('Tokoh Agama')){
+        return redirect()->to(base_url('/tokoh-agama'));
+    }else{
+        return view('Landing-Page/landing-page');
+    }
+   }
+
+   public function viewPendaftaran()
+   {
+        if(in_groups('Tokoh Agama')){
+            return redirect()->to(base_url('/tokoh-agama'));
+        }
+    }
+   
 }

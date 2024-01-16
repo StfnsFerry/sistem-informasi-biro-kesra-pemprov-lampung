@@ -3,6 +3,7 @@
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
 use App\Controllers\RumahIbadahController;
+use App\Controllers\TokohAgamaController;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Config\Auth;
 
@@ -15,11 +16,16 @@ $routes->get('/', 'Home::index');
 $routes->get('/program1', 'Home::prog1');
 $routes->get('/program2', 'Home::prog2');
 $routes->get('/program3', 'Home::prog3');
+$routes->get('/profil', 'Home::viewProfil');
+$routes->get('/pendaftaran', 'Home::viewPendaftaran');
 
- $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Admin']);
- $routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah']);
- $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid']);
- $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar']);
+$routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+
+$routes->get('/tokoh-agama', [TokohAgamaController::class, 'index'], ['filter' => 'role:Tokoh Agama']);
+$routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata'], ['filter' => 'role:Tokoh Agama']);
  
 
 // Myth:Auth routes file.
