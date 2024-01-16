@@ -8,7 +8,10 @@ use Config\Auth;
  * @var RouteCollection $routes
  */
 
- $routes->get('/', 'HomeController::index');
+$routes->get('/', 'Home::index');
+$routes->get('/program1', 'Home::prog1');
+$routes->get('/program2', 'Home::prog2');
+$routes->get('/program3', 'Home::prog3');
 
 // Myth:Auth routes file.
 $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {
