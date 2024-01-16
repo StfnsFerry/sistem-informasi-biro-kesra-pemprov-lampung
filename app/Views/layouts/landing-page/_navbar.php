@@ -27,7 +27,7 @@
           <?php if(logged_in()): ?>
               <li class="dropdown"><a class="getstarted scrollto" href="#"><span><?= user()->username;?></span><i class="ri-user-3-line"></i></a>
                 <ul>
-                  <li><a href="<?= base_url('program1/')?>">Profil</a></li>
+                  <li><a href="<?= base_url('/profil')?>">Profil</a></li>
                   <li><a href="<?= base_url('logout')?>">Keluar</a></li>
                 </ul>
               </li>

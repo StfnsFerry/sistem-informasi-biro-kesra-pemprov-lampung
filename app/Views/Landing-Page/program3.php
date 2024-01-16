@@ -60,7 +60,7 @@
 
               </div>
             <div class="text-center text-lg-start">
-              <a href="" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="/pendaftaran" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Ajukan Bantuan</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
