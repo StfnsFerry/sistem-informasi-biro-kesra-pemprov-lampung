@@ -14,7 +14,8 @@
         <h2>Program Bantuan Dana Hibah Tenaga Pendidik Keagamaan Nonformal</h2>
 
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section>
+    <!-- End Breadcrumbs -->
 
     <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
@@ -31,10 +32,25 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="<?= base_url('program3')?>">Persyaratan Peserta</a>
+                <a href="<?= base_url('program3')?>">Persyaratan Pendaftar</a>
               </h2>
 
-              <div class="entry-content">
+              <ol class="list-group list-group-numbered">
+                <li class="list-group-item">Warga Negara Indonesia (WNI) dengan melampirkan foto copy KTP 1 lembar.</li>
+                <li class="list-group-item">Mengisi biodata dan dilampirkan 1 (satu) lembar foto berwarna 3 x 4 cm.</li>
+                <li class="list-group-item">Melampirkan Surat Rekomendasi dari Pemda Kabupaten/Kota melalui Bagian
+                                          Kesejahteraan Rakyat Kabupaten/Kota yang menerangkan bahwa yang bersangkutan
+                                          adalah benar sebagai Tokoh Agama (Guru Ngaji, Imam Masjid, dan Marbot Masjid), 
+                                          ditujukan kepada Gubernur Lampung Cq. Kepala Biro Kesejahteraan Rakyat Setda Provinsi Lampung.</li>
+                <li class="list-group-item">Belum pernah mendapat bantuan apapun dari Pemerintah Provinsi Lampung.</li>
+                <li class="list-group-item">Melampirkan fotocopy Rekening Bank Lampung atas nama yang bersangkutan, masih aktif.</li>
+              </ol>
+              
+              <div class="mt-4 box pricing text-center">
+                <a href="/pendaftaran" class="btn-buy">Ajukan Bantuan <i class="bi bi-arrow-right"></i></a>
+              </div>
+              
+              <!-- <div class="entry-content">
                 <p>
                     1. Warga Negara Indonesia (WNI) dengan melampirkan foto copy KTP 1 lembar.
                 </p>
@@ -59,12 +75,13 @@
                 </p>
 
               </div>
-            <div class="text-center text-lg-start">
-              <a href="/pendaftaran" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Ajukan Bantuan</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
+
+              <div class="text-center text-lg-start">
+                <a href="/pendaftaran" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Ajukan Bantuan</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div> -->
 
             </article><!-- End blog entry -->
 
@@ -73,8 +90,10 @@
         </div>
 
       </div>
-    </section><!-- End Blog Single Section -->
+    </section>
+    <!-- End Blog Single Section -->
 
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
 <?= $this->endSection() ?>
