@@ -8,7 +8,8 @@
                         <h1 class="h3 mb-0 text-gray-800">Biodata Tokoh Agama</h1>
                     </div>
 
-                    <form action="">
+                    <form action="<?= base_url('/tokoh-agama/biodata/simpan')?>" method="POST" enctype="multipart/form-data">
+                         <?= csrf_field() ?>
                         <!-- Content Row -->
                         <div class="row">
 
@@ -23,37 +24,44 @@
                                     <div class="card-body"> 
                                         <div class="mb-3">
                                             <label for="nama" class="form-label">Nama Lengkap<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap" name="nama" id="nama" required>
+                                            <input type="text" class="form-control <?php if (session('errors.nama_lengkap')) : ?>is-invalid<?php endif ?>" placeholder="Masukkan Nama Lengkap" name="nama_lengkap" id="nama" value="<?=$biodata[0]['nama_lengkap']?>" required>
+                                            <div class="invalid-feedback">
+                                                Tolong isi kolom ini
+                                            </div>
                                         </div>
 
                                         <div class="mb-3">
                                             <div class="row">
                                                 <div class="col-8">
                                                     <label for="tempat_lahir" class="form-label">Tempat Lahir<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" placeholder="Masukkan Tempat Lahir" name="tempat_lahir" id="tempat_lahir" required>
+                                                    <input type="text" class="form-control" placeholder="Masukkan Tempat Lahir" name="tempat_lahir" id="tempat_lahir" value="<?=$biodata[0]['tempat_lahir']?>" required>
                                                 </div>
                                                 <div class="col-4">
                                                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir<span class="text-danger">*</span></label>
-                                                    <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" required>
+                                                    <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="<?=$biodata[0]['tanggal_lahir']?>" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mb-3">
                                             <label for="jenis_kelamin" class="form-label">Jenis Kelamin<span class="text-danger">*</span></label>
                                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
+                                                <?php if($biodata[0]['jenis_kelamin'] != NULL): ?>
+                                                    <option selected value="<?=$biodata[0]['jenis_kelamin']?>"><?=$biodata[0]['jenis_kelamin']?></option>
+                                                    <?php else: ?>
                                                 <option selected value="" disabled>Pilih Jenis Kelamin</option>
+                                                <?php endif;?>
                                                 <option value="Laki-Laki">Laki-Laki</option>
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="pekerjaan" class="form-label">Pekerjaan<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Pekerjaan Anda" name="pekerjaan" id="pekerjaan" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Pekerjaan Anda" name="pekerjaan" id="pekerjaan" value="<?=$biodata[0]['pekerjaan']?>" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="jumlah_murid" class="form-label">Jumlah Murid<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Murid" name="jumlah_murid" id="jumlah_murid" required>
+                                            <input type="number" class="form-control" placeholder="Masukkan Jumlah Murid" name="jumlah_murid" id="jumlah_murid" required>
                                         </div>
 
                                         <div class="mb-3">
@@ -74,7 +82,7 @@
                                     <div class="card-body">
                                         <div class="mb-3">
                                             <label for="foto_tokoh" class="form-label">Upload Pas Foto<span class="text-danger">*</span></label>
-                                            <input type="file" class="form-control" name="foto_tokoh" id="foto_tokoh" required>
+                                            <input type="file" class="form-control" name="foto" id="foto_tokoh" required>
                                         </div>
                                     </div>
                                 </div>     
@@ -91,11 +99,11 @@
                                         </div>                                                                             
                                         <div class="mb-3">
                                             <label for="nomor_rekening" class="form-label">Nomor Rekening<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Rekening" name="nomor_rekening" id="nomor_rekening" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nomor Rekening" name="nomor_rekening" id="nomor_rekening" required>
                                         </div>  
                                         <div class="mb-3">
                                             <label for="nama_rekening" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" name="nama_rekening" id="nama_rekening" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" name="nama_pemilik_rekening" id="nama_rekening" required>
                                         </div>                                                             
                                     </div>
                                 </div>  
@@ -117,17 +125,17 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="tempat_tugas" class="form-label">Nama Tempat Tugas<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Tempat Tugas" name="tempat_tugas" id="tempat_tugas" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama Tempat Tugas" name="nama_tempat_bertugas" id="tempat_tugas" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="telepon_tempat" class="form-label">No. Telepon/Hp Tempat Tugas<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Tempat Tugas" name="telepon_tempat" id="telepon_tempat" required>
+                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Tempat Tugas" name="telepon_tempat_bertugas" id="telepon_tempat" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="alamat_tempat" class="form-label">Alamat Tempat Bertugas<span class="text-danger">*</span></label>
-                                            <textarea class="form-control" name="alamat_tempat" id="alamat_tempat" cols="30" rows="5" required></textarea>        
+                                            <textarea class="form-control" name="alamat_tempat_bertugas" id="alamat_tempat" cols="30" rows="5" required></textarea>        
                                         </div> 
 
                                         <div class="mb-3">
@@ -140,7 +148,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="kota" class="form-label">Kabupaten/Kota<span class="text-danger">*</span></label>
-                                                    <select name="kota" id="kota" class="form-select" required>
+                                                    <select name="kabupaten_kota" id="kota" class="form-select" required>
                                                         <option>Pilih Kab/Kota</option>       
                                                     </select>
                                                 </div>
@@ -165,7 +173,8 @@
                                         </div>                                                                                                                                                                                      
                                     </div>
                                 </div>  
-                                <div class="card-body d-flex justify-content-end">                                      
+                                <div class="card-body d-flex justify-content-end"> 
+                                    <input type="hidden" name="id_user" value="<?= user()->id;?>">                                                       
                                     <button type="submit" class="btn btn-primary shadow-sm">Simpan Data</button>  
                                 </div>
                             </div>               
