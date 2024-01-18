@@ -24,9 +24,9 @@ $routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah'], 
 $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
 
-$routes->get('/tokoh-agama', [TokohAgamaController::class, 'index'], ['filter' => 'role:Tokoh Agama']);
-$routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata'], ['filter' => 'role:Tokoh Agama']);
- 
+$routes->get('/tokoh-agama', [TokohAgamaController::class, 'index']);
+$routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata']);
+$routes->post('/tokoh-agama/biodata/simpan', [TokohAgamaController::class, 'saveBiodata']);
 
 // Myth:Auth routes file.
 $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {
