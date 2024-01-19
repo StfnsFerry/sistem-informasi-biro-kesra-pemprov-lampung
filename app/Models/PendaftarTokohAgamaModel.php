@@ -49,7 +49,12 @@ class PendaftarTokohAgamaModel extends Model
     public function getBiodata($id = NULL)
     {
         if($id != null){
-            return $this->select('pendaftar_tokoh_agama.*')->where('pendaftar_tokoh_agama.id_user', $id)->find();
+            return $this->select('pendaftar_tokoh_agama.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_tokoh_agama.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_tokoh_agama.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_tokoh_agama.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_tokoh_agama.id_kelurahan')
+            ->where('id_user', $id)->find();
         }
         return $this->select('pendaftar_tokoh_agama.*')->findAll();
     

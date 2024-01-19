@@ -29,8 +29,26 @@ class TokohAgamaController extends BaseController
         $data = [
             'biodata' => $biodata,
         ];
+
         // return dd($data);
-        return view('dashboard-tokoh-agama/biodata', $data);
+        return view('dashboard-tokoh-agama/view_biodata', $data);
+    }
+
+    public function createBiodata()
+    {
+        return view('dashboard-tokoh-agama/tambah_biodata');
+    }
+
+    public function editBiodata()
+    {
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+
+        $data = [
+            'biodata' => $biodata,
+        ];
+
+        return view('dashboard-tokoh-agama/ubah_biodata', $data);
     }
 
     public function saveBiodata()
@@ -69,5 +87,9 @@ class TokohAgamaController extends BaseController
         ]);
        
         return redirect()->to(base_url('/tokoh-agama/biodata'));
+    }
+
+    public function updateBiodata(){
+        
     }
 }
