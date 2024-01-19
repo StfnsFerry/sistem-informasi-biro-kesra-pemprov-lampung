@@ -29,6 +29,9 @@ $routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata'
 $routes->get('/tokoh-agama/tambah-biodata', [TokohAgamaController::class, 'createBiodata']);
 $routes->get('/tokoh-agama/ubah-biodata', [TokohAgamaController::class, 'editBiodata']);
 $routes->post('/tokoh-agama/biodata/simpan', [TokohAgamaController::class, 'saveBiodata']);
+$routes->post('/tokoh-agama/biodata/update', [TokohAgamaController::class, 'updateBiodata']);
+$routes->get('/tokoh-agama/dokumen', [TokohAgamaController::class, 'viewDokumen']);
+$routes->post('/tokoh-agama/dokumen/simpan', [TokohAgamaController::class, 'saveDokumen']);
 
 // Myth:Auth routes file.
 $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {
