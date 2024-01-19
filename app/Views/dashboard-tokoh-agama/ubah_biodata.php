@@ -8,7 +8,7 @@
                         <h1 class="h3 mb-0 text-gray-800">Biodata Tokoh Agama</h1>
                     </div>
 
-                    <form action="<?= base_url('/tokoh-agama/biodata/simpan')?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= base_url('/tokoh-agama/biodata/update')?>" method="POST" enctype="multipart/form-data">
                          <?= csrf_field() ?>
                         <!-- Content Row -->
                         <div class="row">
@@ -174,7 +174,8 @@
                                     </div>
                                 </div>  
                                 <div class="card-body d-flex justify-content-end"> 
-                                    <input type="hidden" name="id_user" value="<?= user()->id;?>">                                                       
+                                    <input type="hidden" name="id_user" value="<?= user()->id;?>">
+                                    <input type="hidden" name="id_biodata" value="<?= $biodata[0]['id']?>">                                                       
                                     <button type="submit" class="btn btn-primary shadow-sm">Simpan Data</button>  
                                 </div>
                             </div>               

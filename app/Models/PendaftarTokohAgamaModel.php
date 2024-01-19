@@ -59,4 +59,8 @@ class PendaftarTokohAgamaModel extends Model
         return $this->select('pendaftar_tokoh_agama.*')->findAll();
     
     }
+
+    public function updateBiodata($data, $id){
+        return $this->update($id,$data);
+    }
 }
