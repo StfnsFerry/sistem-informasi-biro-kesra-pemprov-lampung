@@ -45,13 +45,13 @@
                                         <div class="mb-3">
                                             <label for="jenis_kelamin" class="form-label">Jenis Kelamin<span class="text-danger">*</span></label>
                                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
-                                                <?php if($biodata[0]['jenis_kelamin'] != NULL): ?>
-                                                    <option selected value="<?=$biodata[0]['jenis_kelamin']?>"><?=$biodata[0]['jenis_kelamin']?></option>
-                                                    <?php else: ?>
-                                                <option selected value="" disabled>Pilih Jenis Kelamin</option>
-                                                <?php endif;?>
-                                                <option value="Laki-Laki">Laki-Laki</option>
-                                                <option value="Perempuan">Perempuan</option>
+                                                <?php if($biodata[0]['jenis_kelamin'] == "Laki-Laki") : ?>                        
+                                                    <option selected value="Laki-Laki">Laki-Laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
+                                                <?php elseif($biodata[0]['jenis_kelamin'] == "Perempuan") : ?>
+                                                    <option value="Laki-Laki">Laki-Laki</option>
+                                                    <option selected value="Perempuan">Perempuan</option>
+                                                <?php endif; ?>
                                             </select>
                                         </div>
                                         <div class="mb-3">
@@ -61,17 +61,17 @@
 
                                         <div class="mb-3">
                                             <label for="jumlah_murid" class="form-label">Jumlah Murid<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Jumlah Murid" name="jumlah_murid" id="jumlah_murid" required>
+                                            <input type="number" class="form-control" placeholder="Masukkan Jumlah Murid" name="jumlah_murid" id="jumlah_murid" value="<?=$biodata[0]['jumlah_murid']?>" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="telepon" class="form-label">No. Telepon/Hp<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Anda" name="telepon" id="telepon" required>
+                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Anda" name="telepon" id="telepon" value="<?=$biodata[0]['telepon']?>" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="alamat" class="form-label">Alamat<span class="text-danger">*</span></label>
-                                            <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" required></textarea>        
+                                            <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" required><?=$biodata[0]['alamat']?></textarea>        
                                         </div>
                                     </div>
                                 </div>   
@@ -81,8 +81,8 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label for="foto_tokoh" class="form-label">Upload Pas Foto<span class="text-danger">*</span></label>
-                                            <input type="file" class="form-control" name="foto" id="foto_tokoh" required>
+                                            <label for="foto_tokoh" class="form-label">Upload Pas Foto</label>
+                                            <input type="file" class="form-control" name="foto" id="foto_tokoh">
                                         </div>
                                     </div>
                                 </div>     
@@ -99,11 +99,11 @@
                                         </div>                                                                             
                                         <div class="mb-3">
                                             <label for="nomor_rekening" class="form-label">Nomor Rekening<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nomor Rekening" name="nomor_rekening" id="nomor_rekening" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nomor Rekening" name="nomor_rekening" id="nomor_rekening" value="<?=$biodata[0]['nomor_rekening']?>" required>
                                         </div>  
                                         <div class="mb-3">
                                             <label for="nama_rekening" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" name="nama_pemilik_rekening" id="nama_rekening" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" name="nama_pemilik_rekening" id="nama_rekening" value="<?=$biodata[0]['nama_pemilik_rekening']?>" required>
                                         </div>                                                             
                                     </div>
                                 </div>  
@@ -117,7 +117,7 @@
                                         <div class="mb-3">
                                             <label for="profesi" class="form-label">Profesi<span class="text-danger">*</span></label>
                                             <select name="profesi" id="profesi" class="form-select" required>
-                                                <option selected value="" disabled>Pilih Sesuai Profesi</option>
+                                                <option selected value="<?=$biodata[0]['profesi']?>"><?=$biodata[0]['profesi']?></option>
                                                 <option value="Guru Ngaji">Guru Ngaji</option>
                                                 <option value="Imam Masjid">Imam Masjid</option>
                                                 <option value="Marbot">Marbot</option>
@@ -125,17 +125,17 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="tempat_tugas" class="form-label">Nama Tempat Tugas<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Tempat Tugas" name="nama_tempat_bertugas" id="tempat_tugas" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama Tempat Tugas" name="nama_tempat_bertugas" id="tempat_tugas" value="<?=$biodata[0]['nama_tempat_bertugas']?>" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="telepon_tempat" class="form-label">No. Telepon/Hp Tempat Tugas<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Tempat Tugas" name="telepon_tempat_bertugas" id="telepon_tempat" required>
+                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Tempat Tugas" name="telepon_tempat_bertugas" id="telepon_tempat" value="<?=$biodata[0]['telepon_tempat_bertugas']?>" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="alamat_tempat" class="form-label">Alamat Tempat Bertugas<span class="text-danger">*</span></label>
-                                            <textarea class="form-control" name="alamat_tempat_bertugas" id="alamat_tempat" cols="30" rows="5" required></textarea>        
+                                            <textarea class="form-control" name="alamat_tempat_bertugas" id="alamat_tempat" cols="30" rows="5" required><?=$biodata[0]['alamat_tempat_bertugas']?></textarea>        
                                         </div> 
 
                                         <div class="mb-3">
@@ -143,13 +143,13 @@
                                                 <div class="col-6">
                                                     <label for="provinsi" class="form-label">Provinsi<span class="text-danger">*</span></label>
                                                     <select name="provinsi" id="provinsi" class="form-select" required>
-                                                        <option>Pilih Provinsi</option>       
+                                                        <option selected value="<?=$biodata[0]['id_provinsi']?>"><?=$biodata[0]['provinsi']?></option>       
                                                     </select>
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="kota" class="form-label">Kabupaten/Kota<span class="text-danger">*</span></label>
                                                     <select name="kabupaten_kota" id="kota" class="form-select" required>
-                                                        <option>Pilih Kab/Kota</option>       
+                                                        <option selected value="<?=$biodata[0]['id_kabupaten_kota']?>"><?=$biodata[0]['kabupaten_kota']?></option>      
                                                     </select>
                                                 </div>
                                             </div>
@@ -160,13 +160,13 @@
                                                 <div class="col-6">
                                                     <label for="kecamatan" class="form-label">Kecamatan<span class="text-danger">*</span></label>
                                                     <select name="kecamatan" id="kecamatan" class="form-select" required>
-                                                        <option>Pilih Kecamatan</option>       
+                                                        <option selected value="<?=$biodata[0]['id_kecamatan']?>"><?=$biodata[0]['kecamatan']?></option>     
                                                     </select>
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="kelurahan" class="form-label">Desa/Pekon/Kelurahan<span class="text-danger">*</span></label>
                                                     <select name="kelurahan" id="kelurahan" class="form-select" required>
-                                                        <option>Pilih Desa/Pekon/Kelurahan</option>       
+                                                        <option selected value="<?=$biodata[0]['id_kelurahan']?>"><?=$biodata[0]['kelurahan']?></option>      
                                                     </select>
                                                 </div>
                                             </div>
@@ -182,54 +182,40 @@
                     </form>
                 </div>
                 <!-- /.container-fluid -->
-            <script>
-                fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/provinces.json`)
-                    .then(response => response.json())
-                    .then(provinces => {
-                        var data = provinces;
-                        var tampung = '<option selected disabled>Pilih Provinsi</option>';
-                        data.forEach(element => {
-                            if(element.id == 18){
-                                tampung += `<option data-reg="${element.id}" value="${element.id}">${element.name}</option>`; 
-                            }
-                        });
-                        document.getElementById('provinsi').innerHTML = tampung;
-                    });
-            </script>
+                
+                
 
             <script>
-                const selectProvinsi = document.getElementById('provinsi');
-                selectProvinsi.addEventListener('change', (e) =>{
-                    var provinsi = e.target.options[e.target.selectedIndex].dataset.reg;
+                
+                var provinsi = <?=$biodata[0]['id_provinsi']?>;
 
-                    fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/regencies/${provinsi}.json`)
-                    .then(response => response.json())
-                    .then(regencies => {
-                        var data = regencies;
-                        var tampung = '<option selected disabled>Pilih Kab/Kota</option>';
-                        data.forEach(element => {                        
-                            tampung += `<option data-dist="${element.id}" value="${element.id}">${element.name}</option>`;              
-                        });
-                        document.getElementById('kota').innerHTML = tampung;
+                fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/regencies/${provinsi}.json`)
+                .then(response => response.json())
+                .then(regencies => {
+                    var data = regencies;
+                    var tampung = '<option selected value="<?=$biodata[0]['id_kabupaten_kota']?>"><?=$biodata[0]['kabupaten_kota']?></option>';
+                    data.forEach(element => {                        
+                        tampung += `<option data-dist="${element.id}" value="${element.id}">${element.name}</option>`;              
                     });
+                    document.getElementById('kota').innerHTML = tampung;
                 });
-
+                
                 const selectKota = document.getElementById('kota');
-                selectKota.addEventListener('change', (e) =>{
+                selectKota.addEventListener('change', (e) =>{                
                     var kota = e.target.options[e.target.selectedIndex].dataset.dist;
 
                     fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/districts/${kota}.json`)
                     .then(response => response.json())
                     .then(districts => {
                         var data = districts;
-                        var tampung = '<option selected disabled>Pilih Kecamatan</option>';
+                        var tampung = '<option selected disabled">Pilih Kecamatan</option>';
                         data.forEach(element => {                        
                             tampung += `<option data-vill="${element.id}" value="${element.id}">${element.name}</option>`;              
                         });
                         document.getElementById('kecamatan').innerHTML = tampung;
                     });
                 });
-
+                        
                 const selectKecamatan = document.getElementById('kecamatan');
                 selectKecamatan.addEventListener('change', (e) =>{
                     var kecamatan = e.target.options[e.target.selectedIndex].dataset.vill;
@@ -238,13 +224,14 @@
                     .then(response => response.json())
                     .then(villages => {
                         var data = villages;
-                        var tampung = '<option selected disabled>Pilih Desa/Pekon/Kelurahan</option>';
+                        var tampung = '<option selected disabled">Pilih Desa/Pekon/Kelurahan</option>';
                         data.forEach(element => {                        
                             tampung += `<option data-vill="${element.id}" value="${element.id}">${element.name}</option>`;              
                         });
                         document.getElementById('kelurahan').innerHTML = tampung;
                     });
-                });
+                });    
+               
             </script>
 
             </div>

@@ -26,6 +26,8 @@ $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'vi
 
 $routes->get('/tokoh-agama', [TokohAgamaController::class, 'index']);
 $routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata']);
+$routes->get('/tokoh-agama/tambah-biodata', [TokohAgamaController::class, 'createBiodata']);
+$routes->get('/tokoh-agama/ubah-biodata', [TokohAgamaController::class, 'editBiodata']);
 $routes->post('/tokoh-agama/biodata/simpan', [TokohAgamaController::class, 'saveBiodata']);
 
 // Myth:Auth routes file.
