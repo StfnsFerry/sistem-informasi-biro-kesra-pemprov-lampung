@@ -32,8 +32,7 @@
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama Lengkap<span class="text-danger">*</span></label>
                                         <?php if($biodata != NULL) : ?>
-                                            <h6 class="font-weight-bold text-dark"><?= $biodata[0]['nama_lengkap']?>                          
-                                        </h6>
+                                            <h6 class="font-weight-bold text-dark"><?= $biodata[0]['nama_lengkap']?></h6>
                                         <?php else : ?>
                                             <h6 class="font-weight-bold text-dark">-</h6>
                                         <?php endif;?>
