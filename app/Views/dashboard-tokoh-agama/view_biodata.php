@@ -6,8 +6,13 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Biodata Tokoh Agama</h1>
-                        <?php if($biodata != NULL) : ?>
-                            <a href="/tokoh-agama/ubah-biodata" class="btn btn-primary shadow-sm">Ubah Data</a>                   
+                        <?php if($biodata != NULL) : 
+                                if($biodata[0]['status_pendaftaran'] != 'Belum Mendaftar') :                            
+                        ?>
+                            
+                            <?php else: ?>
+                            <a href="/tokoh-agama/ubah-biodata" class="btn btn-primary shadow-sm">Ubah Data</a>  
+                            <?php endif?>                 
                         <?php else : ?>
                             <a href="/tokoh-agama/tambah-biodata" class="btn btn-primary shadow-sm">Tambah Data</a>  
                         <?php endif;?> 
@@ -105,7 +110,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <label for="foto_tokoh" class="form-label">Pas Foto<span class="text-danger">*</span></label>
+                                        <label for="foto_tokoh" class="form-label">Pas Foto<span class="text-danger">*</span></label> <br>
                                         <?php if($biodata != NULL) : ?>
                                             <figure class="figure">
                                                 <img src="<?=base_url($biodata[0]['foto'])?>" class="figure-img img-fluid rounded w-50" alt="...">

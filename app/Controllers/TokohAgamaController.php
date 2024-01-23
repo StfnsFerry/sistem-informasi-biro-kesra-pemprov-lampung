@@ -4,21 +4,33 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\PendaftarTokohAgamaModel;
+use App\Models\VerifikasiTokohAgamaModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class TokohAgamaController extends BaseController
 {
 
     public $pendaftarModel;
+    public $verifikasiModel;
 
     public function __construct()
     {
         $this->pendaftarModel = new PendaftarTokohAgamaModel();
+        $this->verifikasiModel = new VerifikasiTokohAgamaModel();
     }
 
     public function index()
     {
-        return view('dashboard-tokoh-agama/index');
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+        $verifikasi = $this->verifikasiModel->getVerifikasi($id);
+
+        $data = [
+            'biodata' => $biodata,
+            'verifikasi' => $verifikasi,
+        ];
+
+        return view('dashboard-tokoh-agama/index', $data);
     }
 
     public function viewBiodata()
@@ -90,6 +102,16 @@ class TokohAgamaController extends BaseController
     }
 
     public function updateBiodata(){
+
+        $id = $this->request->getVar('id_biodata');
+        $id_user = user()->id;
+        $cek = $this->pendaftarModel->getBiodata($id_user);
+
+        if( $cek[0]['status_pendaftaran'] != 'Belum Mendaftar')
+        {
+            return redirect()->to(base_url('/tokoh-agama/biodata'));
+        }
+
         $path = 'assets/uploads/img/tokoh-agama/';
         $foto = $this->request->getFile('foto');
 
@@ -124,8 +146,7 @@ class TokohAgamaController extends BaseController
                 $data['foto'] = $foto_path;
             }
         }
-
-        $id = $this->request->getVar('id_biodata');
+        
         $result = $this->pendaftarModel->updateBiodata($data, $id);
 
         if(!$result){
@@ -175,6 +196,28 @@ class TokohAgamaController extends BaseController
         }
 
         return redirect()->to(base_url('/tokoh-agama/dokumen'));
+
+    }
+
+    public function createVerifikasi()
+    {
+        $id = $this->request->getVar('id_biodata');
+        $id_pendaftar = $this->request->getVar('id_pendaftar');
+
+        $data = [
+            'id_biodata' => $id,
+            'id_pendaftar' => $id_pendaftar,        
+        ];
+
+        $this->verifikasiModel->saveVerifikasi($data);
+
+        $status = [
+            'status_pendaftaran' => 'Sedang Diverifikasi',
+        ];
+   
+        $this->pendaftarModel->updateBiodata($status,$id);
+
+        return redirect()->to(base_url('/tokoh-agama'));
 
     }
 }
