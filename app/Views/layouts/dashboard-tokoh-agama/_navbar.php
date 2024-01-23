@@ -50,7 +50,7 @@
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?=base_url('/tokoh-agama/status-pendaftaran')?>">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Status Pendaftaran</span></a>
 </li>
@@ -65,7 +65,7 @@
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?=base_url('/tokoh-agama/profil')?>">
         <i class="fas fa-fw fa-user"></i>
         <span>Profil Akun</span></a>
 </li>
@@ -267,7 +267,7 @@
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?=base_url('/tokoh-agama/profil')?>">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profil
                     </a>
@@ -284,3 +284,5 @@
 
     </nav>
     <!-- End of Topbar -->
+    
+    

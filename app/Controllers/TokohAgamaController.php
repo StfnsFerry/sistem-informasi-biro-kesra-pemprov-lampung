@@ -220,4 +220,23 @@ class TokohAgamaController extends BaseController
         return redirect()->to(base_url('/tokoh-agama'));
 
     }
+
+    public function viewStatusPendaftaran()
+    {
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+        $verifikasi = $this->verifikasiModel->getVerifikasi($id);
+
+        $data = [
+            'biodata' => $biodata,
+            'verifikasi' => $verifikasi,
+        ];
+
+        return view('dashboard-tokoh-agama/status_pendaftaran', $data);
+    }
+
+    public function viewProfil()
+    {
+        return view('dashboard-tokoh-agama/profil');
+    }
 }

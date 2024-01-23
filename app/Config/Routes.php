@@ -33,6 +33,8 @@ $routes->post('/tokoh-agama/biodata/update', [TokohAgamaController::class, 'upda
 $routes->get('/tokoh-agama/dokumen', [TokohAgamaController::class, 'viewDokumen']);
 $routes->post('/tokoh-agama/dokumen/simpan', [TokohAgamaController::class, 'saveDokumen']);
 $routes->post('/tokoh-agama/verifikasi', [TokohAgamaController::class, 'createVerifikasi']);
+$routes->get('/tokoh-agama/status-pendaftaran', [TokohAgamaController::class, 'viewStatusPendaftaran']);
+$routes->get('/tokoh-agama/profil', [TokohAgamaController::class, 'viewProfil']);
 
 // Myth:Auth routes file.
 $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {
