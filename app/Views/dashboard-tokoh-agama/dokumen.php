@@ -40,20 +40,22 @@
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Unggah Dokumen</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">File Dokumen</h6>
                                 </div>
                                 <form action="<?=base_url('tokoh-agama/dokumen/simpan')?>" method="POST" enctype="multipart/form-data">
                                 <?= csrf_field() ?>
+                                 <?php if($biodata != NULL) : ?>
                                     <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
                                     <?php if($biodata[0]['dokumen_persyaratan'] != NULL) : ?>
                                         <div class="row">
+                                        <?php if($biodata[0]['status_pendaftaran'] == 'Belum Mendaftar') : ?> 
                                             <div class="col-lg-6">
                                                 <div class="card-body"> 
                                                     <div class="mb-3">
                                                         <label for="dokumen" class="form-label">Ubah File (PDF atau Word)</label>
                                                         <input type="file" class="form-control" name="dokumen" accept=".pdf, .doc, .docx" required>
-                                                    </div>
-                                                    <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>
+                                                    </div>                   
+                                                    <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>                          
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
@@ -61,10 +63,19 @@
                                                     <div class="mb-3">
                                                         <label for="dokumen" class="form-label">Preview File: </label>
                                                     </div>
-                                                    <!-- <iframe src="" height="500" width="100%" title="Iframe Example"></iframe> -->
                                                     <embed src="<?=base_url($biodata[0]['dokumen_persyaratan'])?>" width="100%" height="600" type="application/pdf">
                                                 </div>
                                             </div>
+                                            <?php else: ?>
+                                            <div class="col-lg-12">
+                                                <div class="card-body"> 
+                                                    <div class="mb-3">
+                                                        <label for="dokumen" class="form-label">Preview File: </label>
+                                                    </div>
+                                                    <embed src="<?=base_url($biodata[0]['dokumen_persyaratan'])?>" width="100%" height="600" type="application/pdf">
+                                                </div>
+                                            </div>
+                                            <?php endif?>
                                         </div>
                                     <?php else :?>      
                                         <div class="card-body"> 
@@ -75,6 +86,12 @@
                                             <button type="submit" class="btn btn-primary shadow-sm">Tambah Dokumen</button>
                                         </div>       
                                     <?php endif;?>
+                                <?php else: ?>
+                                    <div class="card-body">
+                                        <h6 class= "font-weight-bold text-dark">Lengkapi Biodata terlebih dahulu sebelum mengunggah dokumen!</h6>
+                                        <a href="/tokoh-agama/biodata" class="btn btn-primary">Lengkapi Disini</a>
+                                    </div>
+                                <?php endif?>        
                                 </form>
                             </div>           
                         </div>
