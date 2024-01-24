@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
     <div class="sidebar-brand-icon w-25">
         <img class="sidebar-card-illustration w-100" src="<?=base_url('assets/img/logo_pemprov.png')?>">
     </div>
@@ -12,19 +12,12 @@
 <!-- Nav Item - Charts -->
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('/')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-house"></i>
         <span>Beranda</span></a>
 </li>
 
 <!-- Divider -->
 <hr class="sidebar-divider my-0">
-
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama')?>">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
-</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider">
@@ -35,23 +28,23 @@
 </div>
 
 <!-- Nav Item - Charts -->
-<li class="nav-item">
+<li class="nav-item active">
     <a class="nav-link" href="<?=base_url('/tokoh-agama/biodata')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-circle-info"></i>
         <span>Biodata</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('/tokoh-agama/dokumen')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-folder-open"></i>
         <span>Dokumen</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('/tokoh-agama/status-pendaftaran')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-list-check"></i>
         <span>Status Pendaftaran</span></a>
 </li>
 
@@ -64,10 +57,11 @@
 </div>
 
 <!-- Nav Item - Charts -->
-<li class="nav-item">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama/profil')?>">
-        <i class="fas fa-fw fa-user"></i>
-        <span>Profil Akun</span></a>
+<li class="nav-item">  
+    <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+        <i class="fas fa-sign-out-alt fa-fw "></i>
+        <span>Logout</span>
+    </a>
 </li>
 
 <!-- Divider -->
