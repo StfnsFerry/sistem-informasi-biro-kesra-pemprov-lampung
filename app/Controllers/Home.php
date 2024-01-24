@@ -36,7 +36,7 @@ class Home extends BaseController
    public function viewProfil()
    {
     if(in_groups('Tokoh Agama')){
-        return redirect()->to(base_url('/tokoh-agama'));
+        return redirect()->to(base_url('/tokoh-agama/biodata'));
     }else{
         return view('Landing-Page/landing-page');
     }
@@ -45,7 +45,7 @@ class Home extends BaseController
    public function viewPendaftaran()
    {
         if(in_groups('Tokoh Agama')){
-            return redirect()->to(base_url('/tokoh-agama'));
+            return redirect()->to(base_url('/tokoh-agama/biodata'));
         }
     }
    

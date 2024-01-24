@@ -12,7 +12,7 @@
 <!-- Nav Item - Charts -->
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('/')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-house"></i>
         <span>Beranda</span></a>
 </li>
 
@@ -28,23 +28,23 @@
 </div>
 
 <!-- Nav Item - Charts -->
-<li class="nav-item">
+<li class="nav-item active">
     <a class="nav-link" href="<?=base_url('/tokoh-agama/biodata')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-circle-info"></i>
         <span>Biodata</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('/tokoh-agama/dokumen')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-folder-open"></i>
         <span>Dokumen</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('/tokoh-agama/status-pendaftaran')?>">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-fw fa-list-check"></i>
         <span>Status Pendaftaran</span></a>
 </li>
 
