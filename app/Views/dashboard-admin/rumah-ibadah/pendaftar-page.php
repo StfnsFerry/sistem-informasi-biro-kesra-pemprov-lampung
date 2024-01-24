@@ -41,7 +41,7 @@
                                                     <td>Way Kanan</td>
                                                     <td>Rp 15.000.000</td>
                                                     <td>                                                  
-                                                        <a href="#" class="btn btn-secondary btn-icon-split">
+                                                        <a href="<?= base_url('/admin/rumah-ibadah/pendaftar/verifikasi') ?>" class="btn btn-secondary btn-icon-split">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-arrow-right"></i>
                                                             </span>

@@ -23,6 +23,7 @@ $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Adm
 $routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumah-ibadah/pendaftar/verifikasi', [RumahIbadahController::class, 'viewVerifikasi'], ['filter' => 'role:Admin']);
 
 $routes->get('/tokoh-agama', [TokohAgamaController::class, 'index'], ['filter' => 'role:Tokoh Agama']);
 $routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata'], ['filter' => 'role:Tokoh Agama']);

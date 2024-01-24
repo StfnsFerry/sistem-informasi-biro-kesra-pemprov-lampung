@@ -21,4 +21,10 @@ class RumahIbadahController extends BaseController
     {
         return view('dashboard-admin/rumah-ibadah/pendaftar-page');
     }
+    
+    public function viewVerifikasi()
+    {
+        return view('dashboard-admin/rumah-ibadah/verifikasi-page');
+    }
+
 }
