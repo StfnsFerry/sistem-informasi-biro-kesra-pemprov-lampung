@@ -38,6 +38,8 @@ $routes->post('/tokoh-agama/verifikasi', [TokohAgamaController::class, 'createVe
 $routes->get('/tokoh-agama/status-pendaftaran', [TokohAgamaController::class, 'viewStatusPendaftaran']);
 $routes->get('/tokoh-agama/profil', [TokohAgamaController::class, 'viewProfil']);
 
+$routes->get('/rumah-ibadah/biodata', [RumahIbadahController::class, 'viewBiodata']);
+
 $routes->post('/updateProfil', [ProfilController::class, 'updateProfil']);
 
 // Myth:Auth routes file.
