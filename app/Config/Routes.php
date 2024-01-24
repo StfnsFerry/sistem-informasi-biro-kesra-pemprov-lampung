@@ -4,6 +4,7 @@ use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
 use App\Controllers\RumahIbadahController;
 use App\Controllers\TokohAgamaController;
+use App\Controllers\ProfilController;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Config\Auth;
 
@@ -24,7 +25,7 @@ $routes->get('/admin/rumahibadah', [AdminController::class, 'viewRumahIbadah'], 
 $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
 
-$routes->get('/tokoh-agama', [TokohAgamaController::class, 'index']);
+// $routes->get('/tokoh-agama', [TokohAgamaController::class, 'index']);
 $routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata']);
 $routes->get('/tokoh-agama/tambah-biodata', [TokohAgamaController::class, 'createBiodata']);
 $routes->get('/tokoh-agama/ubah-biodata', [TokohAgamaController::class, 'editBiodata']);
@@ -35,6 +36,8 @@ $routes->post('/tokoh-agama/dokumen/simpan', [TokohAgamaController::class, 'save
 $routes->post('/tokoh-agama/verifikasi', [TokohAgamaController::class, 'createVerifikasi']);
 $routes->get('/tokoh-agama/status-pendaftaran', [TokohAgamaController::class, 'viewStatusPendaftaran']);
 $routes->get('/tokoh-agama/profil', [TokohAgamaController::class, 'viewProfil']);
+
+$routes->post('/updateProfil', [ProfilController::class, 'updateProfil']);
 
 // Myth:Auth routes file.
 $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {

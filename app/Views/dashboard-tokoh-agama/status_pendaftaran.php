@@ -52,17 +52,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>       
 
                         <!-- Content Column -->
                         <div class="col-lg-12 mb-3">
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Dokumen Persyaratan</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Keterangan</h6>
                                 </div>
                                 <div class="card-body"> 
-                                    
+                                    <div class="mb-3">
+                                        <h6 class= "font-weight-bold text-dark">Data KTP dan Rekening Belum Lengkap!</h6>
+                                    </div>
                                 </div>
                             </div>           
                         </div>                                    
