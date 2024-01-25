@@ -96,8 +96,8 @@
                                             <div class="col-lg-6">
                                                 <div class="card-body"> 
                                                     <div class="mb-3">
-                                                        <label for="dokumen" class="form-label">Ubah File (PDF atau Word)</label>
-                                                        <input type="file" class="form-control" name="dokumen" accept=".pdf, .doc, .docx" required>
+                                                        <label for="dokumen" class="form-label">Ubah File (PDF)</label>
+                                                        <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
                                                     </div>                   
                                                     <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>                          
                                                 </div>
