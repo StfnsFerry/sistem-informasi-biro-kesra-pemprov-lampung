@@ -75,6 +75,31 @@
         </div>
     </div>
 
+    <!-- Modal Daftar -->
+    <div class="modal fade" id="daftarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pendaftaran Hibah</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Data anda akan dikirimkan ke Biro Kesra Provinsi Lampung
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <form action="/tokoh-agama/verifikasi" method="POST">
+                        <?php if($biodata != null):?>
+                            <input type="hidden" value="<?= $biodata[0]['id']?>" name="id_biodata">
+                            <input type="hidden" value="<?= user()->id?>" name="id_pendaftar">  
+                        <?php endif?>      
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js')?>"></script>
     <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>

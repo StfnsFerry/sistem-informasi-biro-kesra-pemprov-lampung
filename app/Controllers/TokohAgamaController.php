@@ -174,7 +174,7 @@ class TokohAgamaController extends BaseController
     {
         $id = $this->request->getVar('id_biodata');
 
-        $path = 'assets/uploads/pdf-word/tokoh-agama/';
+        $path = 'assets/uploads/pdf/tokoh-agama/';
 
         $foto = $this->request->getFile('dokumen');
 

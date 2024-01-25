@@ -39,6 +39,12 @@ $routes->get('/tokoh-agama/status-pendaftaran', [TokohAgamaController::class, 'v
 $routes->get('/tokoh-agama/profil', [TokohAgamaController::class, 'viewProfil']);
 
 $routes->get('/rumah-ibadah/biodata', [RumahIbadahController::class, 'viewBiodata']);
+$routes->get('/rumah-ibadah/tambah-biodata', [RumahIbadahController::class, 'createBiodata']);
+$routes->get('/rumah-ibadah/ubah-biodata', [RumahIbadahController::class, 'editBiodata']);
+$routes->post('/rumah-ibadah/biodata/simpan', [RumahIbadahController::class, 'saveBiodata']);
+$routes->post('/rumah-ibadah/biodata/update', [RumahIbadahController::class, 'updateBiodata']);
+$routes->get('/rumah-ibadah/dokumen', [RumahIbadahController::class, 'viewDokumen']);
+$routes->post('/rumah-ibadah/dokumen/simpan', [RumahIbadahController::class, 'saveDokumen']);
 
 $routes->post('/updateProfil', [ProfilController::class, 'updateProfil']);
 

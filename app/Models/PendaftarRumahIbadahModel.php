@@ -13,11 +13,11 @@ class PendaftarRumahIbadahModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['id_user','nik_ketua','npwp','nama_ketua','tempat_lahir','tanggal_lahir','jenis_kelamin','telepon', 'alamat',
-    'nomor_rekening', 'nama_pemilik_rekening','jenis_rumah_ibadah','nama_rumah_ibadah', 'telepon_rumah_ibadah','alamat_rumah_ibadah','no_sk_pembentukan',
+    'nomor_rekening', 'nama_pemilik_rekening','jenis_bangunan','nama_bangunan', 'telepon_bangunan','alamat_bangunan','no_sk_pembentukan',
     'id_provinsi', 'id_kabupaten_kota','id_kecamatan','id_kelurahan','verifikasi_data','status_pendaftaran','dokumen_persyaratan'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -40,6 +40,11 @@ class PendaftarRumahIbadahModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    public function saveBiodata($data)
+    {
+        $this->insert($data);
+    }
+
     public function getBiodata($id = NULL)
     {
         if($id != null){
@@ -52,5 +57,8 @@ class PendaftarRumahIbadahModel extends Model
         }
         return $this->select('pendaftar_rumah_ibadah.*')->findAll();
     
+    }
+    public function updateBiodata($data, $id){
+        return $this->update($id,$data);
     }
 }

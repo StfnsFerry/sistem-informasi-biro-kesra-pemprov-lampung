@@ -29,21 +29,21 @@
 
 <!-- Nav Item - Charts -->
 <li class="nav-item active">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama/biodata')?>">
+    <a class="nav-link" href="<?=base_url('/rumah-ibadah/biodata')?>">
         <i class="fas fa-fw fa-circle-info"></i>
         <span>Biodata</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama/dokumen')?>">
+    <a class="nav-link" href="<?=base_url('/rumah-ibadah/dokumen')?>">
         <i class="fas fa-fw fa-folder-open"></i>
         <span>Dokumen</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama/status-pendaftaran')?>">
+    <a class="nav-link" href="<?=base_url('/rumah-ibadah/status-pendaftaran')?>">
         <i class="fas fa-fw fa-list-check"></i>
         <span>Status Pendaftaran</span></a>
 </li>

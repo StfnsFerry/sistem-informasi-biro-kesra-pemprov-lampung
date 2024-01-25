@@ -5,7 +5,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dokumen Tokoh Agama</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Dokumen Rumah Ibadah dan Pondok Pesantren</h1>
                     </div>
                     <!-- Content Row -->
                     <div class="row">
@@ -24,7 +24,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">Unggah Dokumen sebelum melakukan pendaftaran</div>
                                                 <?php elseif($biodata[0]['status_pendaftaran'] != NULL) : ?>
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $biodata[0]['status_pendaftaran']?></div>  
-                                                <?php elseif($biodata[0]['nama_lengkap'] == NULL): ?>
+                                                <?php elseif($biodata[0]['nama_ketua'] == NULL): ?>
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">Isi Biodata sebelum melakukan pendaftaran</div>   
                                                 <?php endif;?>                   
                                             <?php else: ?>
@@ -38,16 +38,16 @@
                                                         Berhasil Mendaftar
                                                     </button>
                                                     <?php elseif($biodata[0]['dokumen_persyaratan'] == NULL): ?>
-                                                        <a href="/tokoh-agama/dokumen" class="btn btn-danger">Unggah Dokumen</a>
-                                                    <?php elseif($biodata[0]['nama_lengkap'] == NULL): ?>
-                                                        <a href="/tokoh-agama/biodata" class="btn btn-danger">Lengkapi Biodata</a>
+                                                        <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah Dokumen</a>
+                                                    <?php elseif($biodata[0]['nama_ketua'] == NULL): ?>
+                                                        <a href="/rumah-ibadah/biodata" class="btn btn-danger">Lengkapi Biodata</a>
                                                     <?php else: ?>             
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#daftarModal">
                                                         Daftar Hibah
                                                     </button>
                                                     <?php endif;?>
                                             <?php else: ?>    
-                                                <a href="/tokoh-agama/biodata" class="btn btn-danger">Lengkapi Biodata</a>   
+                                                <a href="/rumah-ibadah/biodata" class="btn btn-danger">Lengkapi Biodata</a>   
                                             <?php endif;?>      
                                         </div>
                                     </div>
@@ -64,14 +64,17 @@
                                 </div>
                                 <div class="card-body"> 
                                     <ol class="list-group list-group-numbered list-group-flush mb-3">
-                                        <li class="list-group-item">Warga Negara Indonesia (WNI) dengan melampirkan foto copy KTP 1 lembar.</li>
-                                        <li class="list-group-item">Mengisi biodata dan dilampirkan 1 (satu) lembar foto berwarna 3 x 4 cm.</li>
-                                        <li class="list-group-item">Melampirkan Surat Rekomendasi dari Pemda Kabupaten/Kota melalui Bagian
-                                                                Kesejahteraan Rakyat Kabupaten/Kota yang menerangkan bahwa yang bersangkutan
-                                                                adalah benar sebagai Tokoh Agama (Guru Ngaji, Imam Masjid, dan Marbot Masjid), 
-                                                                ditujukan kepada Gubernur Lampung Cq. Kepala Biro Kesejahteraan Rakyat Setda Provinsi Lampung.</li>
-                                        <li class="list-group-item">Belum pernah mendapat bantuan apapun dari Pemerintah Provinsi Lampung.</li>
-                                        <li class="list-group-item">Melampirkan fotocopy Rekening Bank Lampung atas nama yang bersangkutan, masih aktif.</li>
+                                        <li class="list-group-item">Permohonan diketahui Minimal Pamong/Kepala Desa setempat</li>
+                                        <li class="list-group-item">Susunan Pengurus/Panitia diketahui KUA/Pamong/Kepala Desa setempat</li>
+                                        <li class="list-group-item">Rencana Anggaran Belanja (RAB)</li>
+                                        <li class="list-group-item">Foto Bangunan/Foto Kegiatan</li>
+                                        <li class="list-group-item">Akte Notaris, Kemenkumham, Izin Operasional</li>
+                                        <li class="list-group-item">Foto copy KTP Ketua dan Sekretaris (Masih aktif)</li>
+                                        <li class="list-group-item">No. Rek Bank Lampung atas nama PonPes/Lembaga</li>
+                                        <li class="list-group-item">No. NPWP atas Nama Ketua/Rumah Ibadah/Pengurus</li>
+                                        <li class="list-group-item">Stempel Asli dan Basah</li>
+                                        <li class="list-group-item">Surat Keterangan Domisili</li>
+                                        <li class="list-group-item">Lain-lain</li>
                                     </ol>
                                     <div class="mb-3">
                                         <h6 class= "font-weight-bold text-dark">*Berkas disusun berdasarkan urutan nomor diatas.</h6>
@@ -87,7 +90,7 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">File Dokumen</h6>
                                 </div>
-                                <form action="<?=base_url('tokoh-agama/dokumen/simpan')?>" method="POST" enctype="multipart/form-data">
+                                <form action="<?=base_url('rumah-ibadah/dokumen/simpan')?>" method="POST" enctype="multipart/form-data">
                                 <?= csrf_field() ?>
                                  <?php if($biodata != NULL) : ?>
                                     <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
@@ -96,8 +99,8 @@
                                             <div class="col-lg-6">
                                                 <div class="card-body"> 
                                                     <div class="mb-3">
-                                                        <label for="dokumen" class="form-label">Ubah File (PDF atau Word)</label>
-                                                        <input type="file" class="form-control" name="dokumen" accept=".pdf, .doc, .docx" required>
+                                                        <label for="dokumen" class="form-label">Ubah File (PDF)</label>
+                                                        <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
                                                     </div>                   
                                                     <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>                          
                                                 </div>
@@ -123,7 +126,7 @@
                                 <?php else: ?>
                                     <div class="card-body">
                                         <h6 class= "font-weight-bold text-dark">Lengkapi Biodata terlebih dahulu sebelum mengunggah dokumen!</h6>
-                                        <a href="/tokoh-agama/biodata" class="btn btn-primary">Lengkapi Disini</a>
+                                        <a href="/rumah-ibadah/biodata" class="btn btn-primary">Lengkapi Disini</a>
                                     </div>
                                 <?php endif?>        
                                 </form>
