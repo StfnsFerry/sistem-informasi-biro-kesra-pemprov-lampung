@@ -6,32 +6,32 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Rumah Ibadah dan Pondok Pesantren</h1>
+        <h1 class="h3 mb-0 text-gray-800">Guru Ngaji, Imam Masjid, dan Marbot</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
 
     <div class="row">
-        <div class="col-xl-4 col-md-12 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="alert alert-warning mb-4" role="alert">
-                                <i class="bi bi-exclamation-triangle-fill"></i>
-                                Segera periksa kelengkapan berkas pendaftar baru untuk dilakukan verifikasi!
+        <div class="col-xl-4">
+            <div class="row">
+                <div class="col-xl-12 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
+                                        Pendaftar Baru</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100 Pendaftar</div>
+                                    <a href="/admin/rumah-ibadah/pendaftar" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-plus fa-2x text-gray-300"></i>
+                                </div>
                             </div>
-                            <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
-                                Pendaftar Baru</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">100 Pendaftar</div>
-                            <a href="/admin/rumah-ibadah/pendaftar" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                         </div>
-                        <div class="col-auto">
-                            <!-- <i class="fas fa-user-plus fa-2x text-gray-300"></i> -->
-                        </div>
-                    </div>
+                    </div>            
                 </div>
-            </div>            
+            </div>
         </div>
 
         <div class="col-xl-8">
@@ -90,59 +90,6 @@
                     </div>
                 </div>
 
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Pondok Pesantren</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">60 Unit</div>
-                                    <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-home fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                        TPA/TPQ</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">50 Unit</div>
-                                    <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-home fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-warning shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                        Pura</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100 Unit</div>
-                                    <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-gopuram fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
