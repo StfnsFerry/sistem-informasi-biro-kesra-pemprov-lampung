@@ -6,7 +6,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Rumah Ibadah dan Pondok Pesantren</h1>
+        <h1 class="h3 mb-0 text-gray-800">Hafidz dan Hafidzah</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
@@ -17,17 +17,13 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="alert alert-warning mb-4" role="alert">
-                                <i class="bi bi-exclamation-triangle-fill"></i>
-                                Segera periksa kelengkapan berkas pendaftar baru untuk dilakukan verifikasi!
-                            </div>
                             <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
                                 Pendaftar Baru</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">100 Pendaftar</div>
                             <a href="/admin/rumah-ibadah/pendaftar" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                         </div>
                         <div class="col-auto">
-                            <!-- <i class="fas fa-user-plus fa-2x text-gray-300"></i> -->
+                            <i class="fas fa-user-plus fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -42,12 +38,12 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Masjid</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">60 Unit</div>
-                                    <a href="/admin/rumah-ibadah/masjid" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
+                                        5 Juz</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">40 Orang</div>
+                                    <a href="/admin/tahfidzul-quran/lima-juz" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-mosque fa-2x text-gray-300"></i>
+                                    <i class="fas fa-5 fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -60,12 +56,13 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                        Musholla</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">50 Unit</div>
+                                        10 Juz</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">46 Orang</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-mosque fa-2x text-gray-300"></i>
+                                    <i class="fas fa-1 fa-2x text-gray-300"></i>
+                                    <i class="fas fa-0 fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -78,12 +75,13 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                        Gereja</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">70 Unit</div>
+                                        20 Juz</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">24 Orang</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-church fa-2x text-gray-300"></i>
+                                    <i class="fas fa-2 fa-2x text-gray-300"></i>
+                                    <i class="fas fa-0 fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -96,12 +94,13 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Pondok Pesantren</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">60 Unit</div>
+                                        30 Juz</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">12 Orang</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-home fa-2x text-gray-300"></i>
+                                    <i class="fas fa-3 fa-2x text-gray-300"></i>
+                                    <i class="fas fa-0 fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -114,12 +113,12 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                        TPA/TPQ</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">50 Unit</div>
+                                        Hafidz</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">150 Orang</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-home fa-2x text-gray-300"></i>
+                                    <i class="fas fa-person fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -132,12 +131,12 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                        Pura</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100 Unit</div>
+                                        Hafidzah</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100 Orang</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-gopuram fa-2x text-gray-300"></i>
+                                    <i class="fas fa-person-dress fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -271,3 +270,6 @@
 <!-- /.container-fluid -->
 
 <?= $this->endSection() ?>
+
+
+            

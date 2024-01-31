@@ -16,4 +16,14 @@ class AdminController extends BaseController
     {
         return view('dashboard-admin/rumah-ibadah/index');
     }
+
+    public function viewTahfidzulQuran()
+    {
+        return view('dashboard-admin/tahfidzul-quran/index');
+    }
+
+    public function viewTokohAgama()
+    {
+        return view('dashboard-admin/tokoh-agama/index');
+    }
 }

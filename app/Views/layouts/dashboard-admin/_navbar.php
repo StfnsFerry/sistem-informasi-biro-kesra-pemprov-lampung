@@ -37,11 +37,27 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">List Program:</h6>
-            <a class="collapse-item" href="/admin/rumahibadah">Rumah Ibadah</a>
-            <a class="collapse-item" href="cards.html">Tahfidzul Qur'an</a>
-            <a class="collapse-item" href="cards.html">Tokoh Agama</a>
+            <a class="collapse-item" href="/admin/rumah-ibadah">Rumah Ibadah</a>
+            <a class="collapse-item" href="/admin/tahfidzul-quran">Tahfidzul Qur'an</a>
+            <a class="collapse-item" href="/admin/tokoh-agama">Tokoh Agama</a>
         </div>
     </div>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider d-none d-md-block">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    Akun
+</div>
+
+<!-- Nav Item - Charts -->
+<li class="nav-item">  
+    <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+        <i class="fas fa-sign-out-alt fa-fw "></i>
+        <span>Logout</span>
+    </a>
 </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
