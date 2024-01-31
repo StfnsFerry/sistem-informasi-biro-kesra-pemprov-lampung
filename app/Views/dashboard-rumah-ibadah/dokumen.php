@@ -22,6 +22,8 @@
                                             <?php if($biodata != NULL) : ?>
                                                 <?php if($biodata[0]['dokumen_persyaratan'] == NULL): ?>
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">Unggah Dokumen sebelum melakukan pendaftaran</div>
+                                                <?php elseif($biodata[0]['jenis_bangunan'] == 'Pondok Pesantren' && $biodata[0]['no_sk_pembentukan'] == '') : ?>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Silahkan isi Nomor SK Pembentukan terlebih dahulu!</div>  
                                                 <?php elseif($biodata[0]['status_pendaftaran'] != NULL) : ?>
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $biodata[0]['status_pendaftaran']?></div>  
                                                 <?php elseif($biodata[0]['nama_ketua'] == NULL): ?>
@@ -39,6 +41,8 @@
                                                     </button>
                                                     <?php elseif($biodata[0]['dokumen_persyaratan'] == NULL): ?>
                                                         <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah Dokumen</a>
+                                                    <?php elseif($biodata[0]['jenis_bangunan'] == 'Pondok Pesantren' && $biodata[0]['no_sk_pembentukan'] == NULL): ?>
+                                                        <a href="/rumah-ibadah/biodata" class="btn btn-danger">Lengkapi No SK</a>
                                                     <?php elseif($biodata[0]['nama_ketua'] == NULL): ?>
                                                         <a href="/rumah-ibadah/biodata" class="btn btn-danger">Lengkapi Biodata</a>
                                                     <?php else: ?>             

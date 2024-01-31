@@ -4,15 +4,18 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\PendaftarRumahIbadahModel;
+use App\Models\VerifikasiRumahIbadahModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class RumahIbadahController extends BaseController
 {
     public $pendaftarModel;
+    public $verifikasiModel;
 
     public function __construct()
     {
         $this->pendaftarModel = new PendaftarRumahIbadahModel();
+        $this->verifikasiModel = new VerifikasiRumahIbadahModel();
     }
     
     
@@ -178,6 +181,52 @@ class RumahIbadahController extends BaseController
         }
 
         return redirect()->to(base_url('/rumah-ibadah/dokumen'));
+
+    }
+
+    public function viewStatusPendaftaran()
+    {
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+        
+        $data = [
+            'biodata' => $biodata,
+        ];
+
+        return view('dashboard-rumah-ibadah/status_pendaftaran', $data);
+    }
+
+    public function viewProfil()
+    {
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+        
+        $data = [
+            'biodata' => $biodata,
+        ];
+
+        return view('dashboard-rumah-ibadah/profil', $data);
+    }
+
+    public function createVerifikasi()
+    {
+        $id = $this->request->getVar('id_biodata');
+        $id_pendaftar = $this->request->getVar('id_pendaftar');
+
+        $data = [
+            'id_biodata' => $id,
+            'id_pendaftar' => $id_pendaftar,        
+        ];
+
+        $this->verifikasiModel->saveVerifikasi($data);
+
+        $status = [
+            'status_pendaftaran' => 'Sedang Diverifikasi',
+        ];
+   
+        $this->pendaftarModel->updateBiodata($status,$id);
+
+        return redirect()->to(base_url('/rumah-ibadah/biodata'));
 
     }
 

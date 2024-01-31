@@ -322,6 +322,7 @@ return array(
     'CodeIgniter\\Test\\FeatureTestTrait' => $vendorDir . '/codeigniter4/framework/system/Test/FeatureTestTrait.php',
     'CodeIgniter\\Test\\FilterTestTrait' => $vendorDir . '/codeigniter4/framework/system/Test/FilterTestTrait.php',
     'CodeIgniter\\Test\\Filters\\CITestStreamFilter' => $vendorDir . '/codeigniter4/framework/system/Test/Filters/CITestStreamFilter.php',
+    'CodeIgniter\\Test\\IniTestTrait' => $vendorDir . '/codeigniter4/framework/system/Test/IniTestTrait.php',
     'CodeIgniter\\Test\\Interfaces\\FabricatorModel' => $vendorDir . '/codeigniter4/framework/system/Test/Interfaces/FabricatorModel.php',
     'CodeIgniter\\Test\\Mock\\MockAppConfig' => $vendorDir . '/codeigniter4/framework/system/Test/Mock/MockAppConfig.php',
     'CodeIgniter\\Test\\Mock\\MockAutoload' => $vendorDir . '/codeigniter4/framework/system/Test/Mock/MockAutoload.php',

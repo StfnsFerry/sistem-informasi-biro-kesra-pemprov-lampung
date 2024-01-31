@@ -237,6 +237,13 @@ class TokohAgamaController extends BaseController
 
     public function viewProfil()
     {
-        return view('dashboard-tokoh-agama/profil');
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+
+        $data = [
+            'biodata' => $biodata,
+        ];
+
+        return view('dashboard-tokoh-agama/profil', $data);
     }
 }

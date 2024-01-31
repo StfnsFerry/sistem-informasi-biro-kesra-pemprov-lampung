@@ -88,7 +88,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <form action="/tokoh-agama/verifikasi" method="POST">
+                    <form action="/rumah-ibadah/verifikasi" method="POST">
                         <?php if($biodata != null):?>
                             <input type="hidden" value="<?= $biodata[0]['id']?>" name="id_biodata">
                             <input type="hidden" value="<?= user()->id?>" name="id_pendaftar">  
