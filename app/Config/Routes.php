@@ -24,7 +24,7 @@ $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Adm
 $routes->get('/admin/rumah-ibadah', [AdminController::class, 'viewRumahIbadah'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
-$routes->get('/admin/rumah-ibadah/pendaftar/verifikasi', [RumahIbadahController::class, 'viewVerifikasi'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumah-ibadah/pendaftar/verifikasi/(:any)', [RumahIbadahController::class, 'viewVerifikasi/$1'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/tahfidzul-quran', [AdminController::class, 'viewTahfidzulQuran'], ['filter' => 'role:Admin']);
 

@@ -55,8 +55,22 @@ class PendaftarRumahIbadahModel extends Model
             ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
             ->where('id_user', $id)->find();
         }
-        return $this->select('pendaftar_rumah_ibadah.*')->findAll();
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->findAll();
     
+    }
+
+    public function getDetailBiodata($id){
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->find($id);
     }
     public function updateBiodata($data, $id){
         return $this->update($id,$data);

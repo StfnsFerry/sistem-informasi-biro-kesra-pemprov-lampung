@@ -34,14 +34,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php 
+                                                    $no = 1;
+                                                    foreach ($pendaftar as $masjid):
+                                                    
+                                                        if($masjid['status_pendaftaran'] == 'Sedang Diverifikasi' && $masjid['verifikasi_data'] == 'Belum Lengkap') :
+                                                    ?>
                                                 <tr>
-                                                    <td>1.</td>
-                                                    <td>Masjid Al-Huda</td>
-                                                    <td>Kampung Bumi Jaya Kecamatan Negara Batin</td>
-                                                    <td>Way Kanan</td>
-                                                    <td>Rp 15.000.000</td>
+                                                    <td><?= $no++?></td>
+                                                    <td><?= $masjid['nama_bangunan']?></td>
+                                                    <td><?= $masjid['alamat_bangunan']?></td>
+                                                    <td><?= $masjid['kabupaten_kota']?></td>
+                                                    <td>-</td>
                                                     <td>                                                  
-                                                        <a href="<?= base_url('/admin/rumah-ibadah/pendaftar/verifikasi') ?>" class="btn btn-secondary btn-icon-split">
+                                                        <a href="<?= base_url('/admin/rumah-ibadah/pendaftar/verifikasi/' . $masjid['id']) ?>" class="btn btn-secondary btn-icon-split">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-arrow-right"></i>
                                                             </span>
@@ -49,21 +55,10 @@
                                                         </a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2.</td>
-                                                    <td>Masjid Nurul Huda</td>
-                                                    <td>Jl. Sultan Badaruddin</td>
-                                                    <td>Bandar Lampung</td>
-                                                    <td>Rp 15.000.000</td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-secondary btn-icon-split">
-                                                            <span class="icon text-white-50">
-                                                                <i class="fas fa-arrow-right"></i>
-                                                            </span>
-                                                            <span class="text">Verifikasi</span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                <?php 
+                                                    endif;
+                                                    endforeach; 
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -97,19 +92,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1.</td>
-                                                    <td>Masjid Al-Huda</td>
-                                                    <td>Kampung Bumi Jaya Kecamatan Negara Batin</td>
-                                                    <td>Way Kanan</td>
-                                                    <td>Rp 15.000.000</td>
-                                                    <td>                                                  
-                                                        <a href="#" class="btn btn-warning btn-icon-split">
-                                                            <span class="icon text-white-50">
-                                                                <i class="fas fa-exclamation-triangle"></i>
-                                                            </span>
-                                                            <span class="text">Ubah Verifikasi</span>
-                                                        </a>
-                                                    </td>
+                                                    
                                                 </tr>
                                                 <tr>
                                                     <td>2.</td>
