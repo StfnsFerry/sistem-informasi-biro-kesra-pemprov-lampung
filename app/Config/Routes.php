@@ -45,6 +45,9 @@ $routes->post('/rumah-ibadah/biodata/simpan', [RumahIbadahController::class, 'sa
 $routes->post('/rumah-ibadah/biodata/update', [RumahIbadahController::class, 'updateBiodata']);
 $routes->get('/rumah-ibadah/dokumen', [RumahIbadahController::class, 'viewDokumen']);
 $routes->post('/rumah-ibadah/dokumen/simpan', [RumahIbadahController::class, 'saveDokumen']);
+$routes->get('/rumah-ibadah/status-pendaftaran', [RumahIbadahController::class, 'viewStatusPendaftaran']);
+$routes->get('/rumah-ibadah/profil', [RumahIbadahController::class, 'viewProfil']);
+$routes->post('/rumah-ibadah/verifikasi', [RumahIbadahController::class, 'createVerifikasi']);
 
 $routes->post('/updateProfil', [ProfilController::class, 'updateProfil']);
 
