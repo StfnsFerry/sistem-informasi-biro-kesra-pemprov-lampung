@@ -25,7 +25,7 @@
                     <div class="mb-3">
                         <label for="dokumen" class="form-label">Preview File: </label>
                     </div>
-                    <embed src="" width="100%" height="500" type="application/pdf">
+                    <embed src="<?= base_url($biodata['dokumen_persyaratan'])?>" width="100%" height="500" type="application/pdf">
                 </div>
             </div>
                     
@@ -38,44 +38,40 @@
                     <table class="table table-borderless">
                         <tbody>
                             <tr>
+                                <td>NIK Ketua</td>
+                                <td>:</td>
+                                <td><h6 class="font-weight-bold text-dark"><?= $biodata['nik_ketua']?></h6></td>
+                            </tr>
+                            <tr>
+                                <td>NPWP Ketua</td>
+                                <td>:</td>
+                                <td><h6 class="font-weight-bold text-dark"><?= $biodata['npwp']?></h6></td>
+                            </tr>
+                            <tr>
                                 <td>Nama Lengkap</td>
                                 <td>:</td>
-                                <td><h6 class="font-weight-bold text-dark">Stefanus Ferry Susanto</h6></td>
+                                <td><h6 class="font-weight-bold text-dark"><?= $biodata['nama_ketua']?></h6></td>
                             </tr>
                             <tr>
                                 <td>Tempat/Tanggal Lahir</td>
                                 <td>:</td>
-                                <td><h6 class="font-weight-bold text-dark">Tanjung Karang, 05/02/2003</h6></td>
+                                <td><h6 class="font-weight-bold text-dark"><?= $biodata['tempat_lahir']?>, <?= $biodata['tanggal_lahir']?></h6></td>
                             </tr>
                             <tr>
                                 <td>Jenis Kelamin</td>
                                 <td>:</td>
-                                <td><h6 class="font-weight-bold text-dark">Laki-Laki</h6></td>
+                                <td><h6 class="font-weight-bold text-dark"><?= $biodata['jenis_kelamin']?></h6></td>
                             </tr>
+                           
                             <tr>
-                                <td>Pekerjaan</td>
+                                <td>No. Telepon/Hp</td>
                                 <td>:</td>
-                                <td><h6 class="font-weight-bold text-dark">Pegawai Negeri Sipil</h6></td>
-                            </tr>
-                            <tr>
-                                <td>Jumlah Murid</td>
-                                <td>:</td>
-                                <td><h6 class="font-weight-bold text-dark">100</h6></td>
-                            </tr>
-                            <tr>
-                                <td>No. Telepon/HP</td>
-                                <td>:</td>
-                                <td><h6 class="font-weight-bold text-dark">082187945165</h6></td>
+                                <td><h6 class="font-weight-bold text-dark"><?= $biodata['telepon']?></h6></td>
                             </tr>
                             <tr>
                                 <td>Alamat</td>
                                 <td>:</td>
-                                <td><h6 class="font-weight-bold text-dark">Perumahan Permata Biru, Sukarame, Bandar Lampung</h6></td>
-                            </tr>
-                            <tr>
-                                <td>Foto Pribadi</td>
-                                <td>:</td>
-                                <td></td>
+                                <td><h6 class="font-weight-bold text-dark"><?= $biodata['alamat']?></h6></td>
                             </tr>
                         </tbody>
                     </table>
@@ -98,12 +94,12 @@
                                 <tr>
                                     <td>No. Rekening</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">8917625920</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['nomor_rekening']?></h6></td>
                                 </tr>
                                 <tr>
                                     <td>Nama Pemilik Rekening</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">Stefanus Ferry Susanto</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['nama_pemilik_rekening']?></h6></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -120,44 +116,44 @@
                         <table class="table table-borderless">
                             <tbody>
                                 <tr>
-                                    <td>Profesi</td>
+                                    <td>Jenis Bangunan</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">Imam Masjid</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['jenis_bangunan']?></h6></td>
                                 </tr>
                                 <tr>
-                                    <td>Nama Tempat Tugas</td>
+                                    <td>Nama Bangunan</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">Masjid Taqwa</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['nama_bangunan']?></h6></td>
                                 </tr>
                                 <tr>
-                                    <td>No. Telepon/HP Tempat Tugas</td>
+                                    <td>No. Telepon/HP Bangunan</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">085276538907</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['telepon_bangunan']?></h6></td>
                                 </tr>
                                 <tr>
-                                    <td>Alamat Tempat Tugas</td>
+                                    <td>Alamat Bangunan</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">Jl. Permata Biru No. 128 Sukarame</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['alamat_bangunan']?></h6></td>
                                 </tr>
                                 <tr>
                                     <td>Provinsi</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">LAMPUNG</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['provinsi']?></h6></td>
                                 </tr>
                                 <tr>
                                     <td>Kabupaten/Kota</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">KOTA BANDAR LAMPUNG</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['kabupaten_kota']?></h6></td>
                                 </tr>
                                 <tr>
                                     <td>Kecamatan</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">SUKARAME</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['kecamatan']?></h6></td>
                                 </tr>
                                 <tr>
                                     <td>Kelurahan</td>
                                     <td>:</td>
-                                    <td><h6 class="font-weight-bold text-dark">SUKARAME</h6></td>
+                                    <td><h6 class="font-weight-bold text-dark"><?= $biodata['kelurahan']?></h6></td>
                                 </tr>
                             </tbody>
                         </table>

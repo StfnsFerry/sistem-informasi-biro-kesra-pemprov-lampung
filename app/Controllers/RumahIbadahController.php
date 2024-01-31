@@ -31,12 +31,23 @@ class RumahIbadahController extends BaseController
 
     public function viewPendaftar()
     {
-        return view('dashboard-admin/rumah-ibadah/pendaftar-page');
+        $biodata = $this->pendaftarModel->getBiodata();
+
+        $data = [
+            'pendaftar' => $biodata,
+        ];
+
+        return view('dashboard-admin/rumah-ibadah/pendaftar-page', $data);
     }
     
-    public function viewVerifikasi()
-    {
-        return view('dashboard-admin/rumah-ibadah/verifikasi-page');
+    public function viewVerifikasi($id)
+    {      
+        $biodata = $this->pendaftarModel->getDetailBiodata($id);
+
+        $data =[
+            'biodata' => $biodata,
+        ];
+        return view('dashboard-admin/rumah-ibadah/verifikasi-page', $data);
     }
 
     //User
