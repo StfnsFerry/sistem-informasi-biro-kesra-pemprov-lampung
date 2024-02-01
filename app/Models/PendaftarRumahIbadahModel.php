@@ -75,4 +75,44 @@ class PendaftarRumahIbadahModel extends Model
     public function updateBiodata($data, $id){
         return $this->update($id,$data);
     }
+
+    public function countPendaftar(){
+        return $this->where('status_pendaftaran', 'Sedang Diverifikasi')->countAllResults();
+    }
+
+    public function countGereja(){
+        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Gereja')->countAllResults();
+    }
+
+    public function countMasjid(){
+        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Masjid')->countAllResults();
+    }
+
+    public function countMusholla(){
+        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Musholla')->countAllResults();
+    }
+
+    public function countPondokPesantren(){
+        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Pondok Pesantren')->countAllResults();
+    }
+
+    public function countTPA_TPQ(){
+        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','TPA')->where('jenis_bangunan','TPQ')->countAllResults();
+    }
+
+    public function countPura(){
+        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Pura')->countAllResults();
+    }
+
+    public function getPendaftarMasjid(){
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->where('status_pendaftaran', 'Sudah Diverifikasi')
+            ->where('jenis_bangunan', 'Masjid')
+            ->findAll();
+    }
+
 }

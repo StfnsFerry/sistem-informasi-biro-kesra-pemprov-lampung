@@ -23,7 +23,7 @@
                             </div>
                             <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
                                 Pendaftar Baru</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">100 Pendaftar</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$jumlah_pendaftar?> Pendaftar</div>
                             <a href="/admin/rumah-ibadah/pendaftar" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                         </div>
                         <div class="col-auto">
@@ -43,7 +43,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         Masjid</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">60 Unit</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$jumlah_masjid?> Unit</div>
                                     <a href="/admin/rumah-ibadah/masjid" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
@@ -61,7 +61,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         Musholla</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">50 Unit</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$jumlah_musholla?> Unit</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
@@ -79,7 +79,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                         Gereja</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">70 Unit</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlah_gereja?> Unit</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
@@ -97,7 +97,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         Pondok Pesantren</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">60 Unit</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$jumlah_pondokpesantren?> Unit</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
@@ -115,7 +115,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         TPA/TPQ</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">50 Unit</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$jumlah_tpa_tpq?> Unit</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
@@ -133,7 +133,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                         Pura</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100 Unit</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlah_pura?> Unit</div>
                                     <a href="" class="text-xs mb-0 fw-500 text-dark">Lihat selengkapnya</a>
                                 </div>
                                 <div class="col-auto">
@@ -239,26 +239,25 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Nama</th>
+                                    <th>Jenis Bangunan</th>
                                     <th>Alamat</th>
                                     <th>Kab/Kota</th>
                                     <th>Jumlah Rekomendasi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                $no=1;
+                                foreach($biodata as $list) : ?>
                                 <tr>
-                                    <td>1.</td>
-                                    <td>Pondok Pesantren Amin Jabal Qubbah</td>
-                                    <td>Kampung Bumi Jaya Kecamatan Negara Batin</td>
-                                    <td>Way Kanan</td>
-                                    <td>Rp 25.000.000</td>
+                                    <td><?= $no++?></td>
+                                    <td><?= $list['nama_bangunan']?></td>
+                                    <td><?= $list['jenis_bangunan']?></td>
+                                    <td><?= $list['alamat_bangunan']?></td>
+                                    <td><?= $list['kabupaten_kota']?></td>
+                                    <td>-</td>
                                 </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Masjid Nurul Huda</td>
-                                    <td>Jl. Sultan Badaruddin</td>
-                                    <td>Bandar Lampung</td>
-                                    <td>Rp 10.000.000</td>
-                                </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

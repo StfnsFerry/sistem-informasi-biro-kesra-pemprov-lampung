@@ -26,28 +26,83 @@ class RumahIbadahController extends BaseController
 
     public function viewMasjid()
     {
-        return view('dashboard-admin/rumah-ibadah/masjid-page');
+        $biodata = $this->pendaftarModel->getPendaftarMasjid();
+
+        $data = [
+            'masjid' => $biodata,      
+        ];
+
+        return view('dashboard-admin/rumah-ibadah/masjid-page', $data);
     }
 
     public function viewPendaftar()
     {
         $biodata = $this->pendaftarModel->getBiodata();
+        $verifikasi = $this->verifikasiModel->getVerifikasi();
 
         $data = [
             'pendaftar' => $biodata,
+            'verifikasi' => $verifikasi,
         ];
 
+       
+        
         return view('dashboard-admin/rumah-ibadah/pendaftar-page', $data);
     }
     
     public function viewVerifikasi($id)
     {      
         $biodata = $this->pendaftarModel->getDetailBiodata($id);
+        $verifikasi = $this->verifikasiModel->getDetailVerifikasi($id);
 
         $data =[
             'biodata' => $biodata,
+            'verifikasi' => $verifikasi,
         ];
+
+    
         return view('dashboard-admin/rumah-ibadah/verifikasi-page', $data);
+    }
+
+    public function updateVerifikasi(){
+
+        $data = [
+            'id_pemeriksa' => $this->request->getVar('id_pemeriksa'),
+            'permohonan_pamong' => $this->request->getVar('permohonan_pamong'),
+            'susunan_pengurus' => $this->request->getVar('susunan_pengurus'),
+            'rab' => $this->request->getVar('rab'),
+            'foto_bangunan' => $this->request->getVar('foto_bangunan'),
+            'izin_operasional' => $this->request->getVar('izin_operasional'),
+            'ktp' => $this->request->getVar('ktp'),
+            'fc_rekening' => $this->request->getVar('fc_rekening'),
+            'npwp' => $this->request->getVar('npwp'),
+            'stempel' => $this->request->getVar('stempel'),
+            'surat_keterangan_domisili' => $this->request->getVar('surat_keterangan_domisili'),
+            'lain_lain' => $this->request->getVar('lain_lain'),
+            'keterangan' => $this->request->getVar('keterangan'),
+        ];
+
+        $id = $this->request->getVar('id_verifikasi');
+        $result = $this->verifikasiModel->updateVerifikasi($data, $id);
+
+        $ket = $this->request->getVar('keterangan');
+        $keterangan = [
+            'verifikasi_data' => $ket,
+        ];
+
+        if($ket == 'Data Lengkap'){
+            $keterangan['status_pendaftaran'] = 'Sudah Diverifikasi';
+        }
+
+        $id_biodata = $this->request->getVar('id_biodata');
+        $result = $this->pendaftarModel->updateBiodata($keterangan, $id_biodata);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->to('/admin/rumah-ibadah/pendaftar');
     }
 
     //User
@@ -66,7 +121,14 @@ class RumahIbadahController extends BaseController
 
     public function createBiodata()
     {
-        return view('dashboard-rumah-ibadah/tambah_biodata');
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+
+        $data = [
+            'biodata' => $biodata,
+        ];
+
+        return view('dashboard-rumah-ibadah/tambah_biodata',$data);
     }
 
     public function editBiodata()
