@@ -34,12 +34,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php 
+                                                $no = 1;
+                                                foreach ($masjid as $list) : ?>
                                                 <tr>
-                                                    <td>1.</td>
-                                                    <td>Masjid Al-Huda</td>
-                                                    <td>Kampung Bumi Jaya Kecamatan Negara Batin</td>
-                                                    <td>Way Kanan</td>
-                                                    <td>Rp 15.000.000</td>
+                                                    <td><?=$no++?></td>
+                                                    <td><?=$list['nama_bangunan']?></td>
+                                                    <td><?=$list['alamat_bangunan']?></td>
+                                                    <td><?=$list['kabupaten_kota']?></td>
+                                                    <td>-</td>
                                                     <td>                                                  
                                                         <a href="#" class="btn btn-info btn-icon-split">
                                                             <span class="icon text-white-50">
@@ -49,21 +52,8 @@
                                                         </a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2.</td>
-                                                    <td>Masjid Nurul Huda</td>
-                                                    <td>Jl. Sultan Badaruddin</td>
-                                                    <td>Bandar Lampung</td>
-                                                    <td>Rp 15.000.000</td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-info btn-icon-split">
-                                                            <span class="icon text-white-50">
-                                                                <i class="fas fa-info-circle"></i>
-                                                            </span>
-                                                            <span class="text">Detail</span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                <?php 
+                                            endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
