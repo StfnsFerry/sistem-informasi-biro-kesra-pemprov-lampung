@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Pendaftar Kategori Masjid Program Hibah Rumah Ibadah dan Pondok Pesantren</h1>
+        <h1 class="h3 mb-0 text-gray-800">Data Pendaftar Kategori Gereja Program Hibah Rumah Ibadah dan Pondok Pesantren</h1>
     </div>
 
     <div class="row">
@@ -12,7 +12,7 @@
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">List Bangunan Masjid</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">List Bangunan Gereja</h6>
                 </div>
 
                 <div class="card-body">
@@ -29,15 +29,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                                $no = 1;
-                                foreach ($masjid as $list) : ?>
                                 <tr>
-                                    <td><?=$no++?></td>
-                                    <td><?=$list['nama_bangunan']?></td>
-                                    <td><?=$list['alamat_bangunan']?></td>
-                                    <td><?=$list['kabupaten_kota']?></td>
-                                    <td>-</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td>                                                  
                                         <a href="#" class="btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
@@ -47,8 +44,6 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <?php 
-                            endforeach; ?>
                             </tbody>
                         </table>
                     </div>

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace DoctrineTest\InstantiatorTestAsset;
 
 use BadMethodCallException;
@@ -34,7 +32,7 @@ class SimpleSerializableAsset implements Serializable
      *
      * @throws BadMethodCallException
      */
-    public function unserialize(string $serialized): void
+    public function unserialize($serialized): void
     {
         throw new BadMethodCallException('Not supposed to be called!');
     }
@@ -46,7 +44,7 @@ class SimpleSerializableAsset implements Serializable
     }
 
     /** @param mixed[] $data */
-    public function __unserialize(array $data): void
+    public function __unserialize($data): void
     {
         throw new BadMethodCallException('Not supposed to be called!');
     }
