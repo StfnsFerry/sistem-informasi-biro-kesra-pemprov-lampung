@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace DoctrineTest\InstantiatorPerformance;
 
 use ArrayObject;
@@ -19,7 +17,8 @@ use PhpBench\Benchmark\Metadata\Annotations\Revs;
  */
 class InstantiatorPerformanceBench
 {
-    private Instantiator $instantiator;
+    /** @var Instantiator */
+    private $instantiator;
 
     public function init(): void
     {

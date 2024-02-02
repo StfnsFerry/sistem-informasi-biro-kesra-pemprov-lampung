@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace DoctrineTest\InstantiatorTest\Exception;
 
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
@@ -36,7 +34,7 @@ class InvalidArgumentExceptionTest extends TestCase
 
         self::assertSame(
             sprintf('The provided type "%s" is a trait, and cannot be instantiated', SimpleTraitAsset::class),
-            $exception->getMessage(),
+            $exception->getMessage()
         );
     }
 
@@ -47,9 +45,9 @@ class InvalidArgumentExceptionTest extends TestCase
         self::assertSame(
             sprintf(
                 'The provided type "%s" is an interface, and cannot be instantiated',
-                InstantiatorInterface::class,
+                InstantiatorInterface::class
             ),
-            $exception->getMessage(),
+            $exception->getMessage()
         );
     }
 
@@ -61,9 +59,9 @@ class InvalidArgumentExceptionTest extends TestCase
         self::assertSame(
             sprintf(
                 'The provided class "%s" is abstract, and cannot be instantiated',
-                AbstractClassAsset::class,
+                AbstractClassAsset::class
             ),
-            $exception->getMessage(),
+            $exception->getMessage()
         );
     }
 }
