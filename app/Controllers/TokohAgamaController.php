@@ -33,6 +33,26 @@ class TokohAgamaController extends BaseController
         return view('dashboard-tokoh-agama/index', $data);
     }
 
+    public function viewPendaftar()
+    {
+        return view('dashboard-admin/tokoh-agama/pendaftar-page');
+    }
+
+    public function viewGuruNgaji()
+    {
+        return view('dashboard-admin/tokoh-agama/gurungaji-page');
+    }
+
+    public function viewImamMasjid()
+    {
+        return view('dashboard-admin/tokoh-agama/imammasjid-page');
+    }
+
+    public function viewMarbot()
+    {
+        return view('dashboard-admin/tokoh-agama/marbot-page');
+    }
+
     public function viewBiodata()
     {
         $id = user()->id;
