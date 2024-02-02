@@ -3,6 +3,7 @@
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
 use App\Controllers\RumahIbadahController;
+use App\Controllers\TahfidzulQuranController;
 use App\Controllers\TokohAgamaController;
 use App\Controllers\ProfilController;
 use Myth\Auth\Config\Auth as AuthConfig;
@@ -33,8 +34,17 @@ $routes->get('/admin/rumah-ibadah/pendaftar/verifikasi/(:any)', [RumahIbadahCont
 $routes->post('/admin/rumah-ibadah/updateVerifikasi', [RumahIbadahController::class, 'updateVerifikasi'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/tahfidzul-quran', [AdminController::class, 'viewTahfidzulQuran'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tahfidzul-quran/pendaftar', [TahfidzulQuranController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tahfidzul-quran/lima-juz', [TahfidzulQuranController::class, 'viewLimaJuz'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tahfidzul-quran/sepuluh-juz', [TahfidzulQuranController::class, 'viewSepuluhJuz'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tahfidzul-quran/duapuluh-juz', [TahfidzulQuranController::class, 'viewDuaPuluhJuz'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tahfidzul-quran/tigapuluh-juz', [TahfidzulQuranController::class, 'viewTigaPuluhJuz'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/tokoh-agama', [AdminController::class, 'viewTokohAgama'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tokoh-agama/pendaftar', [TokohAgamaController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tokoh-agama/guru-ngaji', [TokohAgamaController::class, 'viewGuruNgaji'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tokoh-agama/imam-masjid', [TokohAgamaController::class, 'viewImamMasjid'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tokoh-agama/marbot', [TokohAgamaController::class, 'viewMarbot'], ['filter' => 'role:Admin']);
 
 // $routes->get('/tokoh-agama', [TokohAgamaController::class, 'index']);
 $routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata']);
