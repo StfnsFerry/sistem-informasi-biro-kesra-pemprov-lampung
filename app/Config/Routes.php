@@ -26,6 +26,8 @@ $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewM
 $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/pendaftar/verifikasi/(:any)', [RumahIbadahController::class, 'viewVerifikasi/$1'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/updateVerifikasi', [RumahIbadahController::class, 'updateVerifikasi'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumah-ibadah/masjid/detail/(:any)', [RumahIbadahController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/masjid/terima-pendaftaran', [RumahIbadahController::class, 'TerimaPendaftaran'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/tahfidzul-quran', [AdminController::class, 'viewTahfidzulQuran'], ['filter' => 'role:Admin']);
 

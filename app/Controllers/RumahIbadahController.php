@@ -64,6 +64,19 @@ class RumahIbadahController extends BaseController
         return view('dashboard-admin/rumah-ibadah/verifikasi-page', $data);
     }
 
+    public function viewDetail($id)
+    {      
+        $biodata = $this->pendaftarModel->getDetailBiodata($id);
+        $verifikasi = $this->verifikasiModel->getDetailVerifikasi($id);
+
+        $data =[
+            'biodata' => $biodata,
+            'verifikasi' => $verifikasi,
+        ];
+
+        return view('dashboard-admin/rumah-ibadah/detail-page', $data);
+    }
+
     public function updateVerifikasi(){
 
         $data = [
@@ -103,6 +116,24 @@ class RumahIbadahController extends BaseController
         }
 
         return redirect()->to('/admin/rumah-ibadah/pendaftar');
+    }
+
+    public function TerimaPendaftaran()
+    {
+        $id = $this->request->getVar('id_biodata');
+        $data = [
+            'jumlah_rekomendasi' => $this->request->getVar('jumlah_rekomendasi'),
+            'status_pendaftaran' => 'Pendaftaran Diterima',
+        ];
+
+        $result = $this->pendaftarModel->updateBiodata($id,$data);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->to(base_url('/admin/rumah-ibadah/masjid'));
     }
 
     //User
@@ -302,5 +333,7 @@ class RumahIbadahController extends BaseController
         return redirect()->to(base_url('/rumah-ibadah/biodata'));
 
     }
+
+    
 
 }

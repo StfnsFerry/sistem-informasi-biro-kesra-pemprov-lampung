@@ -42,9 +42,13 @@
                                                     <td><?=$list['nama_bangunan']?></td>
                                                     <td><?=$list['alamat_bangunan']?></td>
                                                     <td><?=$list['kabupaten_kota']?></td>
-                                                    <td>-</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#JumlahRekomendasiModal<?=$list['id']?>">
+                                                            Launch demo modal
+                                                        </button>
+                                                    </td>
                                                     <td>                                                  
-                                                        <a href="#" class="btn btn-info btn-icon-split">
+                                                        <a href="<?= base_url('/admin/rumah-ibadah/masjid/detail/' . $list['id'])?>" class="btn btn-info btn-icon-split">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-info-circle"></i>
                                                             </span>
@@ -52,6 +56,25 @@
                                                         </a>
                                                     </td>
                                                 </tr>
+                                                    
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="JumlahRekomendasiModal<?=$list['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Jumlah Rekomendasi</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 <?php 
                                             endforeach; ?>
                                             </tbody>
