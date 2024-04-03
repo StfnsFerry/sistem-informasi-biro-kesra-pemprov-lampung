@@ -44,6 +44,22 @@
     </div>
 </li>
 
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#arsipProgram"
+        aria-expanded="true" aria-controls="arsipProgram">
+        <i class="fas fa-fw fa-archive"></i>
+        <span>Arsip</span>
+    </a>
+    <div id="arsipProgram" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">List Program:</h6>
+            <a class="collapse-item" href="/admin/arsip/rumah-ibadah">Rumah Ibadah</a>
+            <a class="collapse-item" href="/admin/tahfidzul-quran">Tahfidzul Qur'an</a>
+            <a class="collapse-item" href="/admin/tokoh-agama">Tokoh Agama</a>
+        </div>
+    </div>
+</li>
+
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 
@@ -51,6 +67,25 @@
 <div class="sidebar-heading">
     Akun
 </div>
+
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kelolaAkun"
+    aria-expanded="true" aria-controls="collapseTwo">
+    <i class="fas fa-fw fa-users" ></i>
+    <span>Kelola Akun</span>
+</a>
+<div id="kelolaAkun" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">List User:</h6>
+        <?php if(in_groups('Admin')): ?>
+            <a class="collapse-item" href="/admin/sub-admin">Sub-Admin</a>
+            <?php endif; ?>
+            <a class="collapse-item" href="/admin/pendaftar">Pendaftar</a>
+        </div>
+    </div>
+</li>
+
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">  

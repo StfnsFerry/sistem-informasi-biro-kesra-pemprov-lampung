@@ -146,12 +146,13 @@ class RumahIbadahController extends BaseController
     public function TerimaPendaftaran()
     {
         $id = $this->request->getVar('id_biodata');
+        $jumlah_rekomendasi = $this->request->getVar('jumlah_rekomendasi');
         $data = [
-            'jumlah_rekomendasi' => $this->request->getVar('jumlah_rekomendasi'),
+            'jumlah_rekomendasi' => $jumlah_rekomendasi,
             'status_pendaftaran' => 'Pendaftaran Diterima',
         ];
 
-        $result = $this->pendaftarModel->updateBiodata($id,$data);
+        $result = $this->pendaftarModel->updateBiodata($data,$id);
 
         if(!$result){
             return redirect()->back()->withInput()

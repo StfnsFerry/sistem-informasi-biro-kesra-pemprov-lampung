@@ -49,6 +49,7 @@ class Auth extends \Myth\Auth\Config\Auth
         'login'                   => 'login',
         'logout'                  => 'logout',
         'register'                => 'register',
+        'registerSubAdmin'        => 'registerSubAdmin',
         'activate-account'        => 'activate-account',
         'resend-activate-account' => 'resend-activate-account',
         'forgot'                  => 'forgot',
@@ -74,12 +75,13 @@ class Auth extends \Myth\Auth\Config\Auth
      * @var array
      */
     public $views = [
-        'login'           => 'App\Views\Auth\login',
-        'register'        => 'App\Views\Auth\register',
-        'forgot'          => 'App\Views\Auth\forgot',
-        'reset'           => 'App\Views\Auth\reset',
-        'emailForgot'     => 'App\Views\Auth\emails\forgot',
-        'emailActivation' => 'App\Views\Auth\emails\activation',
+        'login'             => 'App\Views\Auth\login',
+        'register'          => 'App\Views\Auth\register',
+        'registerSubAdmin'  => 'App\Views\dashboard-admin\sub-admin/index',
+        'forgot'            => 'App\Views\Auth\forgot',
+        'reset'             => 'App\Views\Auth\reset',
+        'emailForgot'       => 'App\Views\Auth\emails\forgot',
+        'emailActivation'   => 'App\Views\Auth\emails\activation',
     ];
 
     /**

@@ -6,8 +6,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Penerimaan/Penolakan Pendaftar Hibah Rumah Ibadah dan Pondok Pesantren</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        
     </div>
     
     <!-- Content Row -->
@@ -246,9 +245,11 @@
                 </div>
             </div>
 
-            <div class="card-body d-flex justify-content-end"> 
+            <div class="card-body d-flex justify-content-end">
+                <?php if($biodata['status_pendaftaran'] == 'Sudah Diverifikasi'):?> 
                 <button type="button" class="btn btn-success shadow-sm me-2" data-bs-toggle="modal" data-bs-target="#diterimaModal">Terima</button>
                 <button type="button" class="btn btn-danger shadow-sm" data-bs-toggle="modal" data-bs-target="#ditolakModal">Tolak</button>
+                <?php endif;?>
             </div>
                     
         </div>
@@ -264,9 +265,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <label class="form-label">Pilih atau Isi Jumlah Rekomendasi :</label>
+                <label class="form-label">Isi atau Pilih Jumlah Rekomendasi :</label>
                 <form action="<?=base_url('admin/rumah-ibadah/masjid/terima-pendaftaran')?>" method="POST">
                     <div class="mb-3">
+                        <input type="number" class="form-control" name="jumlah_rekomendasi" placeholder="Isi Jumlah Rekomendasi">
+                    </div>  
+                    <div class="mb-3">  
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="jumlah_rekomendasi" id="inlineRadio1" value="10000000">
                             <label class="form-check-label" for="inlineRadio1">Rp 10.000.000</label>
@@ -280,9 +284,7 @@
                             <label class="form-check-label" for="inlineRadio3">Rp 25.000.000</label>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <input type="number" class="form-control" name="jumlah_rekomendasi" value="-" placeholder="Isi Jumlah Rekomendasi">
-                    </div>  
+                  
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id_biodata" value="<?=$biodata['id']?>">

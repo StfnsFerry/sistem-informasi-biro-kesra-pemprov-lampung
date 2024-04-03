@@ -5,13 +5,17 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\PendaftarRumahIbadahModel;
+use App\Models\SubAdminModel;
 
 class AdminController extends BaseController
 {
     public $pendaftarModel;
+    public $subadminModel;
 
     public function __construct(){
         $this->pendaftarModel = new PendaftarRumahIbadahModel();
+        $this->subadminModel = new SubAdminModel();
+
     }
     public function index()
     {
@@ -44,5 +48,27 @@ class AdminController extends BaseController
     public function viewTokohAgama()
     {
         return view('dashboard-admin/tokoh-agama/index');
+    }
+
+    public function viewSubAdmin()
+    {
+        $subadmin = $this->subadminModel->getSubAdmin();
+
+        $data = [
+            'subadmin' => $subadmin,
+        ];
+
+        return view('dashboard-admin/sub-admin/index', $data);
+    }
+
+    public function viewPendaftar()
+    {
+        $pendaftar = $this->subadminModel->getPendaftar();
+
+        $data = [
+            'pendaftar' => $pendaftar,
+        ];
+
+        return view('dashboard-admin/pendaftar/index', $data);
     }
 }

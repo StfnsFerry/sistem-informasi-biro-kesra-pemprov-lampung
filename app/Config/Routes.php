@@ -6,6 +6,9 @@ use App\Controllers\RumahIbadahController;
 use App\Controllers\TahfidzulQuranController;
 use App\Controllers\TokohAgamaController;
 use App\Controllers\ProfilController;
+use App\Controllers\AuthController;
+use App\Controllers\SubAdminController;
+use App\Controllers\ArsipController;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Config\Auth;
 
@@ -21,7 +24,7 @@ $routes->get('/program3', 'Home::prog3');
 $routes->get('/profil', 'Home::viewProfil');
 $routes->get('/pendaftaran', 'Home::viewPendaftaran');
 
-$routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Admin']);
+$routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:Admin,Sub-Admin']);
 $routes->get('/admin/rumah-ibadah', [AdminController::class, 'viewRumahIbadah'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/masjid', [RumahIbadahController::class, 'viewMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/musholla', [RumahIbadahController::class, 'viewMusholla'], ['filter' => 'role:Admin']);
@@ -47,6 +50,18 @@ $routes->get('/admin/tokoh-agama/pendaftar', [TokohAgamaController::class, 'view
 $routes->get('/admin/tokoh-agama/guru-ngaji', [TokohAgamaController::class, 'viewGuruNgaji'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/imam-masjid', [TokohAgamaController::class, 'viewImamMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/marbot', [TokohAgamaController::class, 'viewMarbot'], ['filter' => 'role:Admin']);
+
+$routes->get('/admin/sub-admin', [AdminController::class, 'viewSubAdmin'], ['filter' => 'role:Admin']);
+$routes->post('/admin/sub-admin/register', [AuthController::class, 'registerSubAdmin'], ['filter' => 'role:Admin']);
+$routes->post('/admin/sub-admin/update', [SubAdminController::class, 'updateProfil'], ['filter' => 'role:Admin']);
+$routes->get('/admin/sub-admin/delete/(:any)', [SubAdminController::class, 'deleteAkun/$1'], ['filter' => 'role:Admin']);
+
+$routes->get('/admin/pendaftar', [AdminController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+
+$routes->get('/admin/arsip/rumah-ibadah', [ArsipController::class, 'index'], ['filter' => 'role:Admin']);
+$routes->post('/admin/arsip/tambah-arsip', [ArsipController::class, 'saveArsip'], ['filter' => 'role:Admin']);
+$routes->get('/admin/arsip/delete/(:any)', [ArsipController::class, 'deleteArsip/$1'], ['filter' => 'role:Admin']);
+
 
 // $routes->get('/tokoh-agama', [TokohAgamaController::class, 'index']);
 $routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata']);
