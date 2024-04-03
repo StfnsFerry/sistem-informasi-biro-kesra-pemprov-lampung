@@ -9,6 +9,8 @@ class Home extends BaseController
      if (logged_in()) {
         if (in_groups('Admin')) {
             return redirect()->to(base_url('/admin'));
+        }else if(in_groups('Sub-Admin')){
+            return redirect()->to(base_url('/admin'));
         }
         else{
             return view('Landing-Page/landing-page');

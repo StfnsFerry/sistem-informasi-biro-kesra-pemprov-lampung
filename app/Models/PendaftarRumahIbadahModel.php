@@ -14,7 +14,7 @@ class PendaftarRumahIbadahModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['id_user','nik_ketua','npwp','nama_ketua','tempat_lahir','tanggal_lahir','jenis_kelamin','telepon', 'alamat',
     'nomor_rekening', 'nama_pemilik_rekening','jenis_bangunan','nama_bangunan', 'telepon_bangunan','alamat_bangunan','no_sk_pembentukan',
-    'id_provinsi', 'id_kabupaten_kota','id_kecamatan','id_kelurahan','verifikasi_data','status_pendaftaran','dokumen_persyaratan'];
+    'id_provinsi', 'id_kabupaten_kota','id_kecamatan','id_kelurahan','verifikasi_data','jumlah_rekomendasi','status_pendaftaran','dokumen_persyaratan'];
 
     // Dates
     protected $useTimestamps = true;
@@ -110,7 +110,6 @@ class PendaftarRumahIbadahModel extends Model
             ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
             ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
             ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
-            ->where('status_pendaftaran', 'Sudah Diverifikasi')
             ->where('jenis_bangunan', 'Masjid')
             ->findAll();
     }
