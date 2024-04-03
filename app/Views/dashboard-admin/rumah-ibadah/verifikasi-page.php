@@ -3,20 +3,14 @@
 
 <div class="container-fluid">
 
-    <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Verifikasi Pendaftar Hibah Rumah Ibadah dan Pondok Pesantren</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <h1 class="h3 mb-0 text-gray-800">Verifikasi Pendaftar Program Hibah Rumah Ibadah dan Pondok Pesantren</h1>
     </div>
     
-    <!-- Content Row -->
     <div class="row">
-
-        <!-- Content Column -->
         <div class="col-lg-6 mb-4">
-
             <div class="card shadow mb-4">
+
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">File Dokumen</h6>
                 </div>
@@ -27,9 +21,11 @@
                     </div>
                     <embed src="<?= base_url($biodata['dokumen_persyaratan'])?>" width="100%" height="500" type="application/pdf">
                 </div>
+
             </div>
                     
             <div class="card shadow mb-4">
+
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Data Pribadi</h6>
                 </div>
@@ -76,12 +72,15 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
                     
             <div class="card shadow mb-4">
+
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Data Rekening Bank</h6>
                 </div>
+
                 <div class="card-body">
                     <div class="mb-3">
                         <table class="table table-borderless">
@@ -105,12 +104,15 @@
                         </table>
                     </div>                        
                 </div>
+
             </div>  
             
             <div class="card shadow mb-4">
+
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Data Tempat Bertugas</h6>
                 </div>
+
                 <div class="card-body">
                     <div class="mb-3">
                         <table class="table table-borderless">
@@ -159,18 +161,20 @@
                         </table>
                     </div>
                 </div>
+
             </div>
             
         </div>
         
-        <!-- Content Column -->
         <div class="col-lg-6 mb-4">
             <form action="<?= base_url('/admin/rumah-ibadah/updateVerifikasi')?>" method="POST">
-                <!-- Project Card Example -->
+
                 <div class="card shadow mb-4">
+                    
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">List Verifikasi</h6>
-                    </div>       
+                    </div>
+
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item">
@@ -309,6 +313,7 @@
 
                         <?php endforeach; ?>
                     </div>
+
                 </div>
 
                 <div class="card-body d-flex justify-content-end">
@@ -317,9 +322,11 @@
                     <input type="hidden" name="id_verifikasi" value="<?= $verifikasi[0]['id']?>">
                     <button type="submit" class="btn btn-primary shadow-sm">Verifikasi Data</button>
                 </div>
+
             </form>         
         </div>
-    </div>     
+    </div> 
+        
 </div>
 
 <?= $this->endSection() ?>

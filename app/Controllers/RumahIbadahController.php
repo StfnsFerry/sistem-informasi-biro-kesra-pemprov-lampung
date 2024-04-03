@@ -35,6 +35,31 @@ class RumahIbadahController extends BaseController
         return view('dashboard-admin/rumah-ibadah/masjid-page', $data);
     }
 
+    public function viewMusholla()
+    {
+        return view('dashboard-admin/rumah-ibadah/musholla-page');
+    }
+
+    public function viewGereja()
+    {
+        return view('dashboard-admin/rumah-ibadah/gereja-page');
+    }
+
+    public function viewPondokPesantren()
+    {
+        return view('dashboard-admin/rumah-ibadah/pondokpesantren-page');
+    }
+
+    public function viewTpaTpq()
+    {
+        return view('dashboard-admin/rumah-ibadah/tpatpq-page');
+    }
+
+    public function viewPura()
+    {
+        return view('dashboard-admin/rumah-ibadah/pura-page');
+    }
+
     public function viewPendaftar()
     {
         $biodata = $this->pendaftarModel->getBiodata();

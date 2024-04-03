@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace DoctrineTest\InstantiatorTest\Exception;
 
 use Doctrine\Instantiator\Exception\UnexpectedValueException;
@@ -29,7 +27,7 @@ class UnexpectedValueExceptionTest extends TestCase
         self::assertSame(
             'An exception was raised while trying to instantiate an instance of "'
             . self::class . '" via un-serialization',
-            $exception->getMessage(),
+            $exception->getMessage()
         );
     }
 
@@ -42,9 +40,9 @@ class UnexpectedValueExceptionTest extends TestCase
             sprintf(
                 'Could not produce an instance of "%s" '
                 . 'via un-serialization, since an error was triggered in file "bar" at line "456"',
-                AbstractClassAsset::class,
+                AbstractClassAsset::class
             ),
-            $exception->getMessage(),
+            $exception->getMessage()
         );
 
         $previous = $exception->getPrevious();
