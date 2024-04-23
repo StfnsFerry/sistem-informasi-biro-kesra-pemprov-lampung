@@ -13,12 +13,12 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex justify-content-between align-items-center">
                         <h6 class="m-0 font-weight-bold text-primary">List Pendaftar</h6>
-                        <button class="btn btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#tambahAkun">
+                        <!-- <button class="btn btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#tambahAkun">
                             <span class="icon text-white-50">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="text">Tambah Pendaftar</span>
-                        </button>
+                        </button> -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -62,7 +62,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Akun Sub-Admin</h1>
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Data Pendaftar</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">

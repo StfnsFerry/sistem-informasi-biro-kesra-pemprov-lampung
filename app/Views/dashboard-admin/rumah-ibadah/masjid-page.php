@@ -108,7 +108,7 @@
                                             Rp <?= number_format($diterima['jumlah_rekomendasi'],0,',','.');?>
                                         </td>
                                         <td>                                                  
-                                            <a href="<?= base_url('/admin/rumah-ibadah/masjid/detail/' . $diterima['id'])?>" class="btn btn-info btn-icon-split">
+                                            <a href="<?= base_url('/admin/rumah-ibadah/masjid/detail/' . $diterima['id'])?>" class="btn btn-info btn-icon-split mb-2">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-info-circle"></i>
                                                 </span>

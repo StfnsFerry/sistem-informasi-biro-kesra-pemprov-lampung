@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Biro Kesejahteraan Rakyat - Forgot Password</title>
+    <title>Biro Kesejahteraan Rakyat - Lupa Kata Sandi</title>
     <link rel="icon" href="<?=base_url('assets/img/logo_pemprov.png')?>">
 
     <!-- Custom fonts for this template-->
@@ -41,9 +41,8 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
-                                        <p class="mb-4">We get it, stuff happens. Just enter your email address below
-                                            and we'll send you a link to reset your password!</p>
+                                        <h1 class="h4 text-gray-900 mb-2">Lupa Kata Sandi?</h1>
+                                        <p class="mb-4">Masukkan alamat email yang Anda gunakan dan kami akan mengirimkan Anda tautan untuk mengatur ulang kata sandi.</p>
                                     </div>
 
                                     <?= view('App\Views\Auth\_message_block') ?>
@@ -53,21 +52,21 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"
                                                  name="email" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Masukkan Alamat Email...">
                                             <div class="invalid-feedback">
                                                 <?= session('errors.email') ?>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Reset Password
+                                            Atur Ulang Kata Sandi
                                         </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?=url_to('register')?>">Create an Account!</a>
+                                        <a class="small" href="<?=url_to('register')?>">Buat Akun!</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="<?=url_to('login')?>">Already have an account? Login!</a>
+                                        <a class="small" href="<?=url_to('login')?>">Sudah Memiliki Akun? Masuk!</a>
                                     </div>
                                 </div>
                             </div>

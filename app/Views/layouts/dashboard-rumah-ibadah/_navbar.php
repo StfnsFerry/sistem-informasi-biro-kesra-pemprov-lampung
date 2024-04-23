@@ -60,7 +60,7 @@
 <li class="nav-item">  
     <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt fa-fw "></i>
-        <span>Logout</span>
+        <span>Keluar</span>
     </a>
 </li>
 
@@ -114,7 +114,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
+                        Keluar
                     </a>
                 </div>
             </li>
