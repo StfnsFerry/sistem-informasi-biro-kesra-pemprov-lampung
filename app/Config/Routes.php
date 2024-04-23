@@ -8,6 +8,7 @@ use App\Controllers\TokohAgamaController;
 use App\Controllers\ProfilController;
 use App\Controllers\AuthController;
 use App\Controllers\SubAdminController;
+use App\Controllers\PendaftarController;
 use App\Controllers\ArsipController;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Config\Auth;
@@ -37,6 +38,8 @@ $routes->get('/admin/rumah-ibadah/pendaftar/verifikasi/(:any)', [RumahIbadahCont
 $routes->post('/admin/rumah-ibadah/updateVerifikasi', [RumahIbadahController::class, 'updateVerifikasi'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/masjid/detail/(:any)', [RumahIbadahController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/masjid/terima-pendaftaran', [RumahIbadahController::class, 'TerimaPendaftaran'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/masjid/pencairan', [RumahIbadahController::class, 'ubahStatusPencairan'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/masjid/nota-dinas', [RumahIbadahController::class, 'saveNotaDinas'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/tahfidzul-quran', [AdminController::class, 'viewTahfidzulQuran'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tahfidzul-quran/pendaftar', [TahfidzulQuranController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
@@ -51,16 +54,18 @@ $routes->get('/admin/tokoh-agama/guru-ngaji', [TokohAgamaController::class, 'vie
 $routes->get('/admin/tokoh-agama/imam-masjid', [TokohAgamaController::class, 'viewImamMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/marbot', [TokohAgamaController::class, 'viewMarbot'], ['filter' => 'role:Admin']);
 
-$routes->get('/admin/sub-admin', [AdminController::class, 'viewSubAdmin'], ['filter' => 'role:Admin']);
-$routes->post('/admin/sub-admin/register', [AuthController::class, 'registerSubAdmin'], ['filter' => 'role:Admin']);
-$routes->post('/admin/sub-admin/update', [SubAdminController::class, 'updateProfil'], ['filter' => 'role:Admin']);
-$routes->get('/admin/sub-admin/delete/(:any)', [SubAdminController::class, 'deleteAkun/$1'], ['filter' => 'role:Admin']);
+$routes->get('/admin/sub-admin', [AdminController::class, 'viewSubAdmin']);
+$routes->post('/admin/sub-admin/register', [AuthController::class, 'registerSubAdmin']);
+$routes->post('/admin/sub-admin/(:num)', [SubAdminController::class, 'updateProfil/$1']);
+$routes->delete('/admin/sub-admin/(:num)', [SubAdminController::class, 'deleteAkun/$1']);
 
-$routes->get('/admin/pendaftar', [AdminController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+$routes->get('/admin/pendaftar', [AdminController::class, 'viewPendaftar']);
+$routes->post('/admin/pendaftar/(:num)', [PendaftarController::class, 'updateProfil/$1']);
+$routes->delete('/admin/pendaftar/(:num)', [PendaftarController::class, 'deleteAkun/$1']);
 
-$routes->get('/admin/arsip/rumah-ibadah', [ArsipController::class, 'index'], ['filter' => 'role:Admin']);
-$routes->post('/admin/arsip/tambah-arsip', [ArsipController::class, 'saveArsip'], ['filter' => 'role:Admin']);
-$routes->get('/admin/arsip/delete/(:any)', [ArsipController::class, 'deleteArsip/$1'], ['filter' => 'role:Admin']);
+$routes->get('/admin/arsip/rumah-ibadah', [ArsipController::class, 'index']);
+$routes->post('/admin/arsip/tambah-arsip', [ArsipController::class, 'saveArsip']);
+$routes->delete('/admin/arsip/(:num)', [ArsipController::class, 'deleteArsip/$1']);
 
 $routes->get('/admin/arsip/tahfidzul-quran', [ArsipController::class, 'index'], ['filter' => 'role:Admin']);
 $routes->post('/admin/arsip/tambah-arsip-tahfidzul-quran', [ArsipController::class, 'saveArsip'], ['filter' => 'role:Admin']);
@@ -89,6 +94,8 @@ $routes->post('/rumah-ibadah/biodata/simpan', [RumahIbadahController::class, 'sa
 $routes->post('/rumah-ibadah/biodata/update', [RumahIbadahController::class, 'updateBiodata']);
 $routes->get('/rumah-ibadah/dokumen', [RumahIbadahController::class, 'viewDokumen']);
 $routes->post('/rumah-ibadah/dokumen/simpan', [RumahIbadahController::class, 'saveDokumen']);
+$routes->post('/rumah-ibadah/dokumen/nphd', [RumahIbadahController::class, 'saveDokumenNPHD']);
+$routes->post('/rumah-ibadah/dokumen/lpj', [RumahIbadahController::class, 'saveDokumenLPJ']);
 $routes->get('/rumah-ibadah/status-pendaftaran', [RumahIbadahController::class, 'viewStatusPendaftaran']);
 $routes->get('/rumah-ibadah/profil', [RumahIbadahController::class, 'viewProfil']);
 $routes->post('/rumah-ibadah/verifikasi', [RumahIbadahController::class, 'createVerifikasi']);

@@ -5,7 +5,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Penerimaan/Penolakan Pendaftar Hibah Rumah Ibadah dan Pondok Pesantren</h1>
+        <h1 class="h3 mb-0 text-gray-800">Detail Pendaftar Hibah Rumah Ibadah dan Pondok Pesantren</h1>
         
     </div>
     
@@ -69,9 +69,16 @@
                     <h6 class="m-0 font-weight-bold text-primary">File Dokumen</h6>
                 </div>
 
+                <div class="card-body"> 
+                    <div class="mb-3">
+                        <label for="dokumen" class="form-label">Preview NPHD: </label>
+                    </div>
+                    <embed src="<?=base_url($biodata['dokumen_nphd'])?>" width="100%" height="600" type="application/pdf">
+                </div>
+
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="dokumen" class="form-label">Preview File: </label>
+                        <label for="dokumen" class="form-label">Preview Dokumen Persyaratan: </label>
                     </div>
                     <embed src="<?= base_url($biodata['dokumen_persyaratan'])?>" width="100%" height="500" type="application/pdf">
                 </div>
@@ -244,6 +251,21 @@
                     </div>
                 </div>
             </div>
+            
+            <?php if($biodata['nota_dinas'] != null) : ?>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Nota Dinas</h6>
+                </div>
+
+                <div class="card-body"> 
+                    <div class="mb-3">
+                        <label for="dokumen" class="form-label">Preview Nota Dinas: </label>
+                    </div>
+                    <embed src="<?=base_url($biodata['nota_dinas'])?>" width="100%" height="600" type="application/pdf">
+                </div>
+            </div>
+            <?php endif;?>
 
             <div class="card-body d-flex justify-content-end">
                 <?php if($biodata['status_pendaftaran'] == 'Sudah Diverifikasi'):?> 

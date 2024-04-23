@@ -40,7 +40,12 @@ class ArsipModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getArsipRumahIbadah(){
+    public function getArsipRumahIbadah($id = null){
+        if($id != null){
+            return $this->select('arsip_program.*')
+                    ->where('arsip_program.kategori' , 'Hibah Pondok Pesantren & Rumah Ibadah')
+                    ->find($id);    
+        }
         return $this->select('arsip_program.*')
                     ->where('arsip_program.kategori' , 'Hibah Pondok Pesantren & Rumah Ibadah')
                     ->find();

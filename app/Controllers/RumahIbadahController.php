@@ -303,6 +303,12 @@ class RumahIbadahController extends BaseController
             $data['dokumen_persyaratan'] = $foto_path;
         }
 
+        $dokumen = $this->pendaftarModel->getDokumen($id);
+
+        if($dokumen['dokumen_persyaratan'] != ''){
+            unlink($dokumen['dokumen_persyaratan']);
+        }
+
         $result = $this->pendaftarModel->updateBiodata($data, $id);
 
         if(!$result){
@@ -312,6 +318,106 @@ class RumahIbadahController extends BaseController
 
         return redirect()->to(base_url('/rumah-ibadah/dokumen'));
 
+    }
+
+    public function saveDokumenNPHD()
+    {
+        $id = $this->request->getVar('id_biodata');
+
+        $path = 'assets/uploads/pdf/rumah-ibadah/nphd/';
+
+        $foto = $this->request->getFile('dokumen');
+
+        $number = rand(1,100);
+
+        $name = $number . ' - ' . $foto->getName();
+
+        if($foto->move($path, $name)){
+            $foto_path = $path . $name;
+
+            $data['dokumen_nphd'] = $foto_path;
+        }
+
+        $dokumen = $this->pendaftarModel->getDokumen($id);
+
+        if($dokumen['dokumen_nphd'] != ''){
+            unlink($dokumen['dokumen_nphd']);
+        }
+
+        $result = $this->pendaftarModel->updateBiodata($data, $id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->to(base_url('/rumah-ibadah/dokumen'));
+
+    }
+
+    public function saveDokumenLPJ()
+    {
+        $id = $this->request->getVar('id_biodata');
+
+        $path = 'assets/uploads/pdf/rumah-ibadah/lpj/';
+
+        $foto = $this->request->getFile('dokumen');
+
+        $number = rand(1,100);
+
+        $name = $number . ' - ' . $foto->getName();
+
+        if($foto->move($path, $name)){
+            $foto_path = $path . $name;
+
+            $data['dokumen_lpj'] = $foto_path;
+        }
+
+        $dokumen = $this->pendaftarModel->getDokumen($id);
+
+        if($dokumen['dokumen_lpj'] != ''){
+            unlink($dokumen['dokumen_lpj']);
+        }
+
+        $result = $this->pendaftarModel->updateBiodata($data, $id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->to(base_url('/rumah-ibadah/dokumen'));
+    }
+
+    public function saveNotaDinas()
+    {
+        $id = $this->request->getVar('id_biodata');
+
+        $path = 'assets/uploads/pdf/rumah-ibadah/nota-dinas/';
+
+        $foto = $this->request->getFile('nota_dinas');
+
+        $number = rand(1,100);
+
+        $name = $number . ' - ' . $foto->getName();
+
+        if($foto->move($path, $name)){
+            $foto_path = $path . $name;
+
+            $data = [
+                'nota_dinas' => $foto_path,
+                'status_pendaftaran' => 'Dana Berhasil Ditransfer',
+            ];
+        }
+
+        $result = $this->pendaftarModel->updateBiodata($data, $id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->to(base_url('admin/rumah-ibadah/masjid'));
     }
 
     public function viewStatusPendaftaran()
@@ -359,6 +465,19 @@ class RumahIbadahController extends BaseController
         return redirect()->to(base_url('/rumah-ibadah/biodata'));
 
     }
+
+    public function ubahStatusPencairan() {
+        $id = $this->request->getVar('id_biodata');
+
+        $data =[
+            'status_pendaftaran' => 'Proses Pencairan Dana',
+        ];
+
+        $this->pendaftarModel->updateBiodata($data,$id);
+
+        return redirect()->to(base_url('admin/rumah-ibadah/masjid'));
+    }
+
 
     
 

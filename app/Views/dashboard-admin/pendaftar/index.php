@@ -90,7 +90,7 @@
                                                             <input type="hidden" name="id" value="<?=$list['id']?>">
 
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="nama_lengkap"
+                                                                <input type="text" class="form-control" name="fullname"
                                                                     placeholder="Nama Lengkap"value="<?=$list['fullname']?>">
                                                             </div>
                                                             <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -109,7 +109,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Akun Sub-Admin</h1>
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Akun Pendaftar</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -139,7 +139,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Akun Sub-Admin</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Akun Pendaftar</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -190,7 +190,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary btn-user btn-block">
-                Register Account
+                Tambah Data
             </button>
         </form>
       </div>

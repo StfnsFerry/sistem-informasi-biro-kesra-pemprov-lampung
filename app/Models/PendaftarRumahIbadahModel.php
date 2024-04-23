@@ -14,7 +14,7 @@ class PendaftarRumahIbadahModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['id_user','nik_ketua','npwp','nama_ketua','tempat_lahir','tanggal_lahir','jenis_kelamin','telepon', 'alamat',
     'nomor_rekening', 'nama_pemilik_rekening','jenis_bangunan','nama_bangunan', 'telepon_bangunan','alamat_bangunan','no_sk_pembentukan',
-    'id_provinsi', 'id_kabupaten_kota','id_kecamatan','id_kelurahan','verifikasi_data','jumlah_rekomendasi','status_pendaftaran','dokumen_persyaratan'];
+    'id_provinsi', 'id_kabupaten_kota','id_kecamatan','id_kelurahan','verifikasi_data','jumlah_rekomendasi','status_pendaftaran','dokumen_persyaratan','dokumen_nphd','dokumen_lpj','nota_dinas'];
 
     // Dates
     protected $useTimestamps = true;
@@ -114,4 +114,8 @@ class PendaftarRumahIbadahModel extends Model
             ->findAll();
     }
 
+    public function getDokumen($id){
+            return $this->select('pendaftar_rumah_ibadah.dokumen_persyaratan, pendaftar_rumah_ibadah.dokumen_nphd,pendaftar_rumah_ibadah.dokumen_lpj')
+                        ->find($id);
+    }
 }
