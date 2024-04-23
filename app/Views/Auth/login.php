@@ -73,15 +73,6 @@
                                                     <?= session('errors.password') ?>
                                                 </div>
                                         </div>
-                                        <?php if ($config->allowRemembering): ?>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" name="remember" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <?php endif; ?>
                                                          
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login

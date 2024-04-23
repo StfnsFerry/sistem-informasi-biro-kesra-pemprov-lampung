@@ -4,13 +4,15 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\RESTful\ResourceController;
 use App\Models\PendaftarRumahIbadahModel;
 use App\Models\SubAdminModel;
 
-class AdminController extends BaseController
+class AdminController extends ResourceController
 {
     public $pendaftarModel;
     public $subadminModel;
+    protected $format = 'json'; 
 
     public function __construct(){
         $this->pendaftarModel = new PendaftarRumahIbadahModel();
@@ -55,10 +57,11 @@ class AdminController extends BaseController
         $subadmin = $this->subadminModel->getSubAdmin();
 
         $data = [
+            'message' => 'success',
             'subadmin' => $subadmin,
         ];
-
-        return view('dashboard-admin/sub-admin/index', $data);
+        return $this->respond($data,200);
+        // return view('dashboard-admin/sub-admin/index', $data);
     }
 
     public function viewPendaftar()
@@ -66,9 +69,11 @@ class AdminController extends BaseController
         $pendaftar = $this->subadminModel->getPendaftar();
 
         $data = [
+            'message' => 'success',
             'pendaftar' => $pendaftar,
         ];
 
-        return view('dashboard-admin/pendaftar/index', $data);
+        // return view('dashboard-admin/pendaftar/index', $data);
+        return $this->respond($data,200);
     }
 }

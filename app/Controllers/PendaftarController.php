@@ -6,14 +6,21 @@ use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\SubAdminModel;
 
-class SubAdminController extends ResourceController
+class PendaftarController extends ResourceController
 {
     public $subadminModel;
+    protected $format = 'json';
 
     public function __construct()
     {
         $this->subadminModel = new SubAdminModel();
     }
+
+    /**
+     * Return an array of resource objects, themselves in array format
+     *
+     * @return ResponseInterface
+     */
     public function index()
     {
         //
@@ -61,6 +68,7 @@ class SubAdminController extends ResourceController
     public function deleteAkun($id)
     {
         $result = $this->subadminModel->deleteAkun($id);
+
         if(!$result){
             return redirect()->back()->with('error', 'Gagal menghapus data' );
         }else{

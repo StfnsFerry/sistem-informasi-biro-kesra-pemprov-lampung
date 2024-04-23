@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
+use CodeIgniter\RESTful\ResourceController;
 use App\Models\ArsipModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class ArsipController extends BaseController
+class ArsipController extends ResourceController
 {
     public $arsipModel;
 
@@ -20,13 +20,30 @@ class ArsipController extends BaseController
         $arsip = $this->arsipModel->getArsipRumahIbadah();
 
         $data =[
+            'message' => 'succees',
             'arsip' => $arsip,
         ];
-        return view('dashboard-admin/arsip/rumah-ibadah-arsip', $data);
+        return $this->respond($data,200);
+        // return view('dashboard-admin/arsip/rumah-ibadah-arsip', $data);
     }
 
     public function saveArsip()
     {
+        $rules = $this->validate([
+            'judul_arsip' => 'required',
+            'tahun_arsip' => 'required',
+            'kategori' => 'required',
+            'file' => 'uploaded[file]',
+        ]);
+
+        if(!$rules){
+            $response = [
+                'message' => $this->validator->getErrors(),
+            ];
+            return $this->failValidationErrors($response);
+        }
+
+
         $path = 'assets/uploads/arsip/';
 
         $arsip = $this->request->getFile('file');
@@ -48,20 +65,39 @@ class ArsipController extends BaseController
 
         $result = $this->arsipModel->saveArsip($data);
 
+        $response = [
+            'message' => 'Data Berhasil di tambahkan'
+        ];
+
         if(!$result){
             return redirect()->back()->withInput()
                 ->with('error', 'Gagal menyimpan data' );
+        }else{
+            return $this->respondCreated($response);
         }
 
         return redirect()->back();
     }
 
     public function deleteArsip($id){
-        $result = $this->arsipModel->deleteArsip($id);
-        if(!$result){
-            return redirect()->back()->with('error', 'Gagal menghapus data' );
+
+        $fileDb = $this->arsipModel->getArsipRumahIbadah($id);
+
+        if($fileDb['file'] != ''){
+            unlink($fileDb['file']);
         }
 
+        $result = $this->arsipModel->deleteArsip($id);
+
+        if(!$result){
+            return redirect()->back()->with('error', 'Gagal menghapus data' );
+        }else{
+            $response = [
+                'message' => 'Arsip Berhasil dihapus',
+            ];
+
+            return $this->respondDeleted($response);
+        }
         return redirect()->back()
             ->with('success', 'Berhasil menghapus data');
     }
