@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tokoh Agama - Biro Kesejahteraan Rakyat</title>
+    <title>Tahfidzul Qur'an - Biro Kesejahteraan Rakyat</title>
     <link rel="icon" href="<?=base_url('assets/img/logo_pemprov.png')?>">
 
     <!-- Custom fonts for this template-->
@@ -30,7 +30,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <?= view('App\Views\layouts\dashboard-tokoh-agama\_navbar') ?>
+        <?= view('App\Views\layouts\dashboard-tahfidzul-quran\_navbar') ?>
 
         <?= $this->renderSection('content') ?>
 

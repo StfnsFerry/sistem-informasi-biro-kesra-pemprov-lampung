@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -29,21 +29,21 @@
 
 <!-- Nav Item - Charts -->
 <li class="nav-item active">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama/biodata')?>">
+    <a class="nav-link" href="<?=base_url('/tahfidzul-quran/biodata')?>">
         <i class="fas fa-fw fa-circle-info"></i>
         <span>Biodata</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama/dokumen')?>">
+    <a class="nav-link" href="<?=base_url('/tahfidzul-quran/dokumen')?>">
         <i class="fas fa-fw fa-folder-open"></i>
         <span>Dokumen</span></a>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('/tokoh-agama/status-pendaftaran')?>">
+    <a class="nav-link" href="<?=base_url('/tahfidzul-quran/status-pendaftaran')?>">
         <i class="fas fa-fw fa-list-check"></i>
         <span>Status Pendaftaran</span></a>
 </li>
@@ -93,30 +93,6 @@
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                    aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -130,7 +106,7 @@
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="<?=base_url('/tokoh-agama/profil')?>">
+                    <a class="dropdown-item" href="<?=base_url('/tahfidzul-quran/profil')?>">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profil
                     </a>

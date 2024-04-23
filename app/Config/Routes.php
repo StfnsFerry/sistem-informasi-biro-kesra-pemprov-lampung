@@ -65,6 +65,13 @@ $routes->get('/admin/arsip/rumah-ibadah', [ArsipController::class, 'index']);
 $routes->post('/admin/arsip/tambah-arsip', [ArsipController::class, 'saveArsip']);
 $routes->delete('/admin/arsip/(:num)', [ArsipController::class, 'deleteArsip/$1']);
 
+$routes->get('/admin/arsip/tahfidzul-quran', [ArsipController::class, 'index'], ['filter' => 'role:Admin']);
+$routes->post('/admin/arsip/tambah-arsip-tahfidzul-quran', [ArsipController::class, 'saveArsip'], ['filter' => 'role:Admin']);
+$routes->get('/admin/arsip/delete/(:any)', [ArsipController::class, 'deleteArsip/$1'], ['filter' => 'role:Admin']);
+
+$routes->get('/admin/arsip/tokoh-agama', [ArsipController::class, 'index'], ['filter' => 'role:Admin']);
+$routes->post('/admin/arsip/tambah-arsip-tokoh-agama', [ArsipController::class, 'saveArsip'], ['filter' => 'role:Admin']);
+$routes->get('/admin/arsip/delete/(:any)', [ArsipController::class, 'deleteArsip/$1'], ['filter' => 'role:Admin']);
 
 // $routes->get('/tokoh-agama', [TokohAgamaController::class, 'index']);
 $routes->get('/tokoh-agama/biodata', [TokohAgamaController::class, 'viewBiodata']);

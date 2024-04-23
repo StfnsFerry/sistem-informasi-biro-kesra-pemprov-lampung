@@ -38,7 +38,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Buat Akun!</h1>
                             </div>
                             
                             <form class="user" action="<?= url_to('register') ?>" method="post">
@@ -56,11 +56,11 @@
 
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" name="email"
-                                        placeholder="Email Address" aria-describedby="emailHelp">
+                                        placeholder="Alamat Email" aria-describedby="emailHelp">
                                         <div class="invalid-feedback">
                                             <?= session('errors.email') ?>
                                         </div>
-                                    <small id="emailHelp" class="form-text text-muted"><?=lang('Auth.weNeverShare')?></small>
+                                    <small id="emailHelp" class="form-text text-muted"></small>
                                 </div>
 
                                 <div class="form-group">
@@ -75,26 +75,26 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>"
-                                            name="password" placeholder="Password" autocomplete="off">
+                                            name="password" placeholder="Kata Sandi" autocomplete="off">
                                         <div class="invalid-feedback">
                                             <?= session('errors.password') ?>
                                         </div>    
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>"
-                                        name="pass_confirm" placeholder="Repeat Password" autocomplete="off">
+                                        name="pass_confirm" placeholder="Ulangi Kata Sandi" autocomplete="off">
                                         <div class="invalid-feedback">
                                             <?= session('errors.pass_confirm') ?>
                                         </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Register Account
+                                    Daftar Akun
                                 </button>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="<?= url_to('login') ?>">Already have an account? Login!</a>
+                                <a class="small" href="<?= url_to('login') ?>">Sudah Memiliki Akun? Masuk!</a>
                             </div>
                         </div>
                     </div>
