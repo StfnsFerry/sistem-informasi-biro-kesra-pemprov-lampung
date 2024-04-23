@@ -35,12 +35,18 @@
                                         </div>
                                         <div class="col-auto">
                                             <?php if($biodata != NULL) : ?>
-                                                <?php if($biodata[0]['status_pendaftaran'] != 'Belum Mendaftar') : ?>
+                                                <?php if($biodata[0]['status_pendaftaran'] != 'Belum Mendaftar' && $biodata[0]['dokumen_nphd'] == NULL && $biodata[0]['dokumen_lpj'] == NULL ) : ?>
                                                     <button type="button" class="btn btn-success">
                                                         Berhasil Mendaftar
                                                     </button>
+                                                    <?php elseif($biodata[0]['dokumen_lpj'] != NULL): ?>
+                                                        
                                                     <?php elseif($biodata[0]['dokumen_persyaratan'] == NULL): ?>
                                                         <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah Dokumen</a>
+                                                    <?php elseif($biodata[0]['dokumen_nphd'] == NULL): ?>
+                                                        <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah NPHD</a>
+                                                    <?php elseif($biodata[0]['dokumen_nphd'] != NULL && $biodata[0]['dokumen_lpj'] == NULL): ?>
+                                                        <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah LPJ</a>
                                                     <?php elseif($biodata[0]['jenis_bangunan'] == 'Pondok Pesantren' && $biodata[0]['no_sk_pembentukan'] == NULL): ?>
                                                         <a href="/rumah-ibadah/biodata" class="btn btn-danger">Lengkapi No SK</a>
                                                     <?php elseif($biodata[0]['nama_ketua'] == NULL): ?>
@@ -94,46 +100,134 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">File Dokumen</h6>
                                 </div>
-                                <form action="<?=base_url('rumah-ibadah/dokumen/simpan')?>" method="POST" enctype="multipart/form-data">
-                                <?= csrf_field() ?>
-                                 <?php if($biodata != NULL) : ?>
-                                    <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
-                                    <?php if($biodata[0]['dokumen_persyaratan'] != NULL) : ?>
-                                        <div class="row"> 
-                                            <div class="col-lg-6">
-                                                <div class="card-body"> 
-                                                    <div class="mb-3">
-                                                        <label for="dokumen" class="form-label">Ubah File (PDF)</label>
-                                                        <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
-                                                    </div>                   
-                                                    <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>                          
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="card-body"> 
-                                                    <div class="mb-3">
-                                                        <label for="dokumen" class="form-label">Preview File: </label>
+                                <?php if($biodata != NULL) : ?>
+                                    <?php if($biodata[0]['dokumen_lpj'] != NULL && $biodata[0]['status_pendaftaran'] == 'Dana Berhasil Ditransfer' ) : ?>
+                                        <form action="<?=base_url('rumah-ibadah/dokumen/lpj')?>" method="POST" enctype="multipart/form-data">
+                                        <?= csrf_field() ?>
+                                            <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
+                                            <div class="row"> 
+                                                <div class="col-lg-6">
+                                                    <div class="card-body"> 
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Ubah LPJ (PDF)</label>
+                                                            <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
+                                                        </div>                   
+                                                        <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>                          
                                                     </div>
-                                                    <embed src="<?=base_url($biodata[0]['dokumen_persyaratan'])?>" width="100%" height="600" type="application/pdf">
                                                 </div>
-                                            </div>          
-                                        </div>
-                                    <?php else :?>      
-                                        <div class="card-body"> 
-                                            <div class="mb-3">
-                                                <label for="dokumen" class="form-label">Unggah File (PDF)</label>
-                                                <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
+                                                <div class="col-lg-6">
+                                                    <div class="card-body"> 
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Preview LPJ: </label>
+                                                        </div>
+                                                        <embed src="<?=base_url($biodata[0]['dokumen_lpj'])?>" width="100%" height="600" type="application/pdf">
+                                                    </div>
+                                                </div>          
+                                            </div> 
+                                    <?php elseif($biodata[0]['dokumen_nphd'] != NULL && $biodata[0]['status_pendaftaran'] == "Pendaftaran Diterima") : ?>
+                                        <form action="<?=base_url('rumah-ibadah/dokumen/nphd')?>" method="POST" enctype="multipart/form-data">
+                                        <?= csrf_field() ?>
+                                            <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
+                                            <div class="row"> 
+                                                <div class="col-lg-6">
+                                                    <div class="card-body"> 
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Ubah NPHD (PDF)</label>
+                                                            <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
+                                                        </div>                   
+                                                        <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>                          
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="card-body"> 
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Preview NPHD: </label>
+                                                        </div>
+                                                        <embed src="<?=base_url($biodata[0]['dokumen_nphd'])?>" width="100%" height="600" type="application/pdf">
+                                                    </div>
+                                                </div>          
+                                            </div>  
+                                    <?php elseif($biodata[0]['dokumen_persyaratan'] != NULL && $biodata[0]['status_pendaftaran'] == 'Belum Diverifikasi' || $biodata[0]['status_pendaftaran'] == 'Sedang Diverifikasi' || $biodata[0]['status_pendaftaran'] == 'Sudah Diverifikasi'): ?>
+                                        <form action="<?=base_url('rumah-ibadah/dokumen/simpan')?>" method="POST" enctype="multipart/form-data">
+                                        <?= csrf_field() ?>
+                                            <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
+                                            <div class="row"> 
+                                                <div class="col-lg-6">
+                                                    <div class="card-body"> 
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Ubah File (PDF)</label>
+                                                            <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
+                                                        </div>                   
+                                                        <button class="btn btn-primary shadow-sm">Simpan Dokumen</button>                          
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="card-body"> 
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Preview File: </label>
+                                                        </div>
+                                                        <embed src="<?=base_url($biodata[0]['dokumen_persyaratan'])?>" width="100%" height="600" type="application/pdf">
+                                                    </div>
+                                                </div>          
                                             </div>
-                                            <button type="submit" class="btn btn-primary shadow-sm">Tambah Dokumen</button>
-                                        </div>       
-                                    <?php endif;?>
+                                        </form> 
+                                    <?php else : ?>      
+                                            <div class="card-body">
+                                                <?php if($biodata[0]['dokumen_persyaratan'] == NULL) : ?>
+                                                    <form action="<?=base_url('rumah-ibadah/dokumen/simpan')?>" method="POST" enctype="multipart/form-data"> 
+                                                    <?= csrf_field() ?>
+                                                    <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Unggah File (PDF)</label>
+                                                            <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary shadow-sm">Tambah Dokumen</button>
+                                                    </form>
+                                                <?php elseif($biodata[0]['dokumen_nphd'] == NULL): ?> 
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Template NPHD :</label> <br>
+                                                        <a class="btn btn-success btn-icon-split" href="<?= base_url('assets/file/Template NPHD.docx')?>" download>
+                                                            <span class="icon text-white-50">
+                                                                <i class="fas fa-download"></i>
+                                                            </span>
+                                                            <span class="text">Unduh NPHD</span>
+                                                        </a>
+
+                                                        <a class="btn btn-primary btn-icon-split" href="<?= base_url('assets/file/SURAT PERMOHONAN.docx')?>" download>
+                                                            <span class="icon text-white-50">
+                                                                <i class="fas fa-download"></i>
+                                                            </span>
+                                                            <span class="text">Unduh Surat Permohonan</span>
+                                                        </a>
+                                                    </div>
+                                                    <form action="<?=base_url('rumah-ibadah/dokumen/nphd')?>" method="POST" enctype="multipart/form-data"> 
+                                                        <?= csrf_field() ?>
+                                                        <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Unggah NPHD (PDF)</label>
+                                                            <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary shadow-sm">Tambah Dokumen</button>
+                                                    </form>
+                                                <?php elseif($biodata[0]['dokumen_nphd'] != NULL && $biodata[0]['dokumen_lpj'] == NULL): ?> 
+                                                    <form action="<?=base_url('rumah-ibadah/dokumen/lpj')?>" method="POST" enctype="multipart/form-data"> 
+                                                        <?= csrf_field() ?>
+                                                        <input type="hidden" name="id_biodata" value="<?=$biodata[0]['id']?>">
+                                                        <div class="mb-3">
+                                                            <label for="dokumen" class="form-label">Unggah LPJ (PDF)</label>
+                                                            <input type="file" class="form-control" name="dokumen" accept=".pdf" required>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary shadow-sm">Tambah Dokumen</button>
+                                                    </form>
+                                                <?php endif; ?>    
+                                            </div>   
+                                    <?php endif;?>                 
                                 <?php else: ?>
-                                    <div class="card-body">
-                                        <h6 class= "font-weight-bold text-dark">Lengkapi Biodata terlebih dahulu sebelum mengunggah dokumen!</h6>
-                                        <a href="/rumah-ibadah/biodata" class="btn btn-primary">Lengkapi Disini</a>
-                                    </div>
-                                <?php endif?>        
-                                </form>
+                                        <div class="card-body">
+                                            <h6 class= "font-weight-bold text-dark">Lengkapi Biodata terlebih dahulu sebelum mengunggah dokumen!</h6>
+                                            <a href="/rumah-ibadah/biodata" class="btn btn-primary">Lengkapi Disini</a>
+                                        </div>
+                                <?php endif;?>        
                             </div>           
                         </div>
                                       

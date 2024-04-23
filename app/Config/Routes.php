@@ -38,6 +38,8 @@ $routes->get('/admin/rumah-ibadah/pendaftar/verifikasi/(:any)', [RumahIbadahCont
 $routes->post('/admin/rumah-ibadah/updateVerifikasi', [RumahIbadahController::class, 'updateVerifikasi'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/masjid/detail/(:any)', [RumahIbadahController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/masjid/terima-pendaftaran', [RumahIbadahController::class, 'TerimaPendaftaran'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/masjid/pencairan', [RumahIbadahController::class, 'ubahStatusPencairan'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/masjid/nota-dinas', [RumahIbadahController::class, 'saveNotaDinas'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/tahfidzul-quran', [AdminController::class, 'viewTahfidzulQuran'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tahfidzul-quran/pendaftar', [TahfidzulQuranController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
@@ -92,6 +94,8 @@ $routes->post('/rumah-ibadah/biodata/simpan', [RumahIbadahController::class, 'sa
 $routes->post('/rumah-ibadah/biodata/update', [RumahIbadahController::class, 'updateBiodata']);
 $routes->get('/rumah-ibadah/dokumen', [RumahIbadahController::class, 'viewDokumen']);
 $routes->post('/rumah-ibadah/dokumen/simpan', [RumahIbadahController::class, 'saveDokumen']);
+$routes->post('/rumah-ibadah/dokumen/nphd', [RumahIbadahController::class, 'saveDokumenNPHD']);
+$routes->post('/rumah-ibadah/dokumen/lpj', [RumahIbadahController::class, 'saveDokumenLPJ']);
 $routes->get('/rumah-ibadah/status-pendaftaran', [RumahIbadahController::class, 'viewStatusPendaftaran']);
 $routes->get('/rumah-ibadah/profil', [RumahIbadahController::class, 'viewProfil']);
 $routes->post('/rumah-ibadah/verifikasi', [RumahIbadahController::class, 'createVerifikasi']);
