@@ -91,7 +91,7 @@
                                         Rp <?= number_format($diterima['jumlah_rekomendasi'],0,',','.');?>
                                     </td>
                                     <td> 
-                                        <?php if($diterima['dokumen_nphd'] != NULL): ?>
+                                    <?php if($diterima['dokumen_nphd'] != NULL): ?>
                                             <a href="<?= base_url('/admin/rumah-ibadah/detail/' . $diterima['id'])?>" class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-info-circle"></i>
@@ -99,16 +99,16 @@
                                                 <span class="text">Lihat NPHD</span>
                                             </a>
                                             <?php if($diterima['status_pendaftaran'] == 'Pendaftaran Diterima') : ?>
-                                            <button type="button" class="btn btn-success btn-icon-split" data-bs-toggle="modal" data-bs-target="#UbahStatus<?=$diterima['id']?>">
+                                            <button type="button" class="btn btn-warning btn-icon-split" data-bs-toggle="modal" data-bs-target="#UbahStatus<?=$diterima['id']?>">
                                                 <span class="icon text-white-50">
-                                                    <i class="fas fa-dollar"></i>
+                                                    <i class="fas fa-pen"></i>
                                                 </span>
                                                 <span class="text">Ubah Status</span>
                                             </button>
                                             <?php elseif($diterima['status_pendaftaran'] == 'Proses Pencairan Dana') : ?>
-                                            <button type="button" class="btn btn-success btn-icon-split" data-bs-toggle="modal" data-bs-target="#UnggahNota<?=$diterima['id']?>">
+                                            <button type="button" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#UnggahNota<?=$diterima['id']?>">
                                                 <span class="icon text-white-50">
-                                                    <i class="fas fa-dollar"></i>
+                                                    <i class="fas fa-upload"></i>
                                                 </span>
                                                 <span class="text">Unggah Nota Dinas</span>
                                             </button>
@@ -120,9 +120,9 @@
                                                 </span>
                                                 <span class="text">Detail</span>
                                             </a>
-                                            <button type="button" class="btn btn-success btn-icon-split" data-bs-toggle="modal" data-bs-target="#JumlahRekomendasiModal<?=$diterima['id']?>">
+                                            <button type="button" class="btn btn-warning btn-icon-split" data-bs-toggle="modal" data-bs-target="#JumlahRekomendasiModal<?=$diterima['id']?>">
                                                 <span class="icon text-white-50">
-                                                    <i class="fas fa-dollar"></i>
+                                                    <i class="fas fa-pen"></i>
                                                 </span>
                                                 <span class="text">Ubah</span>
                                             </button>
