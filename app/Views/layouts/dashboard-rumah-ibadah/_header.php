@@ -119,6 +119,7 @@
 
     <!-- Page level custom scripts -->
     <script src="<?= base_url('assets/js/demo/chart-area-demo.js')?>"></script>
+    <script src="<?= base_url('assets/js/demo/chart-bar-demo.js')?>"></script>
     <script src="<?= base_url('assets/js/demo/chart-pie-demo.js')?>"></script>
     <script src="<?= base_url('assets/js/demo/datatables-demo.js')?>"></script>
 

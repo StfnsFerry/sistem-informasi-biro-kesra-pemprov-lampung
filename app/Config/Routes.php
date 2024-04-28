@@ -36,10 +36,11 @@ $routes->get('/admin/rumah-ibadah/pura', [RumahIbadahController::class, 'viewPur
 $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/pendaftar/verifikasi/(:any)', [RumahIbadahController::class, 'viewVerifikasi/$1'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/updateVerifikasi', [RumahIbadahController::class, 'updateVerifikasi'], ['filter' => 'role:Admin']);
-$routes->get('/admin/rumah-ibadah/masjid/detail/(:num)', [RumahIbadahController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
-$routes->post('/admin/rumah-ibadah/masjid/terima-pendaftaran', [RumahIbadahController::class, 'TerimaPendaftaran'], ['filter' => 'role:Admin']);
-$routes->post('/admin/rumah-ibadah/masjid/pencairan', [RumahIbadahController::class, 'ubahStatusPencairan'], ['filter' => 'role:Admin']);
-$routes->post('/admin/rumah-ibadah/masjid/nota-dinas', [RumahIbadahController::class, 'saveNotaDinas'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumah-ibadah/detail/(:num)', [RumahIbadahController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/terima-pendaftaran', [RumahIbadahController::class, 'TerimaPendaftaran'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/tolak-pendaftaran', [RumahIbadahController::class, 'TolakPendaftaran'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/pencairan', [RumahIbadahController::class, 'ubahStatusPencairan'], ['filter' => 'role:Admin']);
+$routes->post('/admin/rumah-ibadah/nota-dinas', [RumahIbadahController::class, 'saveNotaDinas'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/tahfidzul-quran', [AdminController::class, 'viewTahfidzulQuran'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tahfidzul-quran/pendaftar', [TahfidzulQuranController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
@@ -83,8 +84,8 @@ $routes->post('/tokoh-agama/biodata/simpan', [TokohAgamaController::class, 'save
 $routes->post('/tokoh-agama/biodata/update', [TokohAgamaController::class, 'updateBiodata']);
 $routes->get('/tokoh-agama/dokumen', [TokohAgamaController::class, 'viewDokumen']);
 $routes->post('/tokoh-agama/dokumen/simpan', [TokohAgamaController::class, 'saveDokumen']);
-$routes->post('/rumah-ibadah/dokumen/nphd', [TokohAgamaController::class, 'saveDokumenNPHD']);
-$routes->post('/rumah-ibadah/dokumen/lpj', [TokohAgamaController::class, 'saveDokumenLPJ']);
+$routes->post('/tokoh-agama/dokumen/nphd', [TokohAgamaController::class, 'saveDokumenNPHD']);
+$routes->post('/tokoh-agama/dokumen/lpj', [TokohAgamaController::class, 'saveDokumenLPJ']);
 $routes->get('/tokoh-agama/status-pendaftaran', [TokohAgamaController::class, 'viewStatusPendaftaran']);
 $routes->get('/tokoh-agama/profil', [TokohAgamaController::class, 'viewProfil']);
 $routes->post('/tokoh-agama/verifikasi', [TokohAgamaController::class, 'createVerifikasi']);

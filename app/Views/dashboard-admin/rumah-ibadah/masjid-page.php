@@ -38,7 +38,7 @@
                                         <td><?=$list['alamat_bangunan']?></td>
                                         <td><?=$list['kabupaten_kota']?></td>
                                         <td>                                                  
-                                            <a href="<?= base_url('/admin/rumah-ibadah/masjid/detail/' . $list['id'])?>" class="btn btn-info btn-icon-split">
+                                            <a href="<?= base_url('/admin/rumah-ibadah/detail/' . $list['id'])?>" class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-info-circle"></i>
                                                 </span>
@@ -91,7 +91,7 @@
                                         </td>
                                         <td> 
                                             <?php if($diterima['dokumen_nphd'] != NULL): ?>
-                                                <a href="<?= base_url('/admin/rumah-ibadah/masjid/detail/' . $diterima['id'])?>" class="btn btn-info btn-icon-split">
+                                                <a href="<?= base_url('/admin/rumah-ibadah/detail/' . $diterima['id'])?>" class="btn btn-info btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-info-circle"></i>
                                                     </span>
@@ -113,7 +113,7 @@
                                                 </button>
                                                 <?php endif;?>
                                             <?php else: ?>
-                                                <a href="<?= base_url('/admin/rumah-ibadah/masjid/detail/' . $diterima['id'])?>" class="btn btn-info btn-icon-split">
+                                                <a href="<?= base_url('/admin/rumah-ibadah/detail/' . $diterima['id'])?>" class="btn btn-info btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-info-circle"></i>
                                                     </span>
@@ -138,7 +138,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <label class="form-label">Isi atau Pilih Jumlah Rekomendasi :</label>
-                                                        <form action="<?=base_url('admin/rumah-ibadah/masjid/terima-pendaftaran')?>" method="POST">
+                                                        <form action="<?=base_url('admin/rumah-ibadah/terima-pendaftaran')?>" method="POST">
                                                             <div class="mb-3">
                                                                 <input type="number" class="form-control" name="jumlah_rekomendasi" placeholder="Isi Jumlah Rekomendasi">
                                                             </div>  
@@ -176,7 +176,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <label class="form-label">Apakah anda yakin ingin mengubah status menjadi "Proses Pencairan Dana"?</label>
-                                                        <form action="<?=base_url('admin/rumah-ibadah/masjid/pencairan')?>" method="POST"> 
+                                                        <form action="<?=base_url('admin/rumah-ibadah/pencairan')?>" method="POST"> 
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" name="id_biodata" value="<?=$diterima['id']?>">
@@ -197,7 +197,7 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="<?=base_url('admin/rumah-ibadah/masjid/nota-dinas')?>" method="POST" enctype="multipart/form-data">
+                                                        <form action="<?=base_url('admin/rumah-ibadah/nota-dinas')?>" method="POST" enctype="multipart/form-data">
                                                         <?= csrf_field() ?> 
                                                             <label class="form-label">Pilih File: </label>
                                                             <input type="file" class="form-control" name="nota_dinas" accept=".pdf" required>
@@ -230,7 +230,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataVerifikasi" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -256,7 +256,7 @@
                                             Rp <?= number_format($cair['jumlah_rekomendasi'],0,',','.');?>
                                         </td>
                                         <td> 
-                                            <a href="<?= base_url('/admin/rumah-ibadah/masjid/detail/' . $cair['id'])?>" class="btn btn-info btn-icon-split">
+                                            <a href="<?= base_url('/admin/rumah-ibadah/detail/' . $cair['id'])?>" class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-info-circle"></i>
                                                 </span>

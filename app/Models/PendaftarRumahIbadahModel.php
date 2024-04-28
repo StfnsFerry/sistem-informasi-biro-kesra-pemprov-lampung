@@ -81,27 +81,27 @@ class PendaftarRumahIbadahModel extends Model
     }
 
     public function countGereja(){
-        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Gereja')->countAllResults();
+        return $this->where('verifikasi_data', 'Data Lengkap')->where('jenis_bangunan','Gereja')->countAllResults();
     }
 
     public function countMasjid(){
-        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Masjid')->countAllResults();
+        return $this->where('verifikasi_data', 'Data Lengkap')->where('jenis_bangunan','Masjid')->countAllResults();
     }
 
     public function countMusholla(){
-        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Musholla')->countAllResults();
+        return $this->where('verifikasi_data', 'Data Lengkap')->where('jenis_bangunan','Musholla')->countAllResults();
     }
 
     public function countPondokPesantren(){
-        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Pondok Pesantren')->countAllResults();
+        return $this->where('verifikasi_data', 'Data Lengkap')->where('jenis_bangunan','Pondok Pesantren')->countAllResults();
     }
 
     public function countTPA_TPQ(){
-        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','TPA')->where('jenis_bangunan','TPQ')->countAllResults();
+        return $this->where('verifikasi_data', 'Data Lengkap')->where('jenis_bangunan','TPA')->orWhere('jenis_bangunan','TPQ')->countAllResults();
     }
 
     public function countPura(){
-        return $this->where('status_pendaftaran', 'Sudah Diverifikasi')->where('jenis_bangunan','Pura')->countAllResults();
+        return $this->where('verifikasi_data', 'Data Lengkap')->where('jenis_bangunan','Pura')->countAllResults();
     }
 
     public function getPendaftarMasjid(){
@@ -114,8 +114,75 @@ class PendaftarRumahIbadahModel extends Model
             ->findAll();
     }
 
+    public function getPendaftarMusholla(){
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->where('jenis_bangunan', 'Musholla')
+            ->findAll();
+    }
+
+    public function getPendaftarGereja(){
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->where('jenis_bangunan', 'Gereja')
+            ->findAll();
+    }
+
+    public function getPendaftarPonpes(){
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->where('jenis_bangunan', 'Pondok Pesantren')
+            ->findAll();
+    }
+
+    public function getPendaftarTpaTpq(){
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->where('jenis_bangunan', 'TPA')
+            ->orWhere('jenis_bangunan', 'TPQ')
+            ->findAll();
+    }
+
+    public function getPendaftarPura(){
+        return $this->select('pendaftar_rumah_ibadah.*, provinsi.provinsi, kabupaten_kota.kabupaten_kota, kecamatan.kecamatan, kelurahan.kelurahan')
+            ->join('provinsi', 'provinsi.id=pendaftar_rumah_ibadah.id_provinsi')
+            ->join('kabupaten_kota', 'kabupaten_kota.id=pendaftar_rumah_ibadah.id_kabupaten_kota')
+            ->join('kecamatan', 'kecamatan.id=pendaftar_rumah_ibadah.id_kecamatan')
+            ->join('kelurahan', 'kelurahan.id=pendaftar_rumah_ibadah.id_kelurahan')
+            ->where('jenis_bangunan', 'Pura')
+            ->findAll();
+    }
+
     public function getDokumen($id){
             return $this->select('pendaftar_rumah_ibadah.dokumen_persyaratan, pendaftar_rumah_ibadah.dokumen_nphd,pendaftar_rumah_ibadah.dokumen_lpj')
                         ->find($id);
+    }
+
+    public function deleteBiodata($id){
+        return $this->delete($id);
+    }
+
+    public function getJumlahPendaftarperKotaKabupaten(){
+        return $this->db->table('kabupaten_kota')
+        ->select('kabupaten_kota.kabupaten_kota, IFNULL(COUNT(pendaftar_rumah_ibadah.id),0) as jumlah')
+        ->join('pendaftar_rumah_ibadah', 'pendaftar_rumah_ibadah.id_kabupaten_kota = kabupaten_kota.id', 'left')
+        ->where('pendaftar_rumah_ibadah.status_pendaftaran', 'Dana Berhasil Ditransfer')
+        ->groupBy('kabupaten_kota.id, kabupaten_kota.kabupaten_kota')
+        ->get()
+        ->getResultArray();
+
+
     }
 }

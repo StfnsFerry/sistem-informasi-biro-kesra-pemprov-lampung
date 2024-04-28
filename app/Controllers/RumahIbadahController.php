@@ -37,27 +37,56 @@ class RumahIbadahController extends BaseController
 
     public function viewMusholla()
     {
-        return view('dashboard-admin/rumah-ibadah/musholla-page');
+        $biodata = $this->pendaftarModel->getPendaftarMusholla();
+
+        $data = [
+            'musholla' => $biodata,      
+        ];
+
+        return view('dashboard-admin/rumah-ibadah/musholla-page',$data);
     }
 
     public function viewGereja()
     {
-        return view('dashboard-admin/rumah-ibadah/gereja-page');
+        $biodata = $this->pendaftarModel->getPendaftarGereja();
+
+        $data = [
+            'gereja' => $biodata,      
+        ];
+
+        return view('dashboard-admin/rumah-ibadah/gereja-page', $data);
     }
 
     public function viewPondokPesantren()
     {
-        return view('dashboard-admin/rumah-ibadah/pondokpesantren-page');
+        $biodata = $this->pendaftarModel->getPendaftarPonpes();
+
+        $data = [
+            'ponpes' => $biodata,      
+        ];
+
+        return view('dashboard-admin/rumah-ibadah/pondokpesantren-page', $data);
     }
 
     public function viewTpaTpq()
     {
-        return view('dashboard-admin/rumah-ibadah/tpatpq-page');
+        $biodata = $this->pendaftarModel->getPendaftarTpaTpq();
+
+        $data = [
+            'tpatpq' => $biodata,      
+        ];
+        return view('dashboard-admin/rumah-ibadah/tpatpq-page', $data);
     }
 
     public function viewPura()
     {
-        return view('dashboard-admin/rumah-ibadah/pura-page');
+        $biodata = $this->pendaftarModel->getPendaftarPura();
+
+        $data = [
+            'pura' => $biodata,      
+        ];
+
+        return view('dashboard-admin/rumah-ibadah/pura-page', $data);
     }
 
     public function viewPendaftar()
@@ -69,9 +98,7 @@ class RumahIbadahController extends BaseController
             'pendaftar' => $biodata,
             'verifikasi' => $verifikasi,
         ];
-
-       
-        
+     
         return view('dashboard-admin/rumah-ibadah/pendaftar-page', $data);
     }
     
@@ -144,7 +171,12 @@ class RumahIbadahController extends BaseController
     public function TerimaPendaftaran()
     {
         $id = $this->request->getVar('id_biodata');
+
+        $kategori = $this->pendaftarModel->getDetailBiodata($id);
+        $bangunan = $kategori['jenis_bangunan'];
+
         $jumlah_rekomendasi = $this->request->getVar('jumlah_rekomendasi');
+
         $data = [
             'jumlah_rekomendasi' => $jumlah_rekomendasi,
             'status_pendaftaran' => 'Pendaftaran Diterima',
@@ -157,7 +189,62 @@ class RumahIbadahController extends BaseController
                 ->with('error', 'Gagal menyimpan data' );
         }
 
-        return redirect()->to(base_url('/admin/rumah-ibadah/masjid'));
+        if($bangunan == 'Masjid'){
+            return redirect()->to('/admin/rumah-ibadah/masjid');
+        }elseif($bangunan == 'Musholla'){
+            return redirect()->to('/admin/rumah-ibadah/musholla');
+        }elseif($bangunan == 'Gereja'){
+            return redirect()->to('/admin/rumah-ibadah/gereja');
+        }elseif($bangunan == 'TPA'){
+            return redirect()->to('/admin/rumah-ibadah/tpa-tpq');
+        }elseif($bangunan == 'TPQ'){
+            return redirect()->to('/admin/rumah-ibadah/tpa-tpq');
+        }elseif($bangunan == 'Pondok Pesantren'){
+            return redirect()->to('/admin/rumah-ibadah/pondok-pesantren');
+        }elseif($bangunan == 'Pura'){
+            return redirect()->to('/admin/rumah-ibadah/pura');
+        }
+        else{
+            return redirect()->back()->with('success', 'Berhasil menyimpan data' );
+        }
+    }
+
+    public function TolakPendaftaran()
+    {
+        $id = $this->request->getVar('id_biodata');
+
+        $dokumen = $this->pendaftarModel->getDetailBiodata($id);
+
+        $bangunan = $dokumen['jenis_bangunan'];
+
+        if($dokumen['dokumen_persyaratan'] != ''){
+            unlink($dokumen['dokumen_persyaratan']);
+        }
+
+        $result = $this->pendaftarModel->deleteBiodata($id);
+        
+        if(!$result){
+            return redirect()->back()->with('error', 'Gagal menghapus data' );
+        }
+
+        if($bangunan == 'Masjid'){
+            return redirect()->to('/admin/rumah-ibadah/masjid');
+        }elseif($bangunan == 'Musholla'){
+            return redirect()->to('/admin/rumah-ibadah/musholla');
+        }elseif($bangunan == 'Gereja'){
+            return redirect()->to('/admin/rumah-ibadah/gereja');
+        }elseif($bangunan == 'TPA'){
+            return redirect()->to('/admin/rumah-ibadah/tpa-tpq');
+        }elseif($bangunan == 'TPQ'){
+            return redirect()->to('/admin/rumah-ibadah/tpa-tpq');
+        }elseif($bangunan == 'Pondok Pesantren'){
+            return redirect()->to('/admin/rumah-ibadah/pondok-pesantren');
+        }elseif($bangunan == 'Pura'){
+            return redirect()->to('/admin/rumah-ibadah/pura');
+        }
+        else{
+            return redirect()->back()->with('success', 'Berhasil menghapus data' );
+        }
     }
 
     //User
@@ -200,6 +287,18 @@ class RumahIbadahController extends BaseController
 
     public function saveBiodata()
     {
+        $pendaftar_rumah_ibadah = model(PendaftarRumahIbadahModel::class);
+
+        $rules = $this->validate([
+            'nik_ketua' => 'required|is_unique[pendaftar_rumah_ibadah.nik_ketua]',
+            'npwp' => 'required|is_unique[pendaftar_rumah_ibadah.npwp]',
+            'nomor_rekening' => 'required|is_unique[pendaftar_rumah_ibadah.nomor_rekening]',
+        ]);
+
+        if (!$rules) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
         $this->pendaftarModel->saveBiodata([
             'id_user' => $this->request->getVar('id_user'),
             'nik_ketua' => $this->request->getVar('nik_ketua'),
@@ -404,7 +503,7 @@ class RumahIbadahController extends BaseController
                 ->with('error', 'Gagal menyimpan data' );
         }
 
-        return redirect()->to(base_url('admin/rumah-ibadah/masjid'));
+        return redirect()->back()->with('success', 'Data berhasil diubah');
     }
 
     public function viewStatusPendaftaran()
@@ -462,7 +561,7 @@ class RumahIbadahController extends BaseController
 
         $this->pendaftarModel->updateBiodata($data,$id);
 
-        return redirect()->to(base_url('admin/rumah-ibadah/masjid'));
+        return redirect()->back()->with('success', 'Data berhasil diubah');
     }
 
 
