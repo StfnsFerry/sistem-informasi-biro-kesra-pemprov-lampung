@@ -41,6 +41,8 @@ class Home extends BaseController
         return redirect()->to(base_url('/tokoh-agama/biodata'));
     }else if(in_groups('Rumah Ibadah')){
         return redirect()->to(base_url('/rumah-ibadah/biodata'));
+    }else if(in_groups('Tahfidzul Quran')){
+        return redirect()->to(base_url('/tahfidzul-quran/biodata'));
     }else{
         return view('Landing-Page/landing-page');
     }
@@ -52,6 +54,8 @@ class Home extends BaseController
             return redirect()->to(base_url('/tokoh-agama/biodata'));
         }else if(in_groups('Rumah Ibadah')){
             return redirect()->to(base_url('/rumah-ibadah/biodata'));
+        }else if(in_groups('Tahfidzul Quran')){
+            return redirect()->to(base_url('/tahfidzul-quran/biodata'));
         }
     }
    

@@ -78,14 +78,9 @@
                                         </button>
                                     </form>
                                     <hr>
-                                    <?php if ($config->activeResetter): ?>
-                                    <div class="text-center">
-                                        <a class="small" href="<?= url_to('forgot') ?>">Lupa Kata Sandi?</a>
-                                    </div>
-                                    <?php endif; ?>
                                     <?php if ($config->allowRegistration) : ?>
                                     <div class="text-center">
-                                        <a class="small" href="<?= url_to('register') ?>">Buat Akun!</a>
+                                        <a class="small" href="<?= url_to('register') ?>">Belum Punya Akun? Buat Akun!</a>
                                     </div>
                                     <?php endif; ?>
                                 </div>

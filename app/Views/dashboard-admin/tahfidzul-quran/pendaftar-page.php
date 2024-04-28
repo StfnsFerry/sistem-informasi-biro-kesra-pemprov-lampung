@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Pendaftar Baru Program Hibah Tahfidzul Quran</h1>
+        <h1 class="h3 mb-0 text-gray-800">Data Pendaftar Baru Program Hibah Hafidz dan Hafidzah</h1>
     </div>
     
     <div class="row">
