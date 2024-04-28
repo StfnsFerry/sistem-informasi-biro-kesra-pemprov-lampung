@@ -83,9 +83,11 @@ $routes->post('/tokoh-agama/biodata/simpan', [TokohAgamaController::class, 'save
 $routes->post('/tokoh-agama/biodata/update', [TokohAgamaController::class, 'updateBiodata']);
 $routes->get('/tokoh-agama/dokumen', [TokohAgamaController::class, 'viewDokumen']);
 $routes->post('/tokoh-agama/dokumen/simpan', [TokohAgamaController::class, 'saveDokumen']);
-$routes->post('/tokoh-agama/verifikasi', [TokohAgamaController::class, 'createVerifikasi']);
+$routes->post('/rumah-ibadah/dokumen/nphd', [TokohAgamaController::class, 'saveDokumenNPHD']);
+$routes->post('/rumah-ibadah/dokumen/lpj', [TokohAgamaController::class, 'saveDokumenLPJ']);
 $routes->get('/tokoh-agama/status-pendaftaran', [TokohAgamaController::class, 'viewStatusPendaftaran']);
 $routes->get('/tokoh-agama/profil', [TokohAgamaController::class, 'viewProfil']);
+$routes->post('/tokoh-agama/verifikasi', [TokohAgamaController::class, 'createVerifikasi']);
 
 $routes->get('/rumah-ibadah/biodata', [RumahIbadahController::class, 'viewBiodata']);
 $routes->get('/rumah-ibadah/tambah-biodata', [RumahIbadahController::class, 'createBiodata']);
@@ -99,6 +101,19 @@ $routes->post('/rumah-ibadah/dokumen/lpj', [RumahIbadahController::class, 'saveD
 $routes->get('/rumah-ibadah/status-pendaftaran', [RumahIbadahController::class, 'viewStatusPendaftaran']);
 $routes->get('/rumah-ibadah/profil', [RumahIbadahController::class, 'viewProfil']);
 $routes->post('/rumah-ibadah/verifikasi', [RumahIbadahController::class, 'createVerifikasi']);
+
+$routes->get('/tahfidzul-quran/biodata', [TahfidzulQuranController::class, 'viewBiodata']);
+$routes->get('/tahfidzul-quran/tambah-biodata', [TahfidzulQuranController::class, 'createBiodata']);
+$routes->get('/tahfidzul-quran/ubah-biodata', [TahfidzulQuranController::class, 'editBiodata']);
+$routes->post('/tahfidzul-quran/biodata/simpan', [TahfidzulQuranController::class, 'saveBiodata']);
+$routes->post('/tahfidzul-quran/biodata/update', [TahfidzulQuranController::class, 'updateBiodata']);
+$routes->get('/tahfidzul-quran/dokumen', [TahfidzulQuranController::class, 'viewDokumen']);
+$routes->post('/tahfidzul-quran/dokumen/simpan', [TahfidzulQuranController::class, 'saveDokumen']);
+$routes->post('/tahfidzul-quran/dokumen/nphd', [TahfidzulQuranController::class, 'saveDokumenNPHD']);
+$routes->post('/tahfidzul-quran/dokumen/lpj', [TahfidzulQuranController::class, 'saveDokumenLPJ']);
+$routes->get('/tahfidzul-quran/status-pendaftaran', [TahfidzulQuranController::class, 'viewStatusPendaftaran']);
+$routes->get('/tahfidzul-quran/profil', [TahfidzulQuranController::class, 'viewProfil']);
+$routes->post('/tahfidzul-quran/verifikasi', [TahfidzulQuranController::class, 'createVerifikasi']);
 
 $routes->post('/updateProfil', [ProfilController::class, 'updateProfil']);
 

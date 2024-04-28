@@ -23,8 +23,8 @@ class ArsipController extends ResourceController
             'message' => 'succees',
             'arsip' => $arsip,
         ];
-        return $this->respond($data,200);
-        // return view('dashboard-admin/arsip/rumah-ibadah-arsip', $data);
+        // return $this->respond($data,200);
+        return view('dashboard-admin/arsip/rumah-ibadah-arsip', $data);
     }
 
     public function saveArsip()
@@ -70,7 +70,7 @@ class ArsipController extends ResourceController
             return redirect()->back()->withInput()
                 ->with('error', 'Gagal menyimpan data' );
         }else{
-            return $this->respondCreated($response);
+            return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
         }
 
         return redirect()->back();
@@ -93,9 +93,12 @@ class ArsipController extends ResourceController
                 'message' => 'Arsip Berhasil dihapus',
             ];
 
-            return $this->respondDeleted($response);
+            // return $this->respondDeleted($response);
+            return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
+
         }
-        return redirect()->back()
-            ->with('success', 'Berhasil menghapus data');
+        // return redirect()->back()
+        //     ->with('success', 'Berhasil menghapus data');
+        return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
     }
 }

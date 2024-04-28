@@ -9,7 +9,7 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="<?=('/')?>#hero">Beranda</a></li>
+        <li><a class="nav-link scrollto" href="<?=('/')?>#hero">Beranda</a></li>
         <li class="dropdown"><a href="<?= base_url('/')?> #services"><span>Program Bantuan</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="<?= base_url('program1')?>">Pondok Pesantren dan Rumah Ibadah</a></li>
