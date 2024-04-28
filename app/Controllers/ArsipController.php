@@ -45,11 +45,8 @@ class ArsipController extends ResourceController
 
 
         $path = 'assets/uploads/arsip/';
-
         $arsip = $this->request->getFile('file');
-
         $number = rand(1,100);
-
         $name = $number . ' - ' . $arsip->getName();
 
         if($arsip->move($path, $name)){

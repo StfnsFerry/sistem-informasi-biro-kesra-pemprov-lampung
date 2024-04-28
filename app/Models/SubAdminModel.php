@@ -51,7 +51,7 @@ class SubAdminModel extends Model
         return $this->select('users.*')
                     ->join('auth_groups_users','auth_groups_users.user_id = users.id')
                     ->join('auth_groups','auth_groups.id = auth_groups_users.group_id')
-                    ->where('auth_groups_users.group_id','4')
+                    ->where('auth_groups_users.group_id', 4)
                     ->orWhere('auth_groups_users.group_id', 5)
                     ->orWhere('auth_groups_users.group_id', 6)
                     ->findAll();

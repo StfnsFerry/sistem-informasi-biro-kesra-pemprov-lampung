@@ -44,16 +44,16 @@
                                         </div>
                                         <div class="col-auto">
                                             <?php if($biodata != NULL) : ?>
-                                                <?php if($biodata[0]['status_pendaftaran'] != 'Belum Mendaftar'  && $biodata[0]['dokumen_nphd'] == NULL && $biodata[0]['dokumen_lpj'] == NULL ) : ?>
+                                                <?php if($biodata[0]['status_pendaftaran'] != 'Belum Mendaftar'  && $biodata[0]['dokumen_nphd'] == NULL && $biodata[0]['dokumen_lpj'] != NULL ) : ?>
                                                     <button type="button" class="btn btn-success">
                                                         Berhasil Mendaftar
                                                     </button>
-                                                    <?php elseif($biodata[0]['dokumen_lpj'] != NULL): ?>
+                                                    <?php elseif($biodata[0]['dokumen_lpj'] != NULL && $biodata[0]['status_pendaftaran'] != 'Belum Mendaftar'): ?>
                                                     <?php elseif($biodata[0]['dokumen_persyaratan'] == NULL): ?>
                                                         <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah Dokumen</a>
-                                                    <?php elseif($biodata[0]['dokumen_nphd'] == NULL): ?>
+                                                    <?php elseif($biodata[0]['dokumen_nphd'] == NULL && $biodata[0]['status_pendaftaran'] != 'Belum Mendaftar'): ?>
                                                         <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah NPHD</a>
-                                                    <?php elseif($biodata[0]['dokumen_nphd'] != NULL && $biodata[0]['dokumen_lpj'] == NULL): ?>
+                                                    <?php elseif($biodata[0]['dokumen_nphd'] != NULL && $biodata[0]['dokumen_lpj'] == NULL && $biodata[0]['status_pendaftaran'] != 'Belum Mendaftar'): ?>
                                                         <a href="/rumah-ibadah/dokumen" class="btn btn-danger">Unggah LPJ</a>
                                                     <?php elseif($biodata[0]['jenis_bangunan'] == 'Pondok Pesantren' && $biodata[0]['no_sk_pembentukan'] == NULL): ?>
                                                         <a href="/rumah-ibadah/biodata" class="btn btn-danger">Lengkapi No SK</a>

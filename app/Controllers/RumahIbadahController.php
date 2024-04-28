@@ -78,14 +78,12 @@ class RumahIbadahController extends BaseController
     public function viewVerifikasi($id)
     {      
         $biodata = $this->pendaftarModel->getDetailBiodata($id);
-        $verifikasi = $this->verifikasiModel->getDetailVerifikasi($id);
+        $verifikasi = $this->verifikasiModel->getVerifikasiById($id);
 
         $data =[
             'biodata' => $biodata,
             'verifikasi' => $verifikasi,
         ];
-
-    
         return view('dashboard-admin/rumah-ibadah/verifikasi-page', $data);
     }
 
@@ -202,7 +200,6 @@ class RumahIbadahController extends BaseController
 
     public function saveBiodata()
     {
-
         $this->pendaftarModel->saveBiodata([
             'id_user' => $this->request->getVar('id_user'),
             'nik_ketua' => $this->request->getVar('nik_ketua'),
@@ -323,13 +320,9 @@ class RumahIbadahController extends BaseController
     public function saveDokumenNPHD()
     {
         $id = $this->request->getVar('id_biodata');
-
         $path = 'assets/uploads/pdf/rumah-ibadah/nphd/';
-
         $foto = $this->request->getFile('dokumen');
-
         $number = rand(1,100);
-
         $name = $number . ' - ' . $foto->getName();
 
         if($foto->move($path, $name)){
@@ -350,21 +343,15 @@ class RumahIbadahController extends BaseController
             return redirect()->back()->withInput()
                 ->with('error', 'Gagal menyimpan data' );
         }
-
         return redirect()->to(base_url('/rumah-ibadah/dokumen'));
-
     }
 
     public function saveDokumenLPJ()
     {
         $id = $this->request->getVar('id_biodata');
-
         $path = 'assets/uploads/pdf/rumah-ibadah/lpj/';
-
         $foto = $this->request->getFile('dokumen');
-
         $number = rand(1,100);
-
         $name = $number . ' - ' . $foto->getName();
 
         if($foto->move($path, $name)){
