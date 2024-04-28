@@ -63,13 +63,14 @@ class SubAdminController extends ResourceController
         $result = $this->subadminModel->deleteAkun($id);
         if(!$result){
             return redirect()->back()->with('error', 'Gagal menghapus data' );
-        }else{
-            $response = [
-                'message' => 'Akun Berhasil dihapus',
-            ];
-
-            return $this->respondDeleted($response);
         }
+        // else{
+        //     $response = [
+        //         'message' => 'Akun Berhasil dihapus',
+        //     ];
+
+        //     return $this->respondDeleted($response);
+        // }
 
         return redirect()->back()
             ->with('success', 'Berhasil menghapus data');

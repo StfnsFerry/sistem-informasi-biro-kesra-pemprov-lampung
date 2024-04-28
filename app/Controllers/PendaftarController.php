@@ -47,8 +47,8 @@ class PendaftarController extends ResourceController
             'email' => $this->request->getVar('email'),
         ];
 
-        // $id = $this->request->getVar('id');
         $result = $this->subadminModel->updateProfil($data, $id);
+        // $id = $this->request->getVar('id');
 
         $response = [
             'message' => 'Data Berhasil di ubah'

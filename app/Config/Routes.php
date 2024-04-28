@@ -36,7 +36,7 @@ $routes->get('/admin/rumah-ibadah/pura', [RumahIbadahController::class, 'viewPur
 $routes->get('/admin/rumah-ibadah/pendaftar', [RumahIbadahController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
 $routes->get('/admin/rumah-ibadah/pendaftar/verifikasi/(:any)', [RumahIbadahController::class, 'viewVerifikasi/$1'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/updateVerifikasi', [RumahIbadahController::class, 'updateVerifikasi'], ['filter' => 'role:Admin']);
-$routes->get('/admin/rumah-ibadah/masjid/detail/(:any)', [RumahIbadahController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
+$routes->get('/admin/rumah-ibadah/masjid/detail/(:num)', [RumahIbadahController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/masjid/terima-pendaftaran', [RumahIbadahController::class, 'TerimaPendaftaran'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/masjid/pencairan', [RumahIbadahController::class, 'ubahStatusPencairan'], ['filter' => 'role:Admin']);
 $routes->post('/admin/rumah-ibadah/masjid/nota-dinas', [RumahIbadahController::class, 'saveNotaDinas'], ['filter' => 'role:Admin']);

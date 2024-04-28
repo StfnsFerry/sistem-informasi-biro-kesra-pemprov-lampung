@@ -37,7 +37,6 @@ class ProfilController extends BaseController
 
             if($foto->move($path, $name)){
                 $foto_path = $path . $name;
-
                 $data['user_image'] = $foto_path;
             }
         }

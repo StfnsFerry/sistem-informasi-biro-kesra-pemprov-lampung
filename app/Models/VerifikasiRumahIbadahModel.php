@@ -54,13 +54,19 @@ class VerifikasiRumahIbadahModel extends Model
             ->where('id_pendaftar', $id)->find();
         }
         return $this->select('verifikasi_rumah_ibadah.*')->findAll();
-    
     }
 
     public function getDetailVerifikasi($id)
     {    
         return $this->select('verifikasi_rumah_ibadah.*, users.username')
         ->join('users', 'users.id=verifikasi_rumah_ibadah.id_pemeriksa')
+        ->where('id_biodata', $id)->find();
+         
+    }
+
+    public function getVerifikasiById($id)
+    {    
+        return $this->select('verifikasi_rumah_ibadah.*')
         ->where('id_biodata', $id)->find();
          
     }

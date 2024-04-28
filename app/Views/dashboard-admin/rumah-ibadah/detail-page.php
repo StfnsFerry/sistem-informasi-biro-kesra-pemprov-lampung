@@ -69,13 +69,23 @@
                     <h6 class="m-0 font-weight-bold text-primary">File Dokumen</h6>
                 </div>
 
+                <?php if($biodata['dokumen_lpj'] != null) : ?>
+                <div class="card-body"> 
+                    <div class="mb-3">
+                        <label for="dokumen" class="form-label">Preview LPJ: </label>
+                    </div>
+                    <embed src="<?=base_url($biodata['dokumen_lpj'])?>" width="100%" height="600" type="application/pdf">
+                </div>
+                <?php endif; ?>
+                
+                <?php if($biodata['dokumen_nphd'] != null) : ?>
                 <div class="card-body"> 
                     <div class="mb-3">
                         <label for="dokumen" class="form-label">Preview NPHD: </label>
                     </div>
                     <embed src="<?=base_url($biodata['dokumen_nphd'])?>" width="100%" height="600" type="application/pdf">
                 </div>
-
+                <?php endif; ?>
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="dokumen" class="form-label">Preview Dokumen Persyaratan: </label>
