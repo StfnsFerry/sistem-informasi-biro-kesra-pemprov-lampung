@@ -27,6 +27,7 @@ class AdminController extends ResourceController
     public function viewRumahIbadah()
     {
         $biodata = $this->pendaftarModel->getBiodata();
+        $data_grafik = $this->pendaftarModel->getJumlahPendaftarperKotaKabupaten();
 
         $data = [
             'jumlah_pendaftar' => $this->pendaftarModel->countPendaftar(),
@@ -37,6 +38,7 @@ class AdminController extends ResourceController
             'jumlah_tpa_tpq' => $this->pendaftarModel->countTPA_TPQ(),
             'jumlah_pura' => $this->pendaftarModel->countPura(),
             'biodata' => $biodata,
+            'data_grafik' => $data_grafik,
         ];
 
         return view('dashboard-admin/rumah-ibadah/index', $data);

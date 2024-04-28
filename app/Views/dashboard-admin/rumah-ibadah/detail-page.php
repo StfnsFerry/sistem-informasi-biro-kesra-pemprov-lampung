@@ -298,7 +298,7 @@
             </div>
             <div class="modal-body">
                 <label class="form-label">Isi atau Pilih Jumlah Rekomendasi :</label>
-                <form action="<?=base_url('admin/rumah-ibadah/masjid/terima-pendaftaran')?>" method="POST">
+                <form action="<?=base_url('admin/rumah-ibadah/terima-pendaftaran')?>" method="POST">
                     <div class="mb-3">
                         <input type="number" class="form-control" name="jumlah_rekomendasi" placeholder="Isi Jumlah Rekomendasi">
                     </div>  
@@ -339,7 +339,10 @@
                 <label class="form-label">Data pendaftar akan dihapus jika Anda menolak berkas ini, apakah Anda yakin?</label>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Kirim</button>
+                <form action="<?=base_url('/admin/rumah-ibadah/tolak-pendaftaran')?>" method="POST">
+                    <input type="hidden" name="id_biodata" value="<?=$biodata['id']?>">
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </form>
             </div>
         </div>
     </div>
