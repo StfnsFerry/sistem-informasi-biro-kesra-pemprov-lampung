@@ -55,18 +55,18 @@ $routes->get('/admin/tokoh-agama/guru-ngaji', [TokohAgamaController::class, 'vie
 $routes->get('/admin/tokoh-agama/imam-masjid', [TokohAgamaController::class, 'viewImamMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/marbot', [TokohAgamaController::class, 'viewMarbot'], ['filter' => 'role:Admin']);
 
-$routes->get('/admin/sub-admin', [AdminController::class, 'viewSubAdmin']);
-$routes->post('/admin/sub-admin/register', [AuthController::class, 'registerSubAdmin']);
-$routes->post('/admin/sub-admin/(:num)', [SubAdminController::class, 'updateProfil/$1']);
-$routes->delete('/admin/sub-admin/(:num)', [SubAdminController::class, 'deleteAkun/$1']);
+$routes->get('/admin/sub-admin', [AdminController::class, 'viewSubAdmin'], ['filter' => 'role:Admin']);
+$routes->post('/admin/sub-admin/register', [AuthController::class, 'registerSubAdmin'], ['filter' => 'role:Admin']);
+$routes->post('/admin/sub-admin/update', [SubAdminController::class, 'updateProfil'], ['filter' => 'role:Admin']);
+$routes->get('/admin/sub-admin/delete/(:num)', [SubAdminController::class, 'deleteAkun/$1'], ['filter' => 'role:Admin']);
 
-$routes->get('/admin/pendaftar', [AdminController::class, 'viewPendaftar']);
-$routes->post('/admin/pendaftar/(:num)', [PendaftarController::class, 'updateProfil/$1']);
-$routes->delete('/admin/pendaftar/(:num)', [PendaftarController::class, 'deleteAkun/$1']);
+$routes->get('/admin/pendaftar', [AdminController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+$routes->post('/admin/pendaftar/update', [PendaftarController::class, 'updateProfil'], ['filter' => 'role:Admin']);
+$routes->get('/admin/pendaftar/delete/(:num)', [PendaftarController::class, 'deleteAkun/$1'], ['filter' => 'role:Admin']);
 
-$routes->get('/admin/arsip/rumah-ibadah', [ArsipController::class, 'index']);
-$routes->post('/admin/arsip/tambah-arsip', [ArsipController::class, 'saveArsip']);
-$routes->delete('/admin/arsip/(:num)', [ArsipController::class, 'deleteArsip/$1']);
+$routes->get('/admin/arsip/rumah-ibadah', [ArsipController::class, 'index'], ['filter' => 'role:Admin']);
+$routes->post('/admin/arsip/tambah-arsip', [ArsipController::class, 'saveArsip'], ['filter' => 'role:Admin']);
+$routes->get('/admin/arsip/delete/(:num)', [ArsipController::class, 'deleteArsip/$1'], ['filter' => 'role:Admin']);
 
 $routes->get('/admin/arsip/tahfidzul-quran', [ArsipController::class, 'index'], ['filter' => 'role:Admin']);
 $routes->post('/admin/arsip/tambah-arsip-tahfidzul-quran', [ArsipController::class, 'saveArsip'], ['filter' => 'role:Admin']);

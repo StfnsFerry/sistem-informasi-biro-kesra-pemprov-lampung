@@ -26,7 +26,7 @@ class PendaftarController extends ResourceController
         //
     }
 
-    public function updateProfil($id = null)
+    public function updateProfil()
     {
         $rules = $this->validate([
             'fullname' => 'required',
@@ -47,8 +47,8 @@ class PendaftarController extends ResourceController
             'email' => $this->request->getVar('email'),
         ];
 
+        $id = $this->request->getVar('id');
         $result = $this->subadminModel->updateProfil($data, $id);
-        // $id = $this->request->getVar('id');
 
         $response = [
             'message' => 'Data Berhasil di ubah'
@@ -58,11 +58,11 @@ class PendaftarController extends ResourceController
             return redirect()->back()->withInput()
                 ->with('error', 'Gagal menyimpan data' );
         }
-        else{
-            return $this->respond($response,200);
-        }
+        // else{
+        //     return $this->respond($response,200);
+        // }
 
-        return $this->redirect()->back();
+        return redirect()->back()->with('message', $response );;
     }
 
     public function deleteAkun($id)
@@ -71,13 +71,14 @@ class PendaftarController extends ResourceController
 
         if(!$result){
             return redirect()->back()->with('error', 'Gagal menghapus data' );
-        }else{
-            $response = [
-                'message' => 'Akun Berhasil dihapus',
-            ];
-
-            return $this->respondDeleted($response);
         }
+        // else{
+        //     $response = [
+        //         'message' => 'Akun Berhasil dihapus',
+        //     ];
+
+        //     return $this->respondDeleted($response);
+        // }
 
         return redirect()->back()
             ->with('success', 'Berhasil menghapus data');

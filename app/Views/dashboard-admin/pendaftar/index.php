@@ -66,7 +66,7 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form class="user" action="/admin/sub-admin/update" method="post">
+                                                        <form class="user" action="/admin/pendaftar/update" method="post">
                                                             <?= csrf_field() ?>
 
                                                             <div class="form-group row">
@@ -117,7 +117,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <a href="<?= base_url('/admin/sub-admin/delete/' . $list['id'])?>"  class="btn btn-primary">Hapus</a>
+                                                        <a href="<?= base_url('/admin/pendaftar/delete/' . $list['id'])?>"  class="btn btn-primary">Hapus</a>
                                                     </div>
                                                 </div>
                                             </div>
