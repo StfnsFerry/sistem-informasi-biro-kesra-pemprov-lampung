@@ -19,7 +19,7 @@ class SubAdminController extends ResourceController
         //
     }
 
-    public function updateProfil($id = null)
+    public function updateProfil()
     {
         $rules = $this->validate([
             'fullname' => 'required',
@@ -40,7 +40,7 @@ class SubAdminController extends ResourceController
             'email' => $this->request->getVar('email'),
         ];
 
-        // $id = $this->request->getVar('id');
+        $id = $this->request->getVar('id');
         $result = $this->subadminModel->updateProfil($data, $id);
 
         $response = [
@@ -51,11 +51,11 @@ class SubAdminController extends ResourceController
             return redirect()->back()->withInput()
                 ->with('error', 'Gagal menyimpan data' );
         }
-        else{
-            return $this->respond($response,200);
-        }
+        // else{
+        //     return $this->respond($response,200);
+        // }
 
-        return $this->redirect()->back();
+        return redirect()->back()->with('message', $response );;
     }
 
     public function deleteAkun($id)

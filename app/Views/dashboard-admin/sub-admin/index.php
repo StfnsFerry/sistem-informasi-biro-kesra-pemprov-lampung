@@ -90,7 +90,7 @@
                                                             <input type="hidden" name="id" value="<?=$list['id']?>">
 
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="nama_lengkap"
+                                                                <input type="text" class="form-control" name="fullname"
                                                                     placeholder="Nama Lengkap"value="<?=$list['fullname']?>">
                                                             </div>
                                                             <button type="submit" class="btn btn-primary btn-user btn-block">
