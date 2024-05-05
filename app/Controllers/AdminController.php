@@ -62,8 +62,8 @@ class AdminController extends ResourceController
             'message' => 'success',
             'subadmin' => $subadmin,
         ];
-        // return $this->respond($data,200);
-        return view('dashboard-admin/sub-admin/index', $data);
+        return $this->respond($data,200);
+        // return view('dashboard-admin/sub-admin/index', $data);
     }
 
     public function viewPendaftar()
@@ -75,7 +75,7 @@ class AdminController extends ResourceController
             'pendaftar' => $pendaftar,
         ];
 
-        return view('dashboard-admin/pendaftar/index', $data);
-        // return $this->respond($data,200);
+        // return view('dashboard-admin/pendaftar/index', $data);
+        return $this->respond($data,200);
     }
 }

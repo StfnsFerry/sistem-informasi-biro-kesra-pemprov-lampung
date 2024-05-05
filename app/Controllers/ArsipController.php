@@ -23,8 +23,8 @@ class ArsipController extends ResourceController
             'message' => 'succees',
             'arsip' => $arsip,
         ];
-        // return $this->respond($data,200);
-        return view('dashboard-admin/arsip/rumah-ibadah-arsip', $data);
+        return $this->respond($data,200);
+       
     }
 
     public function saveArsip()
@@ -67,13 +67,33 @@ class ArsipController extends ResourceController
         ];
 
         if(!$result){
-            return redirect()->back()->withInput()
-                ->with('error', 'Gagal menyimpan data' );
-        }else{
-            return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
+            $errors =[
+                'error' => 'Data Gagal di tambahkan',
+            ];
+            return $this->fail($errors, 400);
         }
 
-        return redirect()->back();
+        return $this->respond($response,200);
+    }
+
+    public function showArsip($id)
+    {
+        $result = $this->arsipModel->getArsipRumahIbadah($id);
+
+        $data = [
+            'arsip' => $result,
+            'message' => 'success',
+        ];  
+
+        if(!$result){
+
+            $errors =[
+                'error' => 'Data tidak ditemukan',
+            ];
+            return $this->fail($errors, 400);
+        }
+
+        return $this->respond($data,200);
     }
 
     public function deleteArsip($id){
@@ -87,18 +107,16 @@ class ArsipController extends ResourceController
         $result = $this->arsipModel->deleteArsip($id);
 
         if(!$result){
-            return redirect()->back()->with('error', 'Gagal menghapus data' );
-        }else{
-            $response = [
-                'message' => 'Arsip Berhasil dihapus',
+            $errors =[
+                'error' => 'Data Gagal di hapus',
             ];
-
-            // return $this->respondDeleted($response);
-            return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
-
+            return $this->fail($errors, 400);
         }
-        // return redirect()->back()
-        //     ->with('success', 'Berhasil menghapus data');
-        return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
+
+        $response = [
+            'message' => 'Arsip Berhasil dihapus',
+        ];
+
+        return $this->respondDeleted($response);
     }
 }

@@ -28,6 +28,7 @@ class PendaftarController extends ResourceController
 
     public function updateProfil($id = null)
     {
+
         $rules = $this->validate([
             'fullname' => 'required',
             'username' => 'required',
@@ -48,21 +49,40 @@ class PendaftarController extends ResourceController
         ];
 
         $result = $this->subadminModel->updateProfil($data, $id);
-        // $id = $this->request->getVar('id');
 
         $response = [
             'message' => 'Data Berhasil di ubah'
         ];
 
         if(!$result){
-            return redirect()->back()->withInput()
-                ->with('error', 'Gagal menyimpan data' );
+
+            $errors =[
+                'error' => 'Data Gagal di ubah',
+            ];
+            return $this->fail($errors, 400);
         }
-        else{
-            return $this->respond($response,200);
+        
+        return $this->respond($response,200);
+    }
+
+    public function showPendaftar($id)
+    {
+        $result = $this->subadminModel->showUsers($id);
+
+        $data = [
+            'user' => $result,
+            'message' => 'success',
+        ];  
+
+        if(!$result){
+
+            $errors =[
+                'error' => 'Data tidak ditemukan',
+            ];
+            return $this->fail($errors, 400);
         }
 
-        return $this->redirect()->back();
+        return $this->respond($data,200);
     }
 
     public function deleteAkun($id)
@@ -70,17 +90,18 @@ class PendaftarController extends ResourceController
         $result = $this->subadminModel->deleteAkun($id);
 
         if(!$result){
-            return redirect()->back()->with('error', 'Gagal menghapus data' );
-        }else{
             $response = [
-                'message' => 'Akun Berhasil dihapus',
+                'message' => 'Akun Gagal dihapus',
             ];
 
             return $this->respondDeleted($response);
         }
 
-        return redirect()->back()
-            ->with('success', 'Berhasil menghapus data');
+        $response = [
+            'message' => 'Akun Berhasil dihapus',
+        ];
+ 
+        return $this->respondDeleted($response);
     
     }
 }

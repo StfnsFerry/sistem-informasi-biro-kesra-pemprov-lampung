@@ -57,6 +57,10 @@ class SubAdminModel extends Model
                     ->findAll();
     }
 
+    public function showUsers($id){
+        return $this->select('users.*')->find($id);
+    }
+
     public function updateProfil($data, $id){
         return $this->update($id,$data);
     }

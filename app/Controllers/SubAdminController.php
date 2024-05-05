@@ -40,22 +40,40 @@ class SubAdminController extends ResourceController
             'email' => $this->request->getVar('email'),
         ];
 
-        // $id = $this->request->getVar('id');
         $result = $this->subadminModel->updateProfil($data, $id);
+
+        if(!$result){
+            $errors =[
+                'error' => 'Data Gagal di ubah',
+            ];
+            return $this->fail($errors, 400);
+        }
 
         $response = [
             'message' => 'Data Berhasil di ubah'
         ];
+        
+        return $this->respond($response,200);
+    }
+
+    public function showPendaftar($id)
+    {
+        $result = $this->subadminModel->showUsers($id);
+
+        $data = [
+            'user' => $result,
+            'message' => 'success',
+        ];  
 
         if(!$result){
-            return redirect()->back()->withInput()
-                ->with('error', 'Gagal menyimpan data' );
-        }
-        else{
-            return $this->respond($response,200);
+
+            $errors =[
+                'error' => 'Data tidak ditemukan',
+            ];
+            return $this->fail($errors, 400);
         }
 
-        return $this->redirect()->back();
+        return $this->respond($data,200);
     }
 
     public function deleteAkun($id)

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\Controller;
 use CodeIgniter\Session\Session;
 use Myth\Auth\Config\Auth as AuthConfig;
@@ -10,6 +11,8 @@ use Myth\Auth\Models\UserModel;
 
 class AuthController extends Controller
 {
+    use ResponseTrait;
+
     protected $auth;
 
     /**
@@ -149,7 +152,10 @@ class AuthController extends Controller
         }else if($program == "3"){
             $users = $users->withGroup('Tokoh Agama');
         }else{
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            $response = [
+                'message' => $this->validator->getErrors(),
+            ];
+            return $this->failValidationErrors($response);
         }
 
         // Validate basics first since some password rules rely on these fields
@@ -159,7 +165,10 @@ class AuthController extends Controller
         ];
 
         if (! $this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            $response = [
+                'message' => $this->validator->getErrors(),
+            ];
+            return $this->failValidationErrors($response);
         }
 
         // Validate passwords since they can only be validated properly here
@@ -169,7 +178,10 @@ class AuthController extends Controller
         ];
 
         if (! $this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            $response = [
+                'message' => $this->validator->getErrors(),
+            ];
+            return $this->failValidationErrors($response);
         }
 
         // Save the user
@@ -184,7 +196,10 @@ class AuthController extends Controller
         }
 
         if (! $users->save($user)) {
-            return redirect()->back()->withInput()->with('errors', $users->errors());
+            $errors = [
+                'error' => 'Akun Gagal Dibuat',
+            ];
+            return $this->fail($errors, 400);
         }
 
         if ($this->config->requireActivation !== null) {
@@ -192,15 +207,26 @@ class AuthController extends Controller
             $sent      = $activator->send($user);
 
             if (! $sent) {
-                return redirect()->back()->withInput()->with('error', $activator->error() ?? lang('Auth.unknownError'));
+                $errors = [
+                    'error' => 'Akun Gagal Diaktifkan',
+                ];
+                return $this->fail($errors, 400);
             }
 
             // Success!
-            return redirect()->route('login')->with('message', lang('Auth.activationSuccess'));
+            $response = [
+                'message' => 'Akun Berhasil di aktifkan'
+            ];
+    
+            return $this->respondCreated($response);
         }
 
+        $response = [
+            'message' => 'Akun Berhasil di buat'
+        ];
+
         // Success!
-        return redirect()->route('login')->with('message', lang('Auth.registerSuccess'));
+        return $this->respondCreated($response);
     }
 
     public function registerSubAdmin()
@@ -220,7 +246,10 @@ class AuthController extends Controller
         ];
 
         if (! $this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            $response = [
+                'message' => $this->validator->getErrors(),
+            ];
+            return $this->failValidationErrors($response);
         }
 
         // Validate passwords since they can only be validated properly here
@@ -230,7 +259,10 @@ class AuthController extends Controller
         ];
 
         if (! $this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            $response = [
+                'message' => $this->validator->getErrors(),
+            ];
+            return $this->failValidationErrors($response);
         }
 
         // Save the user
@@ -245,7 +277,10 @@ class AuthController extends Controller
         }
 
         if (! $users->save($user)) {
-            return redirect()->back()->withInput()->with('errors', $users->errors());
+            $errors = [
+                'error' => 'Akun Gagal Dibuat',
+            ];
+            return $this->fail($errors, 400);
         }
 
         if ($this->config->requireActivation !== null) {
@@ -253,15 +288,23 @@ class AuthController extends Controller
             $sent      = $activator->send($user);
 
             if (! $sent) {
-                return redirect()->back()->withInput()->with('error', $activator->error() ?? lang('Auth.unknownError'));
+                $errors = [
+                    'error' => 'Akun Gagal Diaktifkan',
+                ];
+                return $this->fail($errors, 400);
             }
 
+            $response = [
+                'message' => 'Akun Berhasil di aktifkan'
+            ];
             // Success!
-            return redirect()->to('/admin/sub-admin')->with('message', lang('Auth.activationSuccess'));
+            return $this->respondCreated($response);
         }
-
+        $response = [
+            'message' => 'Akun Berhasil di buat'
+        ];
         // Success!
-        return redirect()->to('/admin/sub-admin')->with('message', lang('Auth.registerSuccess'));
+        return $this->respondCreated($response);
     }
 
     //--------------------------------------------------------------------
