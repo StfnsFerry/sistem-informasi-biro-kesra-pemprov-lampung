@@ -35,22 +35,211 @@ class TokohAgamaController extends BaseController
 
     public function viewPendaftar()
     {
-        return view('dashboard-admin/tokoh-agama/pendaftar-page');
+        $biodata = $this->pendaftarModel->getBiodata();
+        $verifikasi = $this->verifikasiModel->getVerifikasi();
+
+        $data = [
+            'pendaftar' => $biodata,
+            'verifikasi' => $verifikasi,
+        ];
+        return view('dashboard-admin/tokoh-agama/pendaftar-page', $data);
     }
+
+    public function viewVerifikasi($id)
+    {      
+        $biodata = $this->pendaftarModel->getDetailBiodata($id);
+        $verifikasi = $this->verifikasiModel->getVerifikasiById($id);
+
+        $data =[
+            'biodata' => $biodata,
+            'verifikasi' => $verifikasi,
+        ];
+        return view('dashboard-admin/tokoh-agama/verifikasi-page', $data);
+    }
+
+    public function updateVerifikasi(){
+
+        $data = [
+            'id_pemeriksa' => $this->request->getVar('id_pemeriksa'),
+            'ktp' => $this->request->getVar('ktp'),
+            'surat_rekomendasi' => $this->request->getVar('surat_rekomendasi'),
+            'surat_bantuan' => $this->request->getVar('surat_bantuan'),
+            'fc_rekening' => $this->request->getVar('fc_rekening'),
+            'keterangan' => $this->request->getVar('keterangan'),
+        ];
+
+        $id = $this->request->getVar('id_verifikasi');
+        $result = $this->verifikasiModel->updateVerifikasi($data, $id);
+
+        $ket = $this->request->getVar('keterangan');
+        $keterangan = [
+            'verifikasi_data' => $ket,
+        ];
+
+        if($ket == 'Data Lengkap'){
+            $keterangan['status_pendaftaran'] = 'Sudah Diverifikasi';
+        }
+
+        $id_biodata = $this->request->getVar('id_biodata');
+        $result = $this->pendaftarModel->updateBiodata($keterangan, $id_biodata);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->to('/admin/tokoh-agama/pendaftar');
+    }
+
+    public function viewDetail($id)
+    {      
+        $biodata = $this->pendaftarModel->getDetailBiodata($id);
+        $verifikasi = $this->verifikasiModel->getDetailVerifikasi($id);
+
+        $data =[
+            'biodata' => $biodata,
+            'verifikasi' => $verifikasi,
+        ];
+
+        return view('dashboard-admin/tokoh-agama/detail-page', $data);
+    }
+
+    public function TerimaPendaftaran()
+    {
+        $id = $this->request->getVar('id_biodata');
+
+        $kategori = $this->pendaftarModel->getDetailBiodata($id);
+        $profesi = $kategori['profesi'];
+
+        $jumlah_rekomendasi = $this->request->getVar('jumlah_rekomendasi');
+
+        $data = [
+            'jumlah_rekomendasi' => $jumlah_rekomendasi,
+            'status_pendaftaran' => 'Pendaftaran Diterima',
+        ];
+
+        $result = $this->pendaftarModel->updateBiodata($data,$id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        if($profesi == 'Guru Ngaji'){
+            return redirect()->to('/admin/tokoh-agama/guru-ngaji');
+        }elseif($profesi == 'Imam Masjid'){
+            return redirect()->to('/admin/tokoh-agama/imam-masjid');
+        }elseif($profesi == 'Marbot'){
+            return redirect()->to('/admin/tokoh-agama/marbot');
+        }
+        else{
+            return redirect()->back()->with('success', 'Berhasil menyimpan data' );
+        }
+    }
+
+    public function TolakPendaftaran()
+    {
+        $id = $this->request->getVar('id_biodata');
+
+        $dokumen = $this->pendaftarModel->getDetailBiodata($id);
+        $profesi = $kategori['profesi'];
+
+        if($dokumen['dokumen_persyaratan'] != ''){
+            unlink($dokumen['dokumen_persyaratan']);
+        }
+
+        $result = $this->pendaftarModel->deleteBiodata($id);
+        
+        if(!$result){
+            return redirect()->back()->with('error', 'Gagal menghapus data' );
+        }
+
+        if($profesi == 'Guru Ngaji'){
+            return redirect()->to('/admin/tokoh-agama/guru-ngaji');
+        }elseif($profesi == 'Imam Masjid'){
+            return redirect()->to('/admin/tokoh-agama/imam-masjid');
+        }elseif($profesi == 'Marbot'){
+            return redirect()->to('/admin/tokoh-agama/marbot');
+        }
+        else{
+            return redirect()->back()->with('success', 'Berhasil menyimpan data' );
+        }
+    }
+
+    public function ubahStatusPencairan() {
+        $id = $this->request->getVar('id_biodata');
+
+        $data =[
+            'status_pendaftaran' => 'Proses Pencairan Dana',
+        ];
+
+        $this->pendaftarModel->updateBiodata($data,$id);
+
+        return redirect()->back()->with('success', 'Data berhasil diubah');
+    }
+
+    public function saveNotaDinas()
+    {
+        $id = $this->request->getVar('id_biodata');
+
+        $path = 'assets/uploads/pdf/tokoh-agama/nota-dinas/';
+
+        $foto = $this->request->getFile('nota_dinas');
+
+        $number = rand(1,100);
+
+        $name = $number . ' - ' . $foto->getName();
+
+        if($foto->move($path, $name)){
+            $foto_path = $path . $name;
+
+            $data = [
+                'nota_dinas' => $foto_path,
+                'status_pendaftaran' => 'Dana Berhasil Ditransfer',
+            ];
+        }
+
+        $result = $this->pendaftarModel->updateBiodata($data, $id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->back()->with('success', 'Data berhasil diubah');
+    }
+
 
     public function viewGuruNgaji()
     {
-        return view('dashboard-admin/tokoh-agama/gurungaji-page');
+        $biodata = $this->pendaftarModel->getPendaftarGuruNgaji();
+
+        $data = [
+            'gurungaji' => $biodata,      
+        ];
+
+        return view('dashboard-admin/tokoh-agama/gurungaji-page', $data);
     }
 
     public function viewImamMasjid()
     {
-        return view('dashboard-admin/tokoh-agama/imammasjid-page');
+        $biodata = $this->pendaftarModel->getPendaftarImamMasjid();
+
+        $data = [
+            'imammasjid' => $biodata,      
+        ];
+
+        return view('dashboard-admin/tokoh-agama/imammasjid-page', $data);
     }
 
     public function viewMarbot()
     {
-        return view('dashboard-admin/tokoh-agama/marbot-page');
+        $biodata = $this->pendaftarModel->getPendaftarMarbot();
+
+        $data = [
+            'marbot' => $biodata,      
+        ];
+        return view('dashboard-admin/tokoh-agama/marbot-page', $data);
     }
 
     public function viewBiodata()
@@ -68,7 +257,14 @@ class TokohAgamaController extends BaseController
 
     public function createBiodata()
     {
-        return view('dashboard-tokoh-agama/tambah_biodata');
+        $id = user()->id;
+        $biodata = $this->pendaftarModel->getBiodata($id);
+
+        $data = [
+            'biodata' => $biodata,
+        ];
+
+        return view('dashboard-tokoh-agama/tambah_biodata',$data);
     }
 
     public function editBiodata()
@@ -237,7 +433,7 @@ class TokohAgamaController extends BaseController
    
         $this->pendaftarModel->updateBiodata($status,$id);
 
-        return redirect()->to(base_url('/tokoh-agama'));
+        return redirect()->to(base_url('/tokoh-agama/biodata'));
 
     }
 

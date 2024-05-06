@@ -53,4 +53,22 @@ class VerifikasiTokohAgamaModel extends Model
         return $this->select('verifikasi_tokoh_agama.*')->findAll();
     
     }
+
+    public function getDetailVerifikasi($id)
+    {    
+        return $this->select('verifikasi_tokoh_agama.*, users.username')
+        ->join('users', 'users.id=verifikasi_tokoh_agama.id_pemeriksa')
+        ->where('id_biodata', $id)->find();
+         
+    }
+
+    public function getVerifikasiById($id)
+    {    
+        return $this->select('verifikasi_tokoh_agama.*')
+        ->where('id_biodata', $id)->find();    
+    }
+
+    public function updateVerifikasi($data, $id){
+        return $this->update($id,$data);
+    }
 }

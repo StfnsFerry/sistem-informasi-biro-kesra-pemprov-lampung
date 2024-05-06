@@ -41,7 +41,7 @@
                                                         <?php elseif($biodata[0]['nama_lengkap'] == NULL): ?>
                                                             <a href="/tokoh-agama/biodata" class="btn btn-danger">Lengkapi Biodata</a>
                                                         <?php else: ?>             
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#daftarModal">
                                                             Daftar Hibah
                                                         </button>
                                                         <?php endif;?>
@@ -57,7 +57,7 @@
                         <!-- Content Column -->
                         <div class="col-lg-12 mb-3">
                             <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
+                            <!-- <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Keterangan</h6>
                                 </div>
@@ -66,7 +66,7 @@
                                         <h6 class= "font-weight-bold text-dark">Data KTP dan Rekening Belum Lengkap!</h6>
                                     </div>
                                 </div>
-                            </div>           
+                            </div>            -->
                         </div>                                    
                     </div>
                     

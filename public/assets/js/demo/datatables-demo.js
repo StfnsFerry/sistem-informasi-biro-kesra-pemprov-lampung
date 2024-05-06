@@ -8,6 +8,10 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+  $("#dataTokohAgama").DataTable();
+});
+
+$(document).ready(function () {
   $("#dataVerifikasi").DataTable();
 });
 
@@ -261,6 +265,178 @@ $(document).ready(function () {
   var fileName = "List Penerima Hibah Rumah Ibadah Pura";
   var titleText = "List Penerima Hibah Rumah Ibadah Pura";
   var table = $("#exportDataPura").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Penerima Hibah Guru Ngaji";
+  var titleText = "List Penerima Hibah Guru Ngaji";
+  var table = $("#exportDataGuruNgaji").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Seluruh Penerima Hibah Tokoh Agama";
+  var titleText = "List Seluruh Penerima Hibah Tokoh Agama";
+  var table = $("#exportDataTokohAgama").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Penerima Hibah Marbot";
+  var titleText = "List Penerima Hibah Marbot";
+  var table = $("#exportDataMarbot").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Penerima Hibah Imam Masjid";
+  var titleText = "List Penerima Hibah Imam Masjid";
+  var table = $("#exportDataImamMasjid").DataTable({
     buttons: [
       {
         extend: "copy",

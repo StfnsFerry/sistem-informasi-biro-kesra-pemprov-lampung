@@ -182,7 +182,5 @@ class PendaftarRumahIbadahModel extends Model
         ->groupBy('kabupaten_kota.id, kabupaten_kota.kabupaten_kota')
         ->get()
         ->getResultArray();
-
-
     }
 }

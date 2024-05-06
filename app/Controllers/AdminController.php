@@ -6,17 +6,20 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 use App\Models\PendaftarRumahIbadahModel;
+use App\Models\PendaftarTokohAgamaModel;
 use App\Models\SubAdminModel;
 
 class AdminController extends ResourceController
 {
     public $pendaftarModel;
+    public $tokohagamaModel;
     public $subadminModel;
     protected $format = 'json'; 
 
     public function __construct(){
         $this->pendaftarModel = new PendaftarRumahIbadahModel();
         $this->subadminModel = new SubAdminModel();
+        $this->tokohagamaModel = new PendaftarTokohAgamaModel();
 
     }
     public function index()
@@ -51,7 +54,19 @@ class AdminController extends ResourceController
 
     public function viewTokohAgama()
     {
-        return view('dashboard-admin/tokoh-agama/index');
+        $biodata = $this->tokohagamaModel->getBiodata();
+        $data_grafik = $this->tokohagamaModel->getJumlahPendaftarperKotaKabupaten();
+
+        $data = [
+            'jumlah_pendaftar' => $this->tokohagamaModel->countPendaftar(),
+            'jumlah_gurungaji' => $this->tokohagamaModel->countGuruNgaji(),
+            'jumlah_imammasjid' => $this->tokohagamaModel->countImamMasjid(),
+            'jumlah_marbot' => $this->tokohagamaModel->countMarbot(),
+            'biodata' => $biodata,
+            'data_grafik' => $data_grafik,
+        ];
+        
+        return view('dashboard-admin/tokoh-agama/index', $data);
     }
 
     public function viewSubAdmin()
