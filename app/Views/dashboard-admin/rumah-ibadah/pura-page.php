@@ -225,12 +225,13 @@
         <div class="col-lg-12 mb-4">
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
+                <div class="card-header d-flex justify-content-between align-items-center py-3">
                     <h6 class="m-0 font-weight-bold text-primary">List Penerima Hibah Berhasil Transfer</h6>
+                    <div class="button-header"></div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataVerifikasi" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="exportDataPura" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>No.</th>
