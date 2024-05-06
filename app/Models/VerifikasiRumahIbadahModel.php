@@ -67,8 +67,7 @@ class VerifikasiRumahIbadahModel extends Model
     public function getVerifikasiById($id)
     {    
         return $this->select('verifikasi_rumah_ibadah.*')
-        ->where('id_biodata', $id)->find();
-         
+        ->where('id_biodata', $id)->find();    
     }
 
     public function updateVerifikasi($data, $id){

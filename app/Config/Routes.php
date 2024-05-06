@@ -51,6 +51,13 @@ $routes->get('/admin/tahfidzul-quran/tigapuluh-juz', [TahfidzulQuranController::
 
 $routes->get('/admin/tokoh-agama', [AdminController::class, 'viewTokohAgama'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/pendaftar', [TokohAgamaController::class, 'viewPendaftar'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tokoh-agama/pendaftar/verifikasi/(:any)', [TokohAgamaController::class, 'viewVerifikasi/$1'], ['filter' => 'role:Admin']);
+$routes->post('/admin/tokoh-agama/updateVerifikasi', [TokohAgamaController::class, 'updateVerifikasi'], ['filter' => 'role:Admin']);
+$routes->get('/admin/tokoh-agama/detail/(:num)', [TokohAgamaController::class, 'viewDetail/$1'], ['filter' => 'role:Admin']);
+$routes->post('/admin/tokoh-agama/terima-pendaftaran', [TokohAgamaController::class, 'TerimaPendaftaran'], ['filter' => 'role:Admin']);
+$routes->post('/admin/tokoh-agama/tolak-pendaftaran', [TokohAgamaController::class, 'TolakPendaftaran'], ['filter' => 'role:Admin']);
+$routes->post('/admin/tokoh-agama/pencairan', [TokohAgamaController::class, 'ubahStatusPencairan'], ['filter' => 'role:Admin']);
+$routes->post('/admin/tokoh-agama/nota-dinas', [TokohAgamaController::class, 'saveNotaDinas'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/guru-ngaji', [TokohAgamaController::class, 'viewGuruNgaji'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/imam-masjid', [TokohAgamaController::class, 'viewImamMasjid'], ['filter' => 'role:Admin']);
 $routes->get('/admin/tokoh-agama/marbot', [TokohAgamaController::class, 'viewMarbot'], ['filter' => 'role:Admin']);

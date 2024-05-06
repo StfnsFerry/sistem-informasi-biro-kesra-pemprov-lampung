@@ -25,7 +25,7 @@
                                                 <img src="<?= base_url(user()->user_image)?>" class="img-fluid" width="200" alt="...">
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                                        <div class="col-lg-6 ">
                                             
                                                 <div class="mb-3">
                                                     <label for="nama" class="form-label">Nama Lengkap</label>

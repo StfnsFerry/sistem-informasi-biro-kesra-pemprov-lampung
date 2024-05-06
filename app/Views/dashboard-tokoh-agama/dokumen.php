@@ -42,7 +42,7 @@
                                                     <?php elseif($biodata[0]['nama_lengkap'] == NULL): ?>
                                                         <a href="/tokoh-agama/biodata" class="btn btn-danger">Lengkapi Biodata</a>
                                                     <?php else: ?>             
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#daftarModal">
                                                         Daftar Hibah
                                                     </button>
                                                     <?php endif;?>
