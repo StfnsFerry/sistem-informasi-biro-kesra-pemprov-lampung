@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <table class="table table-borderless">
                         <tbody>
-                        <tr>
+                            <tr>
                                 <td>Nama Lengkap</td>
                                 <td>:</td>
                                 <td><h6 class="font-weight-bold text-dark"><?= $biodata['nama_lengkap']?></h6></td>
@@ -83,7 +83,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">List Verifikasi</h6>
                 </div>       
                 <div class="card-body">
-                <ul class="list-group">
+                    <ul class="list-group">
                     <?php foreach ($verifikasi as $data): ?>
                         <li class="list-group-item">
                             <div class="form-check form-check-inline">
@@ -160,7 +160,7 @@
                     <div class="mb-3">
                         <table class="table table-borderless">
                             <tbody>
-                            <tr>
+                                <tr>
                                     <td>Profesi</td>
                                     <td>:</td>
                                     <td><h6 class="font-weight-bold text-dark"><?= $biodata['profesi']?></h6></td>

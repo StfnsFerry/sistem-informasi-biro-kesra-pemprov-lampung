@@ -142,7 +142,7 @@ class TokohAgamaController extends BaseController
         $id = $this->request->getVar('id_biodata');
 
         $dokumen = $this->pendaftarModel->getDetailBiodata($id);
-        $profesi = $kategori['profesi'];
+        $profesi = $dokumen['profesi'];
 
         if($dokumen['dokumen_persyaratan'] != ''){
             unlink($dokumen['dokumen_persyaratan']);
@@ -281,6 +281,16 @@ class TokohAgamaController extends BaseController
 
     public function saveBiodata()
     {
+        $pendaftar_tokoh_agama = model(PendaftarTokohAgamaModel::class);
+
+        $rules = $this->validate([
+            'nomor_rekening' => 'required|is_unique[pendaftar_tokoh_agama.nomor_rekening]',
+        ]);
+
+        if (!$rules) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
         $path = 'assets/uploads/img/tokoh-agama/';
 
         $foto = $this->request->getFile('foto');

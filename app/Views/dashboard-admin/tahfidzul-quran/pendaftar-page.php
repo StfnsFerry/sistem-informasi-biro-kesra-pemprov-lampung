@@ -17,24 +17,31 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTahfidzulQuran" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTokohAgama" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>No.</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
+                                    <th>Kategori</th>
                                     <th>Kab/Kota</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    $no = 1;
+                                    foreach ($pendaftar as $tahfidzul):
+                                        if($tahfidzul['status_pendaftaran'] == 'Sedang Diverifikasi' && $tahfidzul['verifikasi_data'] == 'Belum Lengkap') :
+                                    ?>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?= $no++?></td>
+                                    <td><?= $tahfidzul['nama_lengkap']?></td>
+                                    <td><?= $tahfidzul['alamat']?></td>
+                                    <td><?= $tahfidzul['kategori_juz']?></td>
+                                    <td><?= $tahfidzul['kabupaten_kota']?></td>
                                     <td>                                                  
-                                        <a href="<?= base_url('/admin/tahfidzul-quran/pendaftar/verifikasi/') ?>" class="btn btn-secondary btn-icon-split">
+                                        <a href="<?= base_url('/admin/tahfidzul-quran/pendaftar/verifikasi/' . $tahfidzul['id']) ?>" class="btn btn-secondary btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-arrow-right"></i>
                                             </span>
@@ -42,6 +49,10 @@
                                         </a>
                                     </td>
                                 </tr>
+                                <?php 
+                                    endif;
+                                endforeach; 
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -67,18 +78,25 @@
                                     <th>No.</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
+                                    <th>Kategori</th>
                                     <th>Kab/Kota</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    $no=1;
+                                    foreach ($pendaftar as $items) : 
+                                        if($items['verifikasi_data'] == 'Data Tidak Lengkap') :
+                                    ?>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?= $no++?></td>
+                                    <td><?= $items['nama_lengkap']?></td>
+                                    <td><?= $items['alamat']?></td>
+                                    <td><?= $items['kategori_juz']?></td>
+                                    <td><?= $items['kabupaten_kota']?></td>
                                     <td>
-                                        <a href="<?= base_url('/admin/tahfidzul-quran/pendaftar/verifikasi/') ?>" class="btn btn-warning btn-icon-split">
+                                        <a href="<?= base_url('/admin/tahfidzul-quran/pendaftar/verifikasi/' . $items['id']) ?>" class="btn btn-warning btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-exclamation-triangle"></i>
                                             </span>
@@ -86,6 +104,10 @@
                                         </a>
                                     </td>
                                 </tr>
+
+                                <?php 
+                                endif;
+                            endforeach;?>
                             </tbody>
                         </table>
                     </div>
@@ -111,18 +133,25 @@
                                     <th>No.</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
+                                    <th>Kategori</th>
                                     <th>Kab/Kota</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    $no=1;
+                                    foreach ($pendaftar as $verif) : 
+                                        if($verif['verifikasi_data'] == 'Data Lengkap') :
+                                    ?>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?= $no++?></td>
+                                    <td><?= $verif['nama_lengkap']?></td>
+                                    <td><?= $verif['alamat']?></td>
+                                    <td><?= $verif['kategori_juz']?></td>
+                                    <td><?= $verif['kabupaten_kota']?></td>
                                     <td>                                                  
-                                        <button type="button" class="btn btn-info btn-icon-split" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                        <button type="button" class="btn btn-info btn-icon-split" data-bs-toggle="modal" data-bs-target="#detailModal<?=$verif['id']?>">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-info-circle"></i>
                                             </span>
@@ -130,25 +159,50 @@
                                         </button>
                                     </td>
                                 </tr>
-
-                                <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <?php foreach ($verifikasi as $check) { ?>
+                                <!-- Modal -->
+                                <div class="modal fade" id="detailModal<?=$check['id_biodata']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Kelengkapan Data</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
 
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Kelengkapan Data</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-    
-
-                                            
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                                            <div class="mb-1">
+                                                <label class="col-form-label"><?=$check['ktp']== 'Ada' ? '<i class="fas fa-solid fa-check"></i>' : '<i class="fas fa-solid fa-xmark"></i>' ?> - Foto copy KTP)</label>
                                             </div>
 
+                                            <div class="mb-1">
+                                                <label class="col-form-label"><?=$check['surat_rekomendasi']== 'Ada' ? '<i class="fas fa-solid fa-check"></i>' : '<i class="fas fa-solid fa-xmark"></i>' ?> - Surat Rekomendasi dari Pemda Kabupaten/Kota</label>
+                                            </div>
+
+                                            <div class="mb-1">
+                                                <label class="col-form-label"><?=$check['surat_bantuan']== 'Ada' ? '<i class="fas fa-solid fa-check"></i>' : '<i class="fas fa-solid fa-xmark"></i>' ?> - Surat belum pernah mendapatkan bantuan dari Pemprov Lampung</label>
+                                            </div>
+
+                                            <div class="mb-1">
+                                                <label class="col-form-label"><?=$check['fc_rekening']== 'Ada' ? '<i class="fas fa-solid fa-check"></i>' : '<i class="fas fa-solid fa-xmark"></i>' ?> - No. Rek Bank Lampung atas nama yang bersangkutan</label>
+                                            </div>
+
+                                            <div class="mb-1">
+                                                <label for="col-form-label">Keterangan :</label> <br>
+                                                <h6 class="fw-bold"><?= $check['keterangan']?></h6>
+                                            </div>
+                                                
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                                        </div>
                                         </div>
                                     </div>
-                                </div>                              
+                                </div>
+                              
+                                <?php
+                                    } 
+                                endif;
+                            endforeach;?>                              
                             </tbody>
                         </table>
                     </div>

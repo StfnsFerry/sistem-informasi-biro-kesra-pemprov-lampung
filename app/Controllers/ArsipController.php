@@ -23,8 +23,32 @@ class ArsipController extends ResourceController
             'message' => 'succees',
             'arsip' => $arsip,
         ];
-        // return $this->respond($data,200);
+
         return view('dashboard-admin/arsip/rumah-ibadah-arsip', $data);
+    }
+
+    public function viewArsipTahfidzul()
+    {
+        $arsip = $this->arsipModel->getArsipTahfidzul();
+
+        $data =[
+            'message' => 'succees',
+            'arsip' => $arsip,
+        ];
+
+        return view('dashboard-admin/arsip/tahfidzul-quran-arsip', $data);
+    }
+
+    public function viewArsipTokohAgama()
+    {
+        $arsip = $this->arsipModel->getArsipTokohAgama();
+
+        $data =[
+            'message' => 'succees',
+            'arsip' => $arsip,
+        ];
+
+        return view('dashboard-admin/arsip/tokoh-agama-arsip', $data);
     }
 
     public function saveArsip()
@@ -62,15 +86,9 @@ class ArsipController extends ResourceController
 
         $result = $this->arsipModel->saveArsip($data);
 
-        $response = [
-            'message' => 'Data Berhasil di tambahkan'
-        ];
-
         if(!$result){
             return redirect()->back()->withInput()
                 ->with('error', 'Gagal menyimpan data' );
-        }else{
-            return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
         }
 
         return redirect()->back();
@@ -78,7 +96,7 @@ class ArsipController extends ResourceController
 
     public function deleteArsip($id){
 
-        $fileDb = $this->arsipModel->getArsipRumahIbadah($id);
+        $fileDb = $this->arsipModel->getArsip($id);
 
         if($fileDb['file'] != ''){
             unlink($fileDb['file']);
@@ -88,17 +106,10 @@ class ArsipController extends ResourceController
 
         if(!$result){
             return redirect()->back()->with('error', 'Gagal menghapus data' );
-        }else{
-            $response = [
-                'message' => 'Arsip Berhasil dihapus',
-            ];
-
-            // return $this->respondDeleted($response);
-            return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
-
         }
-        // return redirect()->back()
-        //     ->with('success', 'Berhasil menghapus data');
-        return redirect()->to(base_url('/admin/arsip/rumah-ibadah'));
+
+        return redirect()->back()
+            ->with('success', 'Berhasil menghapus data');
+
     }
 }

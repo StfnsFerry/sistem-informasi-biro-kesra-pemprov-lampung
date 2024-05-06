@@ -84,9 +84,9 @@
                                 ?>
                                 <tr>
                                     <td><?=$no++?></td>
-                                    <td><?=$list['nama_lengkap']?></td>
-                                    <td><?=$list['alamat']?></td>
-                                    <td><?=$list['kabupaten_kota']?></td>
+                                    <td><?=$diterima['nama_lengkap']?></td>
+                                    <td><?=$diterima['alamat']?></td>
+                                    <td><?=$diterima['kabupaten_kota']?></td>
                                     <td>
                                         Rp <?= number_format($diterima['jumlah_rekomendasi'],0,',','.');?>
                                     </td>
@@ -245,9 +245,9 @@
                                 ?>
                                 <tr>
                                     <td><?=$no++?></td>
-                                    <td><?=$list['nama_lengkap']?></td>
-                                    <td><?=$list['alamat']?></td>
-                                    <td><?=$list['kabupaten_kota']?></td>
+                                    <td><?=$cair['nama_lengkap']?></td>
+                                    <td><?=$cair['alamat']?></td>
+                                    <td><?=$cair['kabupaten_kota']?></td>
                                     <td>
                                         Rp <?= number_format($cair['jumlah_rekomendasi'],0,',','.');?>
                                     </td>

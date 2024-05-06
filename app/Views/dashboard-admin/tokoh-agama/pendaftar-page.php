@@ -139,7 +139,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php 
+                                <?php 
                                     $no=1;
                                     foreach ($pendaftar as $verif) : 
                                         if($verif['verifikasi_data'] == 'Data Lengkap') :

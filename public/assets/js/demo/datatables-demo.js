@@ -475,3 +475,218 @@ $(document).ready(function () {
 
   table.buttons().container().appendTo(".button-header");
 });
+
+$(document).ready(function () {
+  var fileName = "List Seluruh Penerima Hibah Tahfidzul Qur'an";
+  var titleText = "List Seluruh Penerima Hibah Tahfidzul Qur'an";
+  var table = $("#exportDataTahfidzul").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Penerima Hibah Lima Juz";
+  var titleText = "List Penerima Hibah Lima Juz";
+  var table = $("#exportDataLimaJuz").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Penerima Hibah Sepuluh Juz";
+  var titleText = "List Penerima Hibah Sepuluh Juz";
+  var table = $("#exportDataSepuluhJuz").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Penerima Hibah DuaPuluh Juz";
+  var titleText = "List Penerima Hibah DuaPuluh Juz";
+  var table = $("#exportDataDuaPuluhJuz").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
+
+$(document).ready(function () {
+  var fileName = "List Penerima Hibah TigaPuluh Juz";
+  var titleText = "List Penerima Hibah TigaPuluh Juz";
+  var table = $("#exportDataTigaPuluhJuz").DataTable({
+    buttons: [
+      {
+        extend: "copy",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "csv",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "excel",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+      {
+        extend: "print",
+        filename: fileName,
+        title: titleText,
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4],
+        },
+      },
+    ],
+  });
+
+  table.buttons().container().appendTo(".button-header");
+});
