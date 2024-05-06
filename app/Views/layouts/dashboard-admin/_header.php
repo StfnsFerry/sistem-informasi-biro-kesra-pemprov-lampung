@@ -23,7 +23,8 @@
     <!-- Custom styles for this template-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="<?= base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet">
-    <link href="<?=base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">
+    <link href="<?=base_url('assets/vendor/datatables/dataTables.bootstrap5.css')?>" rel="stylesheet">
+    <link href="<?=base_url('assets/vendor/datatables/datatables.min.css')?>" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -93,7 +94,12 @@
     <!-- Page level plugins -->
     <script src="<?= base_url('assets/vendor/chart.js/Chart.min.js')?>"></script>
     <script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.min.js')?>"></script>
-    <script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.js')?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/dataTables.js')?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap5.js')?>"></script>
+
+    <script src="<?= base_url('assets/vendor/datatables/pdfmake.min.js')?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/vfs_fonts.min.js')?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/datatables.min.js')?>"></script>
 
     <!-- Page level custom scripts -->
 
