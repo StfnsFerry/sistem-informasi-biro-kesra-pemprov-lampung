@@ -40,6 +40,15 @@ class ArsipModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    public function getArsip($id = null){
+        if($id != null){
+            return $this->select('arsip_program.*')
+                    ->find($id);    
+        }
+        return $this->select('arsip_program.*')
+                    ->findAll();
+    }
+
     public function getArsipRumahIbadah($id = null){
         if($id != null){
             return $this->select('arsip_program.*')
@@ -48,6 +57,28 @@ class ArsipModel extends Model
         }
         return $this->select('arsip_program.*')
                     ->where('arsip_program.kategori' , 'Hibah Pondok Pesantren & Rumah Ibadah')
+                    ->find();
+    }
+
+    public function getArsipTahfidzul($id = null){
+        if($id != null){
+            return $this->select('arsip_program.*')
+                    ->where('arsip_program.kategori' , 'Hibah Tahfidzul Quran Hafidz/Hafidzah')
+                    ->find($id);    
+        }
+        return $this->select('arsip_program.*')
+                    ->where('arsip_program.kategori' , 'Hibah Tahfidzul Quran Hafidz/Hafidzah')
+                    ->find();
+    }
+
+    public function getArsipTokohAgama($id = null){
+        if($id != null){
+            return $this->select('arsip_program.*')
+                    ->where('arsip_program.kategori' , 'Bantuan Dana Guru Ngaji, Marbot & Imam Masjid')
+                    ->find($id);    
+        }
+        return $this->select('arsip_program.*')
+                    ->where('arsip_program.kategori' , 'Bantuan Dana Guru Ngaji, Marbot & Imam Masjid')
                     ->find();
     }
 

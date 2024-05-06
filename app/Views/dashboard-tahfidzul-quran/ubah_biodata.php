@@ -19,20 +19,13 @@
                                 <!-- Project Card Example -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Informasi Ketua</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Informasi Diri</h6>
                                     </div>
                                     <div class="card-body"> 
+                                        
                                         <div class="mb-3">
-                                            <label for="nik" class="form-label">NIK Ketua<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Induk Kependudukan" value="<?=$biodata[0]['nik_ketua']?>" name="nik_ketua" id="nik" required>      
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="npwp" class="form-label">NPWP<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Pokok Wajib Pajak" value="<?=$biodata[0]['npwp']?>" name="npwp" id="npwp" required>      
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="nama" class="form-label">Nama Lengkap Ketua<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap" value="<?=$biodata[0]['nama_ketua']?>" name="nama_ketua"  id="nama" required>
+                                            <label for="nama" class="form-label">Nama Lengkap<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap" value="<?=$biodata[0]['nama_lengkap']?>" name="nama_lengkap"  id="nama" required>
                                         </div>
 
                                         <div class="mb-3">
@@ -59,6 +52,33 @@
                                                 <?php endif; ?>
                                             </select>
                                         </div>
+
+                                        <div class="mb-3">
+                                            <label for="kategori_juz" class="form-label">Kategori<span class="text-danger">*</span></label>
+                                            <select name="kategori_juz" id="kategori_juz" class="form-select" required>
+                                                <?php if($biodata[0]['kategori_juz'] == "5 Juz") : ?>                        
+                                                    <option selected value="5 Juz">5 Juz</option>
+                                                    <option value="10 Juz">10 Juz</option>
+                                                    <option value="20 Juz">20 Juz</option>
+                                                    <option value="30 Juz">30 Juz</option>
+                                                <?php elseif($biodata[0]['kategori_juz'] == "10 Juz") : ?>
+                                                    <option value="5 Juz">5 Juz</option>
+                                                    <option selected value="10 Juz">10 Juz</option>
+                                                    <option value="20 Juz">20 Juz</option>
+                                                    <option value="30 Juz">30 Juz</option>
+                                                <?php elseif($biodata[0]['kategori_juz'] == "20 Juz") : ?>
+                                                    <option value="5 Juz">5 Juz</option>
+                                                    <option value="10 Juz">10 Juz</option>
+                                                    <option selected value="20 Juz">20 Juz</option>
+                                                    <option value="30 Juz">30 Juz</option>
+                                                <?php elseif($biodata[0]['kategori_juz'] == "30 Juz") : ?>
+                                                    <option value="5 Juz">5 Juz</option>
+                                                    <option value="10 Juz">10 Juz</option>
+                                                    <option value="20 Juz">20 Juz</option>
+                                                    <option selected value="30 Juz">30 Juz</option>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
                                         
                                         <div class="mb-3">
                                             <label for="telepon" class="form-label">No. Telepon/Hp<span class="text-danger">*</span></label>
@@ -69,73 +89,6 @@
                                             <label for="alamat" class="form-label">Alamat<span class="text-danger">*</span></label>
                                             <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" required><?=$biodata[0]['alamat']?></textarea>        
                                         </div>
-                                    </div>
-                                </div>     
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Rekening Bank</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <label class="form-label">Nama Bank</label>
-                                            <h6 class="font-weight-bold text-dark">BANK LAMPUNG</h6>
-                                        </div>                                                                             
-                                        <div class="mb-3">
-                                            <label for="nomor_rekening" class="form-label">Nomor Rekening<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nomor Rekening" value="<?=$biodata[0]['nomor_rekening']?>" name="nomor_rekening" id="nomor_rekening" required>
-                                        </div>  
-                                        <div class="mb-3">
-                                            <label for="nama_rekening" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" value="<?=$biodata[0]['nama_pemilik_rekening']?>" name="nama_pemilik_rekening" id="nama_rekening" required>
-                                        </div>                                                             
-                                    </div>
-                                </div>  
-
-                                <!-- Project Card Example -->
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Data Bangunan</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <label for="jenis_bangunan" class="form-label">Jenis Bangunan<span class="text-danger">*</span></label>
-                                            <select name="jenis_bangunan" id="jenis_bangunan" class="form-select" required>
-                                                <option selected value="<?=$biodata[0]['jenis_bangunan']?>"><?=$biodata[0]['jenis_bangunan']?></option>
-                                                <option value="Masjid">Masjid</option>
-                                                <option value="Musholla">Musholla</option>
-                                                <option value="Gereja">Gereja</option>
-                                                <option value="Pura">Pura</option>
-                                                <option value="Pondok Pesantren">Pondok Pesantren</option>
-                                                <option value="TPA">TPA</option>
-                                                <option value="TPQ">TPQ</option>
-                                            </select>
-                                        </div>
-                                        <?php 
-                                            if($biodata[0]['jenis_bangunan'] == 'Pondok Pesantren') :
-                                        ?>
-                                            <div class="mb-3">
-                                                <label for="no_sk_pembentukan" class="form-label">No. SK Pembentukan<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Contoh: AHU-00000.00.00" value="<?=$biodata[0]['no_sk_pembentukan']?>" name="no_sk_pembentukan" id="no_sk_pembentukan">
-                                                <small class="form-text text-muted">*jika anda memilih Pondok Pesantren</small>
-                                            </div>
-                                        <?php endif;?>       
-
-                                        <div class="mb-3">
-                                            <label for="nama_bangunan" class="form-label">Nama Bangunan<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Bangunan" value="<?=$biodata[0]['nama_bangunan']?>" name="nama_bangunan" id="nama_bangunan" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="telepon_bangunan" class="form-label">No. Telepon/Hp Bangunan<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Bangunan" value="<?=$biodata[0]['telepon_bangunan']?>" name="telepon_bangunan" id="telepon_bangunan" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="alamat_bangunan" class="form-label">Alamat Bangunan<span class="text-danger">*</span></label>
-                                            <textarea class="form-control" name="alamat_bangunan" id="alamat_bangunan" cols="30" rows="5" required><?=$biodata[0]['alamat_bangunan']?></textarea>        
-                                        </div> 
 
                                         <div class="mb-3">
                                             <div class="row">
@@ -169,9 +122,31 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>                                                                                                                                                                                     
+                                        </div>  
+                                    </div>
+                                </div>     
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Rekening Bank</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label class="form-label">Nama Bank</label>
+                                            <h6 class="font-weight-bold text-dark">BANK LAMPUNG</h6>
+                                        </div>                                                                             
+                                        <div class="mb-3">
+                                            <label for="nomor_rekening" class="form-label">Nomor Rekening<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nomor Rekening" value="<?=$biodata[0]['nomor_rekening']?>" name="nomor_rekening" id="nomor_rekening" required>
+                                        </div>  
+                                        <div class="mb-3">
+                                            <label for="nama_rekening" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" value="<?=$biodata[0]['nama_pemilik_rekening']?>" name="nama_pemilik_rekening" id="nama_rekening" required>
+                                        </div>                                                             
                                     </div>
                                 </div>  
+ 
                                 <div class="card-body d-flex justify-content-end"> 
                                     <input type="hidden" name="id_user" value="<?= user()->id;?>">   
                                     <input type="hidden" name="id_biodata" value="<?= $biodata[0]['id']?>">                                                     

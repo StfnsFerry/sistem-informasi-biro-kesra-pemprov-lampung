@@ -23,16 +23,11 @@
                                     </div>
                                     <div class="card-body"> 
                                         <div class="mb-3">
-                                            <label for="nik" class="form-label">NIK Ketua<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Induk Kependudukan" name="nik_ketua" id="nik" required>      
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="npwp" class="form-label">NPWP<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Pokok Wajib Pajak" name="npwp" id="npwp" required>      
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="nama" class="form-label">Nama Lengkap Ketua<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap" name="nama_ketua" id="nama" required>
+                                            <label for="nama" class="form-label">Nama Lengkap<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control <?php if (session('errors.nama_lengkap')) : ?>is-invalid<?php endif ?>" placeholder="Masukkan Nama Lengkap" name="nama_lengkap" id="nama" required>
+                                            <div class="invalid-feedback">
+                                                Tolong isi kolom ini
+                                            </div>
                                         </div>
 
                                         <div class="mb-3">
@@ -49,13 +44,28 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="jenis_kelamin" class="form-label">Jenis Kelamin<span class="text-danger">*</span></label>
-                                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>                                        
+                                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
+                                                
                                                 <option selected value="" disabled>Pilih Jenis Kelamin</option>
+                                                
                                                 <option value="Laki-Laki">Laki-Laki</option>
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
-                                        
+
+                                        <div class="mb-3">
+                                            <label for="kategori_juz" class="form-label">Kategori<span class="text-danger">*</span></label>
+                                            <select name="kategori_juz" id="kategori_juz" class="form-select" required>
+                                                
+                                                <option selected value="" disabled>Pilih Kategori</option>
+                                                
+                                                <option value="5 Juz">5 Juz</option>
+                                                <option value="10 Juz">10 Juz</option>
+                                                <option value="20 Juz">20 Juz</option>
+                                                <option value="30 Juz">30 Juz</option>
+                                            </select>
+                                        </div>
+
                                         <div class="mb-3">
                                             <label for="telepon" class="form-label">No. Telepon/Hp<span class="text-danger">*</span></label>
                                             <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Anda" name="telepon" id="telepon" required>
@@ -65,70 +75,6 @@
                                             <label for="alamat" class="form-label">Alamat<span class="text-danger">*</span></label>
                                             <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" required></textarea>        
                                         </div>
-                                    </div>
-                                </div>     
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Rekening Bank</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <label class="form-label">Nama Bank</label>
-                                            <h6 class="font-weight-bold text-dark">BANK LAMPUNG</h6>
-                                        </div>                                                                             
-                                        <div class="mb-3">
-                                            <label for="nomor_rekening" class="form-label">Nomor Rekening<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nomor Rekening" name="nomor_rekening" id="nomor_rekening" required>
-                                        </div>  
-                                        <div class="mb-3">
-                                            <label for="nama_rekening" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" name="nama_pemilik_rekening" id="nama_rekening" required>
-                                        </div>                                                             
-                                    </div>
-                                </div>  
-
-                                <!-- Project Card Example -->
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Data Bangunan</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <label for="jenis_bangunan" class="form-label">Jenis Bangunan<span class="text-danger">*</span></label>
-                                            <select name="jenis_bangunan" id="jenis_bangunan" class="form-select" required>
-                                                <option selected value="" disabled>Pilih Sesuai Jenis Bangunan</option>
-                                                <option value="Masjid">Masjid</option>
-                                                <option value="Musholla">Musholla</option>
-                                                <option value="Gereja">Gereja</option>
-                                                <option value="Pura">Pura</option>
-                                                <option value="Pondok Pesantren">Pondok Pesantren</option>
-                                                <option value="TPA">TPA</option>
-                                                <option value="TPQ">TPQ</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="no_sk_pembentukan" class="form-label">No. SK Pembentukan<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Contoh: AHU-00000.00.00" name="no_sk_pembentukan" id="no_sk_pembentukan">
-                                            <small class="form-text text-muted">*jika anda memilih Pondok Pesantren</small>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="nama_bangunan" class="form-label">Nama Bangunan<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Nama Bangunan" name="nama_bangunan" id="nama_bangunan" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="telepon_bangunan" class="form-label">No. Telepon/Hp Bangunan<span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" placeholder="Masukkan Nomor Telepon/Hp Bangunan" name="telepon_bangunan" id="telepon_bangunan" required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="alamat_bangunan" class="form-label">Alamat Bangunan<span class="text-danger">*</span></label>
-                                            <textarea class="form-control" name="alamat_bangunan" id="alamat_bangunan" cols="30" rows="5" required></textarea>        
-                                        </div> 
 
                                         <div class="mb-3">
                                             <div class="row">
@@ -162,9 +108,31 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>                                                                                                                                                                                      
+                                        </div> 
+                                    </div>
+                                </div>     
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Rekening Bank</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label class="form-label">Nama Bank</label>
+                                            <h6 class="font-weight-bold text-dark">BANK LAMPUNG</h6>
+                                        </div>                                                                             
+                                        <div class="mb-3">
+                                            <label for="nomor_rekening" class="form-label">Nomor Rekening<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nomor Rekening" name="nomor_rekening" id="nomor_rekening" required>
+                                        </div>  
+                                        <div class="mb-3">
+                                            <label for="nama_rekening" class="form-label">Nama Pemilik Rekening<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama Rekening" name="nama_pemilik_rekening" id="nama_rekening" required>
+                                        </div>                                                             
                                     </div>
                                 </div>  
+
                                 <div class="card-body d-flex justify-content-end"> 
                                     <input type="hidden" name="id_user" value="<?= user()->id;?>">                                                       
                                     <button type="submit" class="btn btn-primary shadow-sm">Simpan Data</button>  

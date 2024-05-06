@@ -114,7 +114,7 @@
                 <select name="kategori" id="" class="form-select">
                     <option value="" selected disabled>Pilih Kategori</option>
                     <option value="Hibah Pondok Pesantren & Rumah Ibadah">Hibah Pondok Pesantren & Rumah Ibadah</option>
-                    <option value="Hibah Tahfidzul Qur'an Hafidz/Hafidzah">Hibah Tahfidzul Qur'an Hafidz/Hafidzah</option>
+                    <option value="Hibah Tahfidzul Quran Hafidz/Hafidzah">Hibah Tahfidzul Qur'an Hafidz/Hafidzah</option>
                     <option value="Bantuan Dana Guru Ngaji, Marbot & Imam Masjid">Bantuan Dana Guru Ngaji, Marbot & Imam Masjid</option>
                 </select>
             </div>

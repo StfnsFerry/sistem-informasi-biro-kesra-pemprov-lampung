@@ -7,24 +7,38 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 use App\Models\PendaftarRumahIbadahModel;
 use App\Models\PendaftarTokohAgamaModel;
+use App\Models\PendaftarTahfidzulModel;
 use App\Models\SubAdminModel;
 
 class AdminController extends ResourceController
 {
     public $pendaftarModel;
     public $tokohagamaModel;
+    public $tahfidzulModel;
     public $subadminModel;
+
     protected $format = 'json'; 
 
     public function __construct(){
         $this->pendaftarModel = new PendaftarRumahIbadahModel();
         $this->subadminModel = new SubAdminModel();
         $this->tokohagamaModel = new PendaftarTokohAgamaModel();
+        $this->tahfidzulModel = new PendaftarTahfidzulModel();
 
     }
     public function index()
     {
-        return view('dashboard-admin/index');
+        $grafik_rumah_ibadah = $this->pendaftarModel->getJumlahPendaftarperKotaKabupaten();
+        $grafik_tahfidzul = $this->tahfidzulModel->getJumlahPendaftarperKotaKabupaten();
+        $grafik_tokoh_agama = $this->tokohagamaModel->getJumlahPendaftarperKotaKabupaten();
+
+        $data = [
+            'grafik_rumah_ibadah' => $grafik_rumah_ibadah,
+            'grafik_tahfidzul' => $grafik_tahfidzul,
+            'grafik_tokoh_agama' => $grafik_tokoh_agama, 
+        ];
+
+        return view('dashboard-admin/index', $data);
     }
 
     public function viewRumahIbadah()
@@ -49,7 +63,20 @@ class AdminController extends ResourceController
 
     public function viewTahfidzulQuran()
     {
-        return view('dashboard-admin/tahfidzul-quran/index');
+        $biodata = $this->tahfidzulModel->getBiodata();
+        $data_grafik = $this->tahfidzulModel->getJumlahPendaftarperKotaKabupaten();
+
+        $data = [
+            'jumlah_pendaftar' => $this->tahfidzulModel->countPendaftar(),
+            'jumlah_limajuz' => $this->tahfidzulModel->countLimaJuz(),
+            'jumlah_sepuluhjuz' => $this->tahfidzulModel->countSepuluhJuz(),
+            'jumlah_duapuluhjuz' => $this->tahfidzulModel->countDuaPuluhJuz(),
+            'jumlah_tigapuluhjuz' => $this->tahfidzulModel->countTigaPuluhJuz(),
+            'biodata' => $biodata,
+            'data_grafik' => $data_grafik,
+        ];
+
+        return view('dashboard-admin/tahfidzul-quran/index', $data);
     }
 
     public function viewTokohAgama()
